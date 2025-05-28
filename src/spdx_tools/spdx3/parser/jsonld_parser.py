@@ -3,7 +3,11 @@
 # SPDX-License-Identifier: Apache-2.0
 import json
 import logging
-from typing import Any, Dict, List, Optional, TypeVar, cast
+import os
+from pathlib import Path
+from typing import Any, Dict, List, Optional, TypeVar, cast, Union
+
+from spdx_tools.spdx3.payload import Payload
 
 from spdx_tools.spdx3.model import (
     Bundle,
@@ -37,7 +41,28 @@ class JSONLDV3Parser:
         self.validate = validate
         if validate:
             self.validator = JSONLDSchemaValidator()
+        self.object_cache = {}  # Cache for resolved objects
     
+    def build_payload(self, document: Dict[str, Any]) -> Payload:
+        payload = Payload()
+        
+        document = self.parse_document(document)
+        payload.add_element(document)
+        
+        # Other properties to get
+        #  document_namespace: str = document.creation_info.document_namespace
+        #  creation_info: CreationInfo = spdx_document.creation_info
+        
+        # These are added iteratively to the Payload instance.
+        # packages
+        # files
+        # snippets
+        # relationships # Note this has nuanced merging functionality. 
+        # annotations
+        
+        return payload
+    
+    # Original entry point. Will replicate the bump from v2 workflow in this file.
     def parse_document(self, document: Dict[str, Any]) -> SpdxDocument:
         """
         Parse an SPDX v3 document dictionary into an SpdxDocument object.
@@ -55,26 +80,56 @@ class JSONLDV3Parser:
                 raise ParserException(f"Invalid SPDX v3 document:\n{error_msg}")
         
         try:
-            # Extract basic fields
-            spdx_id = self._get_required(document, "id")
-            name = self._get_required(document, "name")
-            element = self._get_list_field(document, "element", [])
-            root_element = self._get_list_field(document, "rootElement", [])
+            # Reset object cache for this parsing session
+            self.object_cache = {}
+            
+            # Extract the graph array from the document
+            graph = document.get("@graph", [])
+            if not graph:
+                raise ParserException("Missing @graph element in SPDX v3 JSON-LD document")
+                
+            # Build a map of all objects by their @id for reference resolution
+            self._build_object_map(graph)
+            
+            # Find the SpdxDocument object in the graph
+            spdx_doc_obj = self._find_spdx_document(graph)
+            if not spdx_doc_obj:
+                raise ParserException("Could not find SpdxDocument object in the graph")
+            
+            # Extract basic fields from the SPDX document object
+            spdx_id = self._get_required(spdx_doc_obj, "spdxId")
+            doc_type = self._get_optional(spdx_doc_obj, "type")
+            data_license = self._get_optional(spdx_doc_obj, "dataLicense")
+            name = self._get_required(spdx_doc_obj, "name")
+            
+            # Get lists (may need to resolve references)
+            element = self._get_list_field(spdx_doc_obj, "element", [])
+            root_element = self._get_list_field(spdx_doc_obj, "rootElement", [])
             
             # Optional fields
-            summary = self._get_optional(document, "summary")
-            description = self._get_optional(document, "description")
-            comment = self._get_optional(document, "comment")
-            extension = self._get_optional(document, "extension")
-            context = self._get_optional(document, "context")
+            summary = self._get_optional(spdx_doc_obj, "summary")
+            description = self._get_optional(spdx_doc_obj, "description")
+            comment = self._get_optional(spdx_doc_obj, "comment")
+            extension = self._get_optional(spdx_doc_obj, "extension")
+            context = self._get_optional(document, "@context")  # Context is usually at the root
             
             # Parse complex objects
-            creation_info = self._parse_creation_info(document.get("creationInfo"))
-            verified_using = self._parse_integrity_methods(document.get("verifiedUsing", []))
-            external_reference = self._parse_external_references(document.get("externalReference", []))
-            external_identifier = self._parse_external_identifiers(document.get("externalIdentifier", []))
-            namespaces = self._parse_namespace_maps(document.get("namespaces", []))
-            imports = self._parse_external_maps(document.get("imports", []))
+            creation_info = self._parse_creation_info(self._resolve_reference(spdx_doc_obj.get("creationInfo")))
+            verified_using = self._parse_integrity_methods(
+                [self._resolve_reference(ref) for ref in self._ensure_list(spdx_doc_obj.get("verifiedUsing", []))]
+            )
+            external_reference = self._parse_external_references(
+                [self._resolve_reference(ref) for ref in self._ensure_list(spdx_doc_obj.get("externalReference", []))]
+            )
+            external_identifier = self._parse_external_identifiers(
+                [self._resolve_reference(ref) for ref in self._ensure_list(spdx_doc_obj.get("externalIdentifier", []))]
+            )
+            namespaces = self._parse_namespace_maps(
+                [self._resolve_reference(ref) for ref in self._ensure_list(spdx_doc_obj.get("namespaces", []))]
+            )
+            imports = self._parse_external_maps(
+                [self._resolve_reference(ref) for ref in self._ensure_list(spdx_doc_obj.get("imports", []))]
+            )
             
             # Create the SpdxDocument instance
             spdx_doc = SpdxDocument(
@@ -139,6 +194,73 @@ class JSONLDV3Parser:
         
         return self.parse_document(document)
     
+    def _build_object_map(self, graph: List[Dict[str, Any]]) -> None:
+        """
+        Build a map of all objects in the graph by their @id.
+        
+        Args:
+            graph: The @graph array from the JSON-LD document
+        """
+        for obj in graph:
+            obj_id = obj.get("@id")
+            if obj_id:
+                self.object_cache[obj_id] = obj
+            # Also index by spdxId if present
+            spdx_id = obj.get("spdxId")
+            if spdx_id:
+                self.object_cache[spdx_id] = obj
+    
+    def _find_spdx_document(self, graph: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+        """
+        Find the SpdxDocument object in the graph.
+        
+        Args:
+            graph: The @graph array from the JSON-LD document
+            
+        Returns:
+            The SpdxDocument object or None
+        """
+        for obj in graph:
+            if obj.get("type") == "SpdxDocument":
+                return obj
+        return None
+    
+    def _resolve_reference(self, reference: Any) -> Any:
+        """
+        Resolve a reference to an object in the graph.
+        
+        Args:
+            reference: String ID or object
+            
+        Returns:
+            The resolved object or the original reference
+        """
+        if not reference or not isinstance(reference, str):
+            return reference
+            
+        # If it's a string, try to look it up in the cache
+        if reference in self.object_cache:
+            return self.object_cache[reference]
+            
+        # If not found, return the original reference
+        return reference
+    
+    def _ensure_list(self, value: Union[List[Any], Any]) -> List[Any]:
+        """
+        Ensure a value is a list.
+        
+        Args:
+            value: Value to convert to list if not already
+            
+        Returns:
+            List containing the value or empty list if value is None
+        """
+        if value is None:
+            return []
+        if isinstance(value, list):
+            return value
+        return [value]
+    
     def _get_required(self, obj: Dict[str, Any], key: str) -> Any:
         """Get a required field from an object."""
         if key not in obj:
@@ -154,9 +276,7 @@ class JSONLDV3Parser:
         if default is None:
             default = []
         value = obj.get(key, default)
-        if not isinstance(value, list):
-            return [value]
-        return value
+        return self._ensure_list(value)
     
     def _parse_creation_info(self, info: Optional[Dict[str, Any]]) -> Optional[CreationInfo]:
         """Parse creation info object."""
@@ -164,7 +284,11 @@ class JSONLDV3Parser:
             return None
         
         # Implementation details will depend on CreationInfo class structure
-        # For now, we'll return None
+        # For now, we'll extract key fields and log them
+        if isinstance(info, dict):
+            logger.debug(f"Found CreationInfo with spec version: {info.get('specVersion')}")
+        
+        # Return None until we implement actual creation info parsing
         return None
     
     def _parse_integrity_methods(self, methods: List[Dict[str, Any]]) -> List[IntegrityMethod]:
@@ -191,4 +315,3 @@ class JSONLDV3Parser:
         """Parse external maps."""
         # Placeholder implementation
         return []
-
