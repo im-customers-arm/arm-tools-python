@@ -124,6 +124,17 @@ class JSONLDV3Parser:
                 if licensing:
                     payload.add_element(licensing)
 
+            # --- Security extension/profile support ---
+            elif obj_type in [
+                "Vulnerability", "security_Vulnerability",
+                "CvssV3VulnAssessmentRelationship", "security_CvssV3VulnAssessmentRelationship",
+                "CvssV2VulnAssessmentRelationship", "security_CvssV2VulnAssessmentRelationship",
+                "SsvcVulnAssessmentRelationship", "security_SsvcVulnAssessmentRelationship"
+            ]:
+                security_obj = self._parse_security(obj)
+                if security_obj:
+                    payload.add_element(security_obj)
+
             # Generic handler for unknown/custom extension types
             else:
                 extension_element = self._parse_extension_object(obj)
@@ -800,3 +811,108 @@ class JSONLDV3Parser:
         """Parse external maps."""
         # Placeholder implementation
         return []
+    
+    def _parse_security(self, obj: Dict[str, Any]):
+        """Parse a Security extension/profile object from JSON-LD."""
+        # This method will dispatch to the correct security type based on obj_type
+        obj_type = obj.get("type") or obj.get("@type")
+        try:
+            if obj_type in ["Vulnerability", "security_Vulnerability"]:
+                from spdx_tools.spdx3.model.security.vulnerability import Vulnerability
+                spdx_id = self._get_required(obj, "spdxId")
+                name = self._get_optional(obj, "name")
+                summary = self._get_optional(obj, "summary")
+                description = self._get_optional(obj, "description")
+                comment = self._get_optional(obj, "comment")
+                published_time = self._get_optional(obj, "publishedTime")
+                modified_time = self._get_optional(obj, "modifiedTime")
+                withdrawn_time = self._get_optional(obj, "withdrawnTime")
+                creation_info = None
+                creation_info_ref = obj.get("creationInfo")
+                if creation_info_ref:
+                    creation_info_obj = self._resolve_reference(creation_info_ref)
+                    if creation_info_obj:
+                        creation_info = self._parse_creation_info(creation_info_obj)
+                # For simplicity, not parsing verified_using, external_reference, external_identifier, extension
+                return Vulnerability(
+                    spdx_id=spdx_id,
+                    name=name,
+                    summary=summary,
+                    description=description,
+                    comment=comment,
+                    published_time=published_time,
+                    modified_time=modified_time,
+                    withdrawn_time=withdrawn_time,
+                    creation_info=creation_info,
+                )
+            # Add more security types as needed, e.g. CVSS, VEX, SSVC, etc.
+            elif obj_type in ["CvssV3VulnAssessmentRelationship", "security_CvssV3VulnAssessmentRelationship"]:
+                from spdx_tools.spdx3.model.security.cvss_v3_vuln_assessment_relationship import CvssV3VulnAssessmentRelationship
+                # Required fields
+                spdx_id = self._get_required(obj, "spdxId")
+                from_element = self._get_required(obj, "from")
+                to = self._get_list_field(obj, "to")
+                relationship_type = self._get_required(obj, "relationshipType")
+                score = self._get_required(obj, "score")
+                # Optional fields
+                severity = self._get_optional(obj, "severity")
+                vector = self._get_optional(obj, "vector")
+                comment = self._get_optional(obj, "comment")
+                # For simplicity, not parsing all fields
+                return CvssV3VulnAssessmentRelationship(
+                    spdx_id=spdx_id,
+                    from_element=from_element,
+                    to=to,
+                    relationship_type=relationship_type,
+                    score=score,
+                    severity=severity,
+                    vector=vector,
+                    comment=comment,
+                )
+            elif obj_type in ["CvssV2VulnAssessmentRelationship", "security_CvssV2VulnAssessmentRelationship"]:
+                from spdx_tools.spdx3.model.security.cvss_v2_vuln_assessment_relationship import CvssV2VulnAssessmentRelationship
+                spdx_id = self._get_required(obj, "spdxId")
+                from_element = self._get_required(obj, "from")
+                to = self._get_list_field(obj, "to")
+                relationship_type = self._get_required(obj, "relationshipType")
+                score = self._get_required(obj, "score")
+                severity = self._get_optional(obj, "severity")
+                vector = self._get_optional(obj, "vector")
+                comment = self._get_optional(obj, "comment")
+                return CvssV2VulnAssessmentRelationship(
+                    spdx_id=spdx_id,
+                    from_element=from_element,
+                    to=to,
+                    relationship_type=relationship_type,
+                    score=score,
+                    severity=severity,
+                    vector=vector,
+                    comment=comment,
+                )
+            elif obj_type in ["SsvcVulnAssessmentRelationship", "security_SsvcVulnAssessmentRelationship"]:
+                from spdx_tools.spdx3.model.security.ssvc_vuln_assessment_relationship import SsvcVulnAssessmentRelationship, SsvcDecisionType
+                spdx_id = self._get_required(obj, "spdxId")
+                from_element = self._get_required(obj, "from")
+                to = self._get_list_field(obj, "to")
+                relationship_type = self._get_required(obj, "relationshipType")
+                decision_type_str = self._get_required(obj, "decisionType")
+                try:
+                    decision_type = SsvcDecisionType[decision_type_str.upper()]
+                except Exception:
+                    decision_type = None
+                comment = self._get_optional(obj, "comment")
+                return SsvcVulnAssessmentRelationship(
+                    spdx_id=spdx_id,
+                    from_element=from_element,
+                    to=to,
+                    relationship_type=relationship_type,
+                    decision_type=decision_type,
+                    comment=comment,
+                )
+            # Add more security types as needed
+            else:
+                logger.warning(f"Unknown security extension type: {obj_type}")
+                return None
+        except Exception as e:
+            logger.warning(f"Error parsing Security extension: {str(e)}")
+            return None
