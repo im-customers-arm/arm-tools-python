@@ -7,9 +7,10 @@ from pathlib import Path
 from typing import Union, Dict, Any
 
 from spdx_tools.spdx3.model import SpdxDocument
+from spdx_tools.spdx3.payload import Payload
 from spdx_tools.spdx3.parser.jsonld_parser import JSONLDV3Parser, ParserException
 
-def parse_file(file_path: str, validate: bool = True) -> SpdxDocument:
+def parse_file(file_path: str, validate: bool = True) -> Payload:
     """
     Parse an SPDX v3 file into an SpdxDocument object.
     
@@ -27,6 +28,7 @@ def parse_file(file_path: str, validate: bool = True) -> SpdxDocument:
         raise ParserException(f"File not found: {file_path}")
     
     parser = JSONLDV3Parser(validate=validate)
+
     return parser.parse_file(file_path)
 
 def parse_dict(data: Dict[str, Any], validate: bool = True) -> SpdxDocument:
