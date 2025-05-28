@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2023 spdx contributors
 #
 # SPDX-License-Identifier: Apache-2.0
-from beartype.typing import List, Optional
+from beartype.typing import Any, Dict, List, Optional, Union
 
 from spdx_tools.common.typing.dataclass_with_properties import dataclass_with_properties
 from spdx_tools.common.typing.type_checks import check_types_and_set_values
@@ -37,7 +37,7 @@ class SpdxDocument(Bundle):
         extension: Optional[str] = None,
         namespaces: List[NamespaceMap] = None,
         imports: List[ExternalMap] = None,
-        context: Optional[str] = None,
+        context: Optional[Union[str, Dict[str, Any]]] = None
     ):
         verified_using = [] if verified_using is None else verified_using
         external_reference = [] if external_reference is None else external_reference
