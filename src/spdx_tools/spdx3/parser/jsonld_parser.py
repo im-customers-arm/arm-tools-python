@@ -83,25 +83,179 @@ class JSONLDV3Parser:
         # Process each object in the graph based on its type
         for obj in graph:
             obj_type = obj.get("type") or obj.get("@type")
-            
+
             if obj_type == "SpdxDocument":
                 document = self._parse_document_object(obj, document.get("@context"))
                 payload.add_element(document)
-                
+
             elif obj_type in ["Package", "software_Package"]:
                 package = self._parse_package(obj)
                 if package:
                     payload.add_element(package)
-                    
+
             elif obj_type in ["File", "software_File"]:
                 file = self._parse_file(obj)
                 if file:
                     payload.add_element(file)
-                    
+
             elif obj_type == "Relationship":
                 relationship = self._parse_relationship(obj)
                 if relationship:
                     payload.add_element(relationship)
+
+            # --- Extension/Profile support ---
+            elif obj_type in ["Build", "build_Build"]:
+                build = self._parse_build(obj)
+                if build:
+                    payload.add_element(build)
+
+            elif obj_type in ["AI", "ai_AI"]:
+                ai = self._parse_ai(obj)
+                if ai:
+                    payload.add_element(ai)
+
+            elif obj_type in ["Dataset", "dataset_Dataset"]:
+                dataset = self._parse_dataset(obj)
+                if dataset:
+                    payload.add_element(dataset)
+
+            elif obj_type in ["Licensing", "licensing_Licensing"]:
+                licensing = self._parse_licensing(obj)
+                if licensing:
+                    payload.add_element(licensing)
+
+            # Generic handler for unknown/custom extension types
+            else:
+                extension_element = self._parse_extension_object(obj)
+                if extension_element:
+                    payload.add_element(extension_element)
+
+    # --- Extension/Profile Parsers ---
+    def _parse_build(self, obj: Dict[str, Any]):
+        """Parse a Build extension/profile object from JSON-LD."""
+        from spdx_tools.spdx3.model.build.build import Build
+        try:
+            # Extract required fields for Build extension
+            spdx_id = self._get_required(obj, "spdxId")
+            name = self._get_required(obj, "name")
+            # Optional fields
+            build_system = self._get_optional(obj, "buildSystem")
+            build_script = self._get_optional(obj, "buildScript")
+            build_env = self._get_optional(obj, "buildEnvironment")
+            comment = self._get_optional(obj, "comment")
+            # Creation info
+            creation_info = None
+            creation_info_ref = obj.get("creationInfo")
+            if creation_info_ref:
+                creation_info_obj = self._resolve_reference(creation_info_ref)
+                if creation_info_obj:
+                    creation_info = self._parse_creation_info(creation_info_obj)
+            return Build(
+                spdx_id=spdx_id,
+                name=name,
+                build_system=build_system,
+                build_script=build_script,
+                build_environment=build_env,
+                comment=comment,
+                creation_info=creation_info,
+            )
+        except Exception as e:
+            logger.warning(f"Error parsing Build extension: {str(e)}")
+            return None
+
+    def _parse_ai(self, obj: Dict[str, Any]):
+        """Parse an AI extension/profile object from JSON-LD."""
+        from spdx_tools.spdx3.model.ai.ai import AI
+        try:
+            spdx_id = self._get_required(obj, "spdxId")
+            name = self._get_required(obj, "name")
+            ai_type = self._get_optional(obj, "aiType")
+            ai_framework = self._get_optional(obj, "aiFramework")
+            ai_model = self._get_optional(obj, "aiModel")
+            comment = self._get_optional(obj, "comment")
+            creation_info = None
+            creation_info_ref = obj.get("creationInfo")
+            if creation_info_ref:
+                creation_info_obj = self._resolve_reference(creation_info_ref)
+                if creation_info_obj:
+                    creation_info = self._parse_creation_info(creation_info_obj)
+            return AI(
+                spdx_id=spdx_id,
+                name=name,
+                ai_type=ai_type,
+                ai_framework=ai_framework,
+                ai_model=ai_model,
+                comment=comment,
+                creation_info=creation_info,
+            )
+        except Exception as e:
+            logger.warning(f"Error parsing AI extension: {str(e)}")
+            return None
+
+    def _parse_dataset(self, obj: Dict[str, Any]):
+        """Parse a Dataset extension/profile object from JSON-LD."""
+        from spdx_tools.spdx3.model.dataset.dataset import Dataset
+        try:
+            spdx_id = self._get_required(obj, "spdxId")
+            name = self._get_required(obj, "name")
+            dataset_type = self._get_optional(obj, "datasetType")
+            dataset_format = self._get_optional(obj, "datasetFormat")
+            dataset_size = self._get_optional(obj, "datasetSize")
+            comment = self._get_optional(obj, "comment")
+            creation_info = None
+            creation_info_ref = obj.get("creationInfo")
+            if creation_info_ref:
+                creation_info_obj = self._resolve_reference(creation_info_ref)
+                if creation_info_obj:
+                    creation_info = self._parse_creation_info(creation_info_obj)
+            return Dataset(
+                spdx_id=spdx_id,
+                name=name,
+                dataset_type=dataset_type,
+                dataset_format=dataset_format,
+                dataset_size=dataset_size,
+                comment=comment,
+                creation_info=creation_info,
+            )
+        except Exception as e:
+            logger.warning(f"Error parsing Dataset extension: {str(e)}")
+            return None
+
+    def _parse_licensing(self, obj: Dict[str, Any]):
+        """Parse a Licensing extension/profile object from JSON-LD."""
+        from spdx_tools.spdx3.model.licensing.licensing import Licensing
+        try:
+            spdx_id = self._get_required(obj, "spdxId")
+            name = self._get_required(obj, "name")
+            license_expression = self._get_optional(obj, "licenseExpression")
+            license_list_version = self._get_optional(obj, "licenseListVersion")
+            comment = self._get_optional(obj, "comment")
+            creation_info = None
+            creation_info_ref = obj.get("creationInfo")
+            if creation_info_ref:
+                creation_info_obj = self._resolve_reference(creation_info_ref)
+                if creation_info_obj:
+                    creation_info = self._parse_creation_info(creation_info_obj)
+            return Licensing(
+                spdx_id=spdx_id,
+                name=name,
+                license_expression=license_expression,
+                license_list_version=license_list_version,
+                comment=comment,
+                creation_info=creation_info,
+            )
+        except Exception as e:
+            logger.warning(f"Error parsing Licensing extension: {str(e)}")
+            return None
+
+    def _parse_extension_object(self, obj: Dict[str, Any]):
+        """Generic handler for unknown/custom extension/profile types."""
+        try:
+            from spdx_tools.spdx3.model.extension_element import ExtensionElement
+            return ExtensionElement.from_json(obj)
+        except Exception as e:
+            logger.warning(f"Error parsing unknown/custom extension object: {str(e)}")
+            return None
 
     def _parse_document_object(self, obj: Dict[str, Any], context: Optional[str]) -> SpdxDocument:
         """
