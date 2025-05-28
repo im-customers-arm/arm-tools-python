@@ -18,7 +18,7 @@ class JSONLDSchemaValidator:
         """Initialize the validator with a schema file path."""
         if schema_path is None:
             # Use default schema included with the library
-            schema_path = str(Path(__file__).parent.parent / "resources" / "schemas" / "spdx-v3.0.1-schema.json")
+            schema_path = str(Path(__file__).parent / "json_ld" / "resources" / "schemas" / "spdx-v3.0.1-schema.json")
         
         if not os.path.exists(schema_path):
             raise FileNotFoundError(f"Schema file not found: {schema_path}")
