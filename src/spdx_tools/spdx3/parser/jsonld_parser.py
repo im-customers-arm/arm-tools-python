@@ -731,8 +731,9 @@ class JSONLDV3Parser:
             The SpdxDocument object or None
         """
         for obj in graph:
-            if obj.get("type") == "SpdxDocument":
+            if "SpdxDocument" in [obj.get("type"), obj.get("@type")] :
                 return obj
+
         return None
     
     def _resolve_reference(self, reference: Any) -> Any:
@@ -773,9 +774,15 @@ class JSONLDV3Parser:
     
     def _get_required(self, obj: Dict[str, Any], key: str) -> Any:
         """Get a required field from an object."""
-        if key not in obj:
-            raise KeyError(key)
-        return obj[key]
+        if key in obj:
+            return obj[key]
+
+        if key == "spdxId":
+            for alt in ["id", "@id"]:
+                if alt in obj:
+                    return obj[alt]
+
+        raise KeyError(key)
     
     def _get_optional(self, obj: Dict[str, Any], key: str) -> Optional[Any]:
         """Get an optional field from an object."""
