@@ -135,6 +135,20 @@ class JSONLDV3Parser:
                 if security_obj:
                     payload.add_element(security_obj)
 
+            # --- Software extension/profile support ---
+            elif obj_type in [
+                "SoftwarePurpose", "software_SoftwarePurpose",
+                "SoftwareVersion", "software_SoftwareVersion",
+                "SoftwareBuild", "software_SoftwareBuild",
+                "SoftwareValidation", "software_SoftwareValidation",
+                "SoftwareAttribution", "software_SoftwareAttribution",
+                "SoftwareRelease", "software_SoftwareRelease",
+                "SoftwareDependency", "software_SoftwareDependency"
+            ]:
+                software_obj = self._parse_software(obj)
+                if software_obj:
+                    payload.add_element(software_obj)
+
             # Generic handler for unknown/custom extension types
             else:
                 extension_element = self._parse_extension_object(obj)
@@ -915,4 +929,89 @@ class JSONLDV3Parser:
                 return None
         except Exception as e:
             logger.warning(f"Error parsing Security extension: {str(e)}")
+            return None
+
+    def _parse_software(self, obj: Dict[str, Any]):
+        """Parse a Software extension/profile object from JSON-LD."""
+        obj_type = obj.get("type") or obj.get("@type")
+        try:
+            if obj_type in ["SoftwarePurpose", "software_SoftwarePurpose"]:
+                from spdx_tools.spdx3.model.software.software_purpose import SoftwarePurpose
+                spdx_id = self._get_required(obj, "spdxId")
+                name = self._get_optional(obj, "name")
+                description = self._get_optional(obj, "description")
+                comment = self._get_optional(obj, "comment")
+                return SoftwarePurpose(
+                    spdx_id=spdx_id,
+                    name=name,
+                    description=description,
+                    comment=comment,
+                )
+            elif obj_type in ["SoftwareVersion", "software_SoftwareVersion"]:
+                from spdx_tools.spdx3.model.software.software_version import SoftwareVersion
+                spdx_id = self._get_required(obj, "spdxId")
+                version = self._get_required(obj, "version")
+                comment = self._get_optional(obj, "comment")
+                return SoftwareVersion(
+                    spdx_id=spdx_id,
+                    version=version,
+                    comment=comment,
+                )
+            elif obj_type in ["SoftwareBuild", "software_SoftwareBuild"]:
+                from spdx_tools.spdx3.model.software.software_build import SoftwareBuild
+                spdx_id = self._get_required(obj, "spdxId")
+                build_id = self._get_optional(obj, "buildId")
+                build_system = self._get_optional(obj, "buildSystem")
+                comment = self._get_optional(obj, "comment")
+                return SoftwareBuild(
+                    spdx_id=spdx_id,
+                    build_id=build_id,
+                    build_system=build_system,
+                    comment=comment,
+                )
+            elif obj_type in ["SoftwareValidation", "software_SoftwareValidation"]:
+                from spdx_tools.spdx3.model.software.software_validation import SoftwareValidation
+                spdx_id = self._get_required(obj, "spdxId")
+                validation_type = self._get_optional(obj, "validationType")
+                comment = self._get_optional(obj, "comment")
+                return SoftwareValidation(
+                    spdx_id=spdx_id,
+                    validation_type=validation_type,
+                    comment=comment,
+                )
+            elif obj_type in ["SoftwareAttribution", "software_SoftwareAttribution"]:
+                from spdx_tools.spdx3.model.software.software_attribution import SoftwareAttribution
+                spdx_id = self._get_required(obj, "spdxId")
+                attribution_text = self._get_optional(obj, "attributionText")
+                comment = self._get_optional(obj, "comment")
+                return SoftwareAttribution(
+                    spdx_id=spdx_id,
+                    attribution_text=attribution_text,
+                    comment=comment,
+                )
+            elif obj_type in ["SoftwareRelease", "software_SoftwareRelease"]:
+                from spdx_tools.spdx3.model.software.software_release import SoftwareRelease
+                spdx_id = self._get_required(obj, "spdxId")
+                release_time = self._get_optional(obj, "releaseTime")
+                comment = self._get_optional(obj, "comment")
+                return SoftwareRelease(
+                    spdx_id=spdx_id,
+                    release_time=release_time,
+                    comment=comment,
+                )
+            elif obj_type in ["SoftwareDependency", "software_SoftwareDependency"]:
+                from spdx_tools.spdx3.model.software.software_dependency import SoftwareDependency
+                spdx_id = self._get_required(obj, "spdxId")
+                dependency = self._get_optional(obj, "dependency")
+                comment = self._get_optional(obj, "comment")
+                return SoftwareDependency(
+                    spdx_id=spdx_id,
+                    dependency=dependency,
+                    comment=comment,
+                )
+            else:
+                logger.warning(f"Unknown software extension type: {obj_type}")
+                return None
+        except Exception as e:
+            logger.warning(f"Error parsing Software extension: {str(e)}")
             return None
