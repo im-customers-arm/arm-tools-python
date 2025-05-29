@@ -460,7 +460,10 @@ class JSONLDV3Parser:
             to_elements = self._get_list_field(obj, "to")
             
             # Get relationship type and convert to enum
-            relationship_type_str = self._get_required(obj, "relationshipType").upper()
+            relationship_type_str = self._get_required(obj, "relationshipType")
+            # Normalize to match enum: remove namespace, replace dashes/spaces, uppercase
+            relationship_type_str = relationship_type_str.split(":")[-1]
+            relationship_type_str = relationship_type_str.replace("-", "_").replace(" ", "_").upper()
             try:
                 relationship_type = RelationshipType[relationship_type_str]
             except KeyError:
