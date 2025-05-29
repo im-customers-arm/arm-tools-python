@@ -475,8 +475,6 @@ class JSONLDV3Parser:
             if completeness_str:
                 try:
                     completeness_str = completeness_str.upper()
-                    if completeness_str == "NOASSERTION":
-                        completeness_str = "NO_ASSERTION"  # Fix common mismatch
                     completeness = RelationshipCompleteness[completeness_str]
                 except KeyError:
                     logger.warning(f"Unknown completeness value: {completeness_str}")
