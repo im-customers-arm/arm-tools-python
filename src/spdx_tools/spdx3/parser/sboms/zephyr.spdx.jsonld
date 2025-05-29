@@ -1,0 +1,3049 @@
+{
+  "@context": {
+    "ai": "https://spdx.org/rdf/AI/",
+    "build": "https://spdx.org/rdf/Build/",
+    "core": "https://spdx.org/rdf/Core/",
+    "dataset": "https://spdx.org/rdf/Dataset/",
+    "licensing": "https://spdx.org/rdf/Licensing/",
+    "ns0": "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "security": "https://spdx.org/rdf/Security/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "software": "https://spdx.org/rdf/Software/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AIPackage": "ai:AIPackage",
+    "Build": "build:Build",
+    "Annotation": "core:Annotation",
+    "AnonymousPayload": "core:AnonymousPayload",
+    "Organization": "core:Organization",
+    "Person": "core:Person",
+    "SoftwareAgent": "core:SoftwareAgent",
+    "SpdxDocument": "core:SpdxDocument",
+    "Dataset": "dataset:Dataset",
+    "ConjunctiveLicenseSet": "licensing:ConjunctiveLicenseSet",
+    "CustomLicense": "licensing:CustomLicense",
+    "CustomLicenseAddition": "licensing:CustomLicenseAddition",
+    "DisjunctiveLicenseSet": "licensing:DisjunctiveLicenseSet",
+    "ListedLicense": "licensing:ListedLicense",
+    "ListedLicenseException": "licensing:ListedLicenseException",
+    "NoAssertionLicense": "licensing:NoAssertionLicense",
+    "NoneLicense": "licensing:NoneLicense",
+    "OrLaterOperator": "licensing:OrLaterOperator",
+    "WithAdditionOperator": "licensing:WithAdditionOperator",
+    "CvssV2VulnAssessmentRelationship": "security:CvssV2VulnAssessmentRelationship",
+    "CvssV3VulnAssessmentRelationship": "security:CvssV3VulnAssessmentRelationship",
+    "EpssVulnAssessmentRelationship": "security:EpssVulnAssessmentRelationship",
+    "ExploitCatalogVulnAssessmentRelationship": "security:ExploitCatalogVulnAssessmentRelationship",
+    "SsvcVulnAssessmentRelationship": "security:SsvcVulnAssessmentRelationship",
+    "VexAffectedVulnAssessmentRelationship": "security:VexAffectedVulnAssessmentRelationship",
+    "VexFixedVulnAssessmentRelationship": "security:VexFixedVulnAssessmentRelationship",
+    "VexNotAffectedVulnAssessmentRelationship": "security:VexNotAffectedVulnAssessmentRelationship",
+    "VexUnderInvestigationVulnAssessmentRelationship": "security:VexUnderInvestigationVulnAssessmentRelationship",
+    "Vulnerability": "security:Vulnerability",
+    "File": "software:File",
+    "Sbom": "software:Sbom",
+    "Snippet": "software:Snippet",
+    "SoftwareDependencyRelationship": "software:SoftwareDependencyRelationship",
+    "autonomyType": {
+      "@id": "ai:autonomyType",
+      "@type": "ai:PresenceType"
+    },
+    "domain": {
+      "@id": "ai:domain",
+      "@type": "xsd:string"
+    },
+    "energyConsumption": {
+      "@id": "ai:energyConsumption",
+      "@type": "xsd:string"
+    },
+    "hyperparameter": {
+      "@id": "ai:hyperparameter",
+      "@type": "core:DictionaryEntry"
+    },
+    "informationAboutApplication": {
+      "@id": "ai:informationAboutApplication",
+      "@type": "xsd:string"
+    },
+    "informationAboutTraining": {
+      "@id": "ai:informationAboutTraining",
+      "@type": "xsd:string"
+    },
+    "limitation": {
+      "@id": "ai:limitation",
+      "@type": "xsd:string"
+    },
+    "metric": {
+      "@id": "ai:metric",
+      "@type": "core:DictionaryEntry"
+    },
+    "metricDecisionThreshold": {
+      "@id": "ai:metricDecisionThreshold",
+      "@type": "core:DictionaryEntry"
+    },
+    "modelDataPreprocessing": {
+      "@id": "ai:modelDataPreprocessing",
+      "@type": "xsd:string"
+    },
+    "modelExplainability": {
+      "@id": "ai:modelExplainability",
+      "@type": "xsd:string"
+    },
+    "safetyRiskAssessment": {
+      "@id": "ai:safetyRiskAssessment",
+      "@type": "@vocab",
+      "@context": {
+        "@vocab": "ai:SafetyRiskAssessmentType/"
+      }
+    },
+    "sensitivePersonalInformation": {
+      "@id": "dataset:sensitivePersonalInformation",
+      "@type": "@vocab",
+      "@context": {
+        "@vocab": "dataset:PresenceType/"
+      }
+    },
+    "standardCompliance": {
+      "@id": "ai:standardCompliance",
+      "@type": "xsd:string"
+    },
+    "typeOfModel": {
+      "@id": "ai:typeOfModel",
+      "@type": "xsd:string"
+    },
+    "buildEndTime": {
+      "@id": "build:buildEndTime",
+      "@type": "core:DateTime"
+    },
+    "buildId": {
+      "@id": "build:buildId",
+      "@type": "xsd:string"
+    },
+    "buildStartTime": {
+      "@id": "build:buildStartTime",
+      "@type": "core:DateTime"
+    },
+    "buildType": {
+      "@id": "build:buildType",
+      "@type": "xsd:anyURI"
+    },
+    "configSourceDigest": {
+      "@id": "build:configSourceDigest",
+      "@type": "core:Hash"
+    },
+    "configSourceEntrypoint": {
+      "@id": "build:configSourceEntrypoint",
+      "@type": "xsd:string"
+    },
+    "configSourceUri": {
+      "@id": "build:configSourceUri",
+      "@type": "xsd:anyURI"
+    },
+    "environment": {
+      "@id": "build:environment",
+      "@type": "core:DictionaryEntry"
+    },
+    "parameters": {
+      "@id": "build:parameters",
+      "@type": "core:DictionaryEntry"
+    },
+    "Artifact": "core:Artifact",
+    "Bom": "core:Bom",
+    "ElementCollection": "core:ElementCollection",
+    "LifecycleScopedRelationship": "core:LifecycleScopedRelationship",
+    "algorithm": {
+      "@id": "core:algorithm",
+      "@type": "@vocab",
+      "@context": {
+        "@vocab": "core:HashAlgorithm/"
+      }
+    },
+    "annotationType": {
+      "@id": "core:annotationType",
+      "@type": "@vocab",
+      "@context": {
+        "@vocab": "core:AnnotationType/"
+      }
+    },
+    "begin": {
+      "@id": "core:begin",
+      "@type": "xsd:positiveInteger"
+    },
+    "builtTime": {
+      "@id": "core:builtTime",
+      "@type": "core:DateTime"
+    },
+    "completeness": {
+      "@id": "core:completeness",
+      "@type": "@vocab",
+      "@context": {
+        "@vocab": "core:RelationshipCompleteness/"
+      }
+    },
+    "context": {
+      "@id": "core:context",
+      "@type": "xsd:string"
+    },
+    "created": {
+      "@id": "core:created",
+      "@type": "core:DateTime"
+    },
+    "createdBy": {
+      "@id": "core:createdBy",
+      "@type": "@id"
+    },
+    "createdUsing": {
+      "@id": "core:createdUsing",
+      "@type": "core:Tool"
+    },
+    "dataLicense": {
+      "@id": "core:dataLicense",
+      "@type": "xsd:string"
+    },
+    "definingDocument": {
+      "@id": "core:definingDocument",
+      "@type": "xsd:anyURI"
+    },
+    "description": {
+      "@id": "core:description",
+      "@type": "xsd:string"
+    },
+    "element": {
+      "@id": "core:element",
+      "@type": "@id"
+    },
+    "end": {
+      "@id": "core:end",
+      "@type": "xsd:positiveInteger"
+    },
+    "endTime": {
+      "@id": "core:endTime",
+      "@type": "core:DateTime"
+    },
+    "externalId": {
+      "@id": "core:externalId",
+      "@type": "xsd:anyURI"
+    },
+    "externalIdentifier": {
+      "@id": "core:externalIdentifier",
+      "@type": "core:ExternalIdentifier"
+    },
+    "externalIdentifierType": {
+      "@id": "core:externalIdentifierType",
+      "@type": "@vocab",
+      "@context": {
+        "@vocab": "core:ExternalIdentifierType/"
+      }
+    },
+    "externalReference": {
+      "@id": "core:externalReference",
+      "@type": "core:ExternalReference"
+    },
+    "externalReferenceType": {
+      "@id": "core:externalReferenceType",
+      "@type": "@vocab",
+      "@context": {
+        "@vocab": "core:ExternalReferenceType/"
+      }
+    },
+    "from": {
+      "@id": "core:from",
+      "@type": "@id"
+    },
+    "hashValue": {
+      "@id": "core:hashValue",
+      "@type": "xsd:string"
+    },
+    "identifier": {
+      "@id": "core:identifier",
+      "@type": "xsd:string"
+    },
+    "identifierLocator": {
+      "@id": "core:identifierLocator",
+      "@type": "xsd:anyURI"
+    },
+    "issuingAuthority": {
+      "@id": "core:issuingAuthority",
+      "@type": "xsd:anyURI"
+    },
+    "key": {
+      "@id": "core:key",
+      "@type": "xsd:string"
+    },
+    "locationHint": {
+      "@id": "core:locationHint",
+      "@type": "xsd:anyURI"
+    },
+    "locator": {
+      "@id": "core:locator",
+      "@type": "xsd:anyURI"
+    },
+    "namespace": {
+      "@id": "core:namespace",
+      "@type": "xsd:anyURI"
+    },
+    "originatedBy": {
+      "@id": "core:originatedBy",
+      "@type": "@id"
+    },
+    "prefix": {
+      "@id": "core:prefix",
+      "@type": "xsd:string"
+    },
+    "profile": {
+      "@id": "core:profile",
+      "@type": "@vocab",
+      "@context": {
+        "core": "https://spdx.org/rdf/Core/ProfileIdentifierType/core",
+        "software": "https://spdx.org/rdf/Core/ProfileIdentifierType/software",
+        "licensing": "https://spdx.org/rdf/Core/ProfileIdentifierType/licensing",
+        "security": "https://spdx.org/rdf/Core/ProfileIdentifierType/security",
+        "build": "https://spdx.org/rdf/Core/ProfileIdentifierType/build",
+        "ai": "https://spdx.org/rdf/Core/ProfileIdentifierType/ai",
+        "dataset": "https://spdx.org/rdf/Core/ProfileIdentifierType/dataset",
+        "usage": "https://spdx.org/rdf/Core/ProfileIdentifierType/usage",
+        "extension": "https://spdx.org/rdf/Core/ProfileIdentifierType/extension"
+      }
+    },
+    "relationshipType": {
+      "@id": "core:relationshipType",
+      "@type": "@vocab",
+      "@context": {
+        "@vocab": "core:RelationshipType/"
+      }
+    },
+    "releaseTime": {
+      "@id": "core:releaseTime",
+      "@type": "core:DateTime"
+    },
+    "rootElement": {
+      "@id": "core:rootElement",
+      "@type": "@id"
+    },
+    "scope": {
+      "@id": "core:scope",
+      "@type": "@vocab",
+      "@context": {
+        "@vocab": "core:LifecycleScopeType/"
+      }
+    },
+    "specVersion": {
+      "@id": "core:specVersion",
+      "@type": "core:SemVer"
+    },
+    "standard": {
+      "@id": "core:standard",
+      "@type": "xsd:string"
+    },
+    "startTime": {
+      "@id": "core:startTime",
+      "@type": "core:DateTime"
+    },
+    "statement": {
+      "@id": "core:statement",
+      "@type": "xsd:string"
+    },
+    "subject": {
+      "@id": "core:subject",
+      "@type": "@id"
+    },
+    "summary": {
+      "@id": "core:summary",
+      "@type": "xsd:string"
+    },
+    "suppliedBy": {
+      "@id": "core:suppliedBy",
+      "@type": "@id"
+    },
+    "to": {
+      "@id": "core:to",
+      "@type": "@id"
+    },
+    "validUntilTime": {
+      "@id": "core:validUntilTime",
+      "@type": "core:DateTime"
+    },
+    "value": {
+      "@id": "core:value",
+      "@type": "xsd:string"
+    },
+    "anonymizationMethodUsed": {
+      "@id": "dataset:anonymizationMethodUsed",
+      "@type": "xsd:string"
+    },
+    "confidentialityLevel": {
+      "@id": "dataset:confidentialityLevel",
+      "@type": "@vocab",
+      "@context": {
+        "@vocab": "dataset:ConfidentialityLevelType/"
+      }
+    },
+    "dataCollectionProcess": {
+      "@id": "dataset:dataCollectionProcess",
+      "@type": "xsd:string"
+    },
+    "dataPreprocessing": {
+      "@id": "dataset:dataPreprocessing",
+      "@type": "xsd:string"
+    },
+    "datasetAvailability": {
+      "@id": "dataset:datasetAvailability",
+      "@type": "@vocab",
+      "@context": {
+        "@vocab": "dataset:DatasetAvailabilityType/"
+      }
+    },
+    "datasetNoise": {
+      "@id": "dataset:datasetNoise",
+      "@type": "xsd:string"
+    },
+    "datasetSize": {
+      "@id": "dataset:datasetSize",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "datasetType": {
+      "@id": "dataset:datasetType",
+      "@type": "xsd:string"
+    },
+    "datasetUpdateMechanism": {
+      "@id": "dataset:datasetUpdateMechanism",
+      "@type": "xsd:string"
+    },
+    "intendedUse": {
+      "@id": "dataset:intendedUse",
+      "@type": "xsd:string"
+    },
+    "knownBias": {
+      "@id": "dataset:knownBias",
+      "@type": "xsd:string"
+    },
+    "sensor": {
+      "@id": "dataset:sensor",
+      "@type": "core:DictionaryEntry"
+    },
+    "additionComment": {
+      "@id": "licensing:additionComment",
+      "@type": "xsd:string"
+    },
+    "additionId": {
+      "@id": "licensing:additionId",
+      "@type": "xsd:string"
+    },
+    "additionName": {
+      "@id": "licensing:additionName",
+      "@type": "xsd:string"
+    },
+    "additionText": {
+      "@id": "licensing:additionText",
+      "@type": "xsd:string"
+    },
+    "isDeprecatedAdditionId": {
+      "@id": "licensing:isDeprecatedAdditionId",
+      "@type": "xsd:boolean"
+    },
+    "isDeprecatedLicenseId": {
+      "@id": "licensing:isDeprecatedLicenseId",
+      "@type": "xsd:boolean"
+    },
+    "isFsfLibre": {
+      "@id": "licensing:isFsfLibre",
+      "@type": "xsd:boolean"
+    },
+    "isOsiApproved": {
+      "@id": "licensing:isOsiApproved",
+      "@type": "xsd:boolean"
+    },
+    "licenseComment": {
+      "@id": "licensing:licenseComment",
+      "@type": "xsd:string"
+    },
+    "licenseId": {
+      "@id": "licensing:licenseId",
+      "@type": "xsd:string"
+    },
+    "licenseName": {
+      "@id": "licensing:licenseName",
+      "@type": "xsd:string"
+    },
+    "licenseText": {
+      "@id": "licensing:licenseText",
+      "@type": "xsd:string"
+    },
+    "standardAdditionTemplate": {
+      "@id": "licensing:standardAdditionTemplate",
+      "@type": "xsd:string"
+    },
+    "standardLicenseHeader": {
+      "@id": "licensing:standardLicenseHeader",
+      "@type": "xsd:string"
+    },
+    "standardLicenseTemplate": {
+      "@id": "licensing:standardLicenseTemplate",
+      "@type": "xsd:string"
+    },
+    "subjectAddition": {
+      "@id": "licensing:subjectAddition",
+      "@type": "licensing:LicenseAddition"
+    },
+    "actionStatement": {
+      "@id": "security:actionStatement",
+      "@type": "xsd:string"
+    },
+    "actionStatementTime": {
+      "@id": "security:actionStatementTime",
+      "@type": "core:DateTime"
+    },
+    "assessedElement": {
+      "@id": "security:assessedElement",
+      "@type": "@id"
+    },
+    "catalogType": {
+      "@id": "security:catalogType",
+      "@type": "@vocab",
+      "@context": {
+        "@vocab": "security:ExploitCatalogType/"
+      }
+    },
+    "decisionType": {
+      "@id": "security:decisionType",
+      "@type": "@vocab",
+      "@context": {
+        "@vocab": "security:SsvcDecisionType/"
+      }
+    },
+    "exploited": {
+      "@id": "security:exploited",
+      "@type": "xsd:boolean"
+    },
+    "impactStatement": {
+      "@id": "security:impactStatement",
+      "@type": "xsd:string"
+    },
+    "impactStatementTime": {
+      "@id": "security:impactStatementTime",
+      "@type": "core:DateTime"
+    },
+    "justificationType": {
+      "@id": "security:justificationType",
+      "@type": "@vocab",
+      "@context": {
+        "@vocab": "security:VexJustificationType/"
+      }
+    },
+    "probability": {
+      "@id": "security:probability",
+      "@type": "xsd:decimal"
+    },
+    "statusNotes": {
+      "@id": "security:statusNotes",
+      "@type": "xsd:string"
+    },
+    "vexVersion": {
+      "@id": "security:vexVersion",
+      "@type": "xsd:string"
+    },
+    "additionalPurpose": {
+      "@id": "software:additionalPurpose",
+      "@type": "software:SoftwarePurpose"
+    },
+    "attributionText": {
+      "@id": "software:attributionText",
+      "@type": "xsd:string"
+    },
+    "byteRange": {
+      "@id": "software:byteRange",
+      "@type": "core:PositiveIntegerRange"
+    },
+    "concludedLicense": {
+      "@id": "software:concludedLicense",
+      "@type": "licensing:LicenseField"
+    },
+    "conditionality": {
+      "@id": "software:conditionality",
+      "@type": "@vocab",
+      "@context": {
+        "@vocab": "software:DependencyConditionalityType/"
+      }
+    },
+    "contentIdentifier": {
+      "@id": "software:contentIdentifier",
+      "@type": "xsd:anyURI"
+    },
+    "contentType": {
+      "@id": "core:contentType",
+      "@type": "core:MediaType"
+    },
+    "copyrightText": {
+      "@id": "software:copyrightText",
+      "@type": "xsd:string"
+    },
+    "declaredLicense": {
+      "@id": "software:declaredLicense",
+      "@type": "licensing:LicenseField"
+    },
+    "downloadLocation": {
+      "@id": "software:downloadLocation",
+      "@type": "xsd:anyURI"
+    },
+    "homePage": {
+      "@id": "software:homePage",
+      "@type": "xsd:anyURI"
+    },
+    "lineRange": {
+      "@id": "software:lineRange",
+      "@type": "core:PositiveIntegerRange"
+    },
+    "packageUrl": {
+      "@id": "software:packageUrl",
+      "@type": "xsd:anyURI"
+    },
+    "packageVersion": {
+      "@id": "software:packageVersion",
+      "@type": "xsd:string"
+    },
+    "primaryPurpose": {
+      "@id": "software:primaryPurpose",
+      "@type": "software:SoftwarePurpose"
+    },
+    "sbomType": {
+      "@id": "software:sbomType",
+      "@type": "@vocab",
+      "@context": {
+        "@vocab": "software:SBOMType/"
+      }
+    },
+    "softwareLinkage": {
+      "@id": "software:softwareLinkage",
+      "@type": "@vocab",
+      "@context": {
+        "@vocab": "software:SoftwareDependencyLinkType/"
+      }
+    },
+    "sourceInfo": {
+      "@id": "software:sourceInfo",
+      "@type": "xsd:string"
+    },
+    "Bundle": "core:Bundle",
+    "ExternalIdentifier": "core:ExternalIdentifier",
+    "ExternalReference": "core:ExternalReference",
+    "Hash": "core:Hash",
+    "Payload": "core:Payload",
+    "Relationship": "core:Relationship",
+    "SemVer": "core:SemVer",
+    "Tool": "core:Tool",
+    "name": {
+      "@id": "core:name",
+      "@type": "xsd:string"
+    },
+    "verifiedUsing": {
+      "@id": "core:verifiedUsing",
+      "@type": "core:IntegrityMethod"
+    },
+    "deprecatedVersion": {
+      "@id": "licensing:deprecatedVersion",
+      "@type": "xsd:string"
+    },
+    "listVersionAdded": {
+      "@id": "licensing:listVersionAdded",
+      "@type": "xsd:string"
+    },
+    "member": {
+      "@id": "licensing:member",
+      "@type": "licensing:AnyLicenseInfo"
+    },
+    "obsoletedBy": {
+      "@id": "licensing:obsoletedBy",
+      "@type": "xsd:string"
+    },
+    "seeAlso": {
+      "@id": "licensing:seeAlso",
+      "@type": "xsd:anyURI"
+    },
+    "subjectLicense": {
+      "@id": "licensing:subjectLicense",
+      "@type": "licensing:License"
+    },
+    "modifiedTime": {
+      "@id": "security:modifiedTime",
+      "@type": "core:DateTime"
+    },
+    "publishedTime": {
+      "@id": "security:publishedTime",
+      "@type": "core:DateTime"
+    },
+    "score": {
+      "@id": "security:score",
+      "@type": "xsd:string"
+    },
+    "vector": {
+      "@id": "security:vector",
+      "@type": "xsd:string"
+    },
+    "withdrawnTime": {
+      "@id": "security:withdrawnTime",
+      "@type": "core:DateTime"
+    },
+    "Package": "software:Package",
+    "creationInfo": {
+      "@id": "core:creationInfo",
+      "@type": "core:CreationInfo"
+    },
+    "imports": {
+      "@id": "core:imports",
+      "@type": "core:ExternalMap"
+    },
+    "namespaces": {
+      "@id": "core:namespaces",
+      "@type": "core:NamespaceMap"
+    },
+    "severity": {
+      "@id": "security:severity",
+      "@type": "xsd:string"
+    },
+    "SoftwareArtifact": "software:SoftwareArtifact",
+    "AnnotationType": "core:AnnotationType",
+    "CreationInfo": "core:CreationInfo",
+    "ExternalMap": "core:ExternalMap",
+    "IntegrityMethod": "core:IntegrityMethod",
+    "NamespaceMap": "core:NamespaceMap",
+    "PositiveIntegerRange": "core:PositiveIntegerRange",
+    "LicenseAddition": "licensing:LicenseAddition",
+    "ExploitCatalogType": "security:ExploitCatalogType",
+    "VexVulnAssessmentRelationship": "security:VexVulnAssessmentRelationship",
+    "MediaType": "core:MediaType",
+    "RelationshipCompleteness": "core:RelationshipCompleteness",
+    "comment": {
+      "@id": "core:comment",
+      "@type": "xsd:string"
+    },
+    "License": "licensing:License",
+    "SafetyRiskAssessmentType": "ai:SafetyRiskAssessmentType",
+    "ConfidentialityLevelType": "dataset:ConfidentialityLevelType",
+    "SsvcDecisionType": "security:SsvcDecisionType",
+    "VulnAssessmentRelationship": "security:VulnAssessmentRelationship",
+    "SoftwareDependencyLinkType": "software:SoftwareDependencyLinkType",
+    "PresenceType": "ai:PresenceType",
+    "DatasetAvailabilityType": "dataset:DatasetAvailabilityType",
+    "LicenseField": "licensing:LicenseField",
+    "VexJustificationType": "security:VexJustificationType",
+    "DependencyConditionalityType": "software:DependencyConditionalityType",
+    "LifecycleScopeType": "core:LifecycleScopeType",
+    "AnyLicenseInfo": "licensing:AnyLicenseInfo",
+    "SBOMType": "software:SBOMType",
+    "Agent": "core:Agent",
+    "ProfileIdentifierType": "core:ProfileIdentifierType",
+    "DictionaryEntry": "core:DictionaryEntry",
+    "ExternalIdentifierType": "core:ExternalIdentifierType",
+    "Element": "core:Element",
+    "ExternalReferenceType": "core:ExternalReferenceType",
+    "HashAlgorithm": "core:HashAlgorithm",
+    "SoftwarePurpose": "software:SoftwarePurpose",
+    "DateTime": "core:DateTime",
+    "RelationshipType": "core:RelationshipType"
+  },
+  "@graph": [
+    {
+      "@type": "Tool",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-Actor-ZephyrSPDXbuilder",
+      "creationInfo": {
+        "@type": "CreationInfo",
+        "specVersion": "3.0.0",
+        "created": "2025-04-17T23:28:52Z",
+        "profile": [
+          "core",
+          "software",
+          "licensing"
+        ],
+        "dataLicense": "https://spdx.org/licenses/CC0-1.0",
+        "createdUsing": [
+          "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-Actor-ZephyrSPDXbuilder"
+        ]
+      },
+      "name": "Zephyr SPDX builder"
+    },
+    {
+      "@type": "SpdxDocument",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-DOCUMENT",
+      "creationInfo": {
+        "@type": "CreationInfo",
+        "specVersion": "3.0.0",
+        "created": "2025-04-17T23:28:52Z",
+        "profile": [
+          "core",
+          "software",
+          "licensing"
+        ],
+        "dataLicense": "https://spdx.org/licenses/CC0-1.0",
+        "createdUsing": [
+          "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-Actor-ZephyrSPDXbuilder"
+        ]
+      },
+      "name": "zephyr-sources",
+      "element": [
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-Actor-ZephyrSPDXbuilder",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-zephyr-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-acpica-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-cmsis-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-cmsis-dsp-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-cmsis-nn-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-fatfs-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-adi-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-altera-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-ambiq-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-atmel-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-espressif-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-ethos-u-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-gigadevice-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-infineon-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-intel-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-microchip-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-nordic-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-nuvoton-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-nxp-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-openisa-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-quicklogic-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-renesas-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-rpi-pico-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-silabs-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-st-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-stm32-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-tdk-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-telink-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-ti-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-wch-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-wurthelektronik-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-xtensa-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hostap-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-liblc3-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-libmctp-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-libmetal-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-littlefs-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-loramac-node-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-lvgl-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-mbedtls-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-mcuboot-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-mipi-sys-t-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-nrf-wifi-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-open-amp-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-openthread-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-percepio-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-picolibc-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-segger-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-tinycrypt-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-trusted-firmware-a-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-trusted-firmware-m-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-uoscore-uedhoc-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-zcbor-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-nrf-hw-models-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-cpuhalt.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-cpuid.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-early-serial.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-fatal.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-crt0.S",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-excstub.S",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-fatal.c-2",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-intstub.S",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-irq-manage.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-soft-float-stubs.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-swap.S",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-thread.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-tls.c-2",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-memmap.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-multiboot.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-offsets.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-prep-c.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-spec-ctrl.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-tls.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-x86-mmu.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-uart-console.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-intc-ioapic.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-intc-loapic.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-intc-system-apic.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-uart-ns16550.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-hpet.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-sys-clock-init.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-banner.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-busy-wait.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-condvar.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-device.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-dynamic-disabled.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-errno.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-fatal.c-3",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-float.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-idle.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-init.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-kheap.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-mailbox.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-main-weak.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-mem-slab.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-mempool.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-mmu.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-msg-q.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-mutex.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-pipe.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-priority-queues.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-queue.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-sched.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-sem.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-stack.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-system-work-q.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-thread.c-2",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-timeout.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-timer.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-timeslicing.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-version.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-work.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-heap.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-abort.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-malloc.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-assert.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-cbprintf.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-chk-fail.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-errno-wrap.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-exit.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-locks.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-stdio.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-assert.c-2",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-cbprintf-complete.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-cbprintf-packaged.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-printk.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-sem.c-2",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-thread-entry.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-bitarray.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-dec.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-hex.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-rb.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-ring-buffer.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-timeutil.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-empty-file.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-random-test-csprng.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-random-timer.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-tracing-none.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-Relationship-53",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-Relationship-137"
+      ],
+      "rootElement": [
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-zephyr-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-acpica-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-cmsis-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-cmsis-dsp-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-cmsis-nn-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-fatfs-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-adi-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-altera-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-ambiq-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-atmel-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-espressif-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-ethos-u-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-gigadevice-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-infineon-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-intel-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-microchip-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-nordic-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-nuvoton-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-nxp-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-openisa-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-quicklogic-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-renesas-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-rpi-pico-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-silabs-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-st-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-stm32-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-tdk-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-telink-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-ti-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-wch-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-wurthelektronik-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-xtensa-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hostap-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-liblc3-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-libmctp-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-libmetal-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-littlefs-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-loramac-node-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-lvgl-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-mbedtls-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-mcuboot-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-mipi-sys-t-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-nrf-wifi-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-open-amp-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-openthread-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-percepio-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-picolibc-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-segger-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-tinycrypt-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-trusted-firmware-a-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-trusted-firmware-m-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-uoscore-uedhoc-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-zcbor-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-nrf-hw-models-sources"
+      ]
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-zephyr-sources",
+      "name": "zephyr-sources",
+      "packageVersion": "f9220146e623a7a6794c53f1a641aaca055e6b16-dirty",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/zephyr.git@f9220146e623a7a6794c53f1a641aaca055e6b16-dirty"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-acpica-sources",
+      "name": "acpica-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "8d24867bc9c9d81c81eeac59391cda59333affd4",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/acpica@8d24867bc9c9d81c81eeac59391cda59333affd4"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-cmsis-sources",
+      "name": "cmsis-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "d1b8b20b6278615b00e136374540eb1c00dcabe7",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/cmsis@d1b8b20b6278615b00e136374540eb1c00dcabe7"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-cmsis-dsp-sources",
+      "name": "cmsis-dsp-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "d80a49b2bb186317dc1db4ac88da49c0ab77e6e7",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/cmsis-dsp@d80a49b2bb186317dc1db4ac88da49c0ab77e6e7"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-cmsis-nn-sources",
+      "name": "cmsis-nn-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "e9328d612ea3ea7d0d210d3ac16ea8667c01abdd",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/cmsis-nn@e9328d612ea3ea7d0d210d3ac16ea8667c01abdd"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-fatfs-sources",
+      "name": "fatfs-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "16245c7c41d2b79e74984f49b5202551786b8a9b",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/fatfs@16245c7c41d2b79e74984f49b5202551786b8a9b"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-adi-sources",
+      "name": "adi-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "67b88309c327d207e87bb7af6e37c704cd9d5b9d",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_adi@67b88309c327d207e87bb7af6e37c704cd9d5b9d"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-altera-sources",
+      "name": "altera-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "4fe4df959d4593ce66e676aeba0b57f546dba0fe",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_altera@4fe4df959d4593ce66e676aeba0b57f546dba0fe"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-ambiq-sources",
+      "name": "hal-ambiq-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "a6dff0a5f49e898f29bc428e01538a8911364460",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_ambiq@a6dff0a5f49e898f29bc428e01538a8911364460"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-atmel-sources",
+      "name": "atmel-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "ca7e4c6920f44b9d677ed5995ffa169f18a54cdf",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_atmel@ca7e4c6920f44b9d677ed5995ffa169f18a54cdf"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-espressif-sources",
+      "name": "hal-espressif-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "dbc28ad4c1bdcdb25e79ca225cb5528a75d8dc91",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_espressif@dbc28ad4c1bdcdb25e79ca225cb5528a75d8dc91"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-ethos-u-sources",
+      "name": "hal-ethos-u-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "50ddffca1cc700112f25ad9bc077915a0355ee5d",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_ethos_u@50ddffca1cc700112f25ad9bc077915a0355ee5d"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-gigadevice-sources",
+      "name": "hal-gigadevice-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "2994b7dde8b0b0fa9b9c0ccb13474b6a486cddc3",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_gigadevice@2994b7dde8b0b0fa9b9c0ccb13474b6a486cddc3"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-infineon-sources",
+      "name": "hal-infineon-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "9df9d40571b25171cb752459c6dd96bd83ec8570",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_infineon@9df9d40571b25171cb752459c6dd96bd83ec8570"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-intel-sources",
+      "name": "hal-intel-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "0447cd22e74d7ca243653f21cfd6e38c016630c6",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_intel@0447cd22e74d7ca243653f21cfd6e38c016630c6"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-microchip-sources",
+      "name": "microchip-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "15ca19705e4bff2d147a2a13d0198fcf8e4c8b4a",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_microchip@15ca19705e4bff2d147a2a13d0198fcf8e4c8b4a"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-nordic-sources",
+      "name": "hal-nordic-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "119ff5b5ec7a413ca2f64ae1928c79eee1e7b7b2",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_nordic@119ff5b5ec7a413ca2f64ae1928c79eee1e7b7b2"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-nuvoton-sources",
+      "name": "nuvoton-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "be1042dc8a96ebe9ea4c5d714f07c617539106d6",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_nuvoton@be1042dc8a96ebe9ea4c5d714f07c617539106d6"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-nxp-sources",
+      "name": "hal-nxp-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "6b11d190e0092aafec81489d0e7045a3bcf80c60",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_nxp@6b11d190e0092aafec81489d0e7045a3bcf80c60"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-openisa-sources",
+      "name": "openisa-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "eabd530a64d71de91d907bad257cd61aacf607bc",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_openisa@eabd530a64d71de91d907bad257cd61aacf607bc"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-quicklogic-sources",
+      "name": "quicklogic-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "bad894440fe72c814864798c8e3a76d13edffb6c",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_quicklogic@bad894440fe72c814864798c8e3a76d13edffb6c"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-renesas-sources",
+      "name": "hal-renesas-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "15c3f057d5715b78b0a2201314b07ad6d2dbd1b1",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_renesas@15c3f057d5715b78b0a2201314b07ad6d2dbd1b1"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-rpi-pico-sources",
+      "name": "hal-rpi-pico-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "7b57b24588797e6e7bf18b6bda168e6b96374264",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_rpi_pico@7b57b24588797e6e7bf18b6bda168e6b96374264"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-silabs-sources",
+      "name": "hal-silabs-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "40a0237e4812241de677441e02131d6c75830636",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_silabs@40a0237e4812241de677441e02131d6c75830636"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-st-sources",
+      "name": "hal-st-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "05fd4533730a9aea845261c5d24ed9832a6f0b6e",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_st@05fd4533730a9aea845261c5d24ed9832a6f0b6e"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-stm32-sources",
+      "name": "hal-stm32-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "f467d8e039216b4f5f9b55dd8a1ffa8582fc516d",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_stm32@f467d8e039216b4f5f9b55dd8a1ffa8582fc516d"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-tdk-sources",
+      "name": "hal-tdk-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "6727477af1e46fa43878102489b9672a9d24e39f",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_tdk@6727477af1e46fa43878102489b9672a9d24e39f"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-telink-sources",
+      "name": "hal-telink-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "4226c7fc17d5a34e557d026d428fc766191a0800",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_telink@4226c7fc17d5a34e557d026d428fc766191a0800"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-ti-sources",
+      "name": "ti-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "258652a3ac5d7df68ba8df20e4705c3bd98ede38",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_ti@258652a3ac5d7df68ba8df20e4705c3bd98ede38"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-wch-sources",
+      "name": "hal-wch-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "1de9d3e406726702ce7cfc504509a02ecc463554",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_wch@1de9d3e406726702ce7cfc504509a02ecc463554"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-wurthelektronik-sources",
+      "name": "hal-wurthelektronik-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "e3e2797b224fc48fdef1bc3e5a12a7c73108bba2",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_wurthelektronik@e3e2797b224fc48fdef1bc3e5a12a7c73108bba2"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-xtensa-sources",
+      "name": "xtensa-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "b38620c7cc61e349e192ed86a54940a5cd0636b7",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hal_xtensa@b38620c7cc61e349e192ed86a54940a5cd0636b7"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hostap-sources",
+      "name": "hostap-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "fb6452c246b441434172235b2070259945ca9d44",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/hostap@fb6452c246b441434172235b2070259945ca9d44"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-liblc3-sources",
+      "name": "liblc3-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "48bbd3eacd36e99a57317a0a4867002e0b09e183",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/liblc3@48bbd3eacd36e99a57317a0a4867002e0b09e183"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-libmctp-sources",
+      "name": "libmctp-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "b97860e78998551af99931ece149eeffc538bdb1",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/libmctp@b97860e78998551af99931ece149eeffc538bdb1"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-libmetal-sources",
+      "name": "libmetal-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "14f519529a1e4a46aaea6826f5a41d99a3347276",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/libmetal@14f519529a1e4a46aaea6826f5a41d99a3347276"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-littlefs-sources",
+      "name": "littlefs-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "ed0531d59ee37f5fb2762bcf2fc8ba4efaf82656",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/littlefs@ed0531d59ee37f5fb2762bcf2fc8ba4efaf82656"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-loramac-node-sources",
+      "name": "loramac-node-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "fb00b383072518c918e2258b0916c996f2d4eebe",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/loramac-node@fb00b383072518c918e2258b0916c996f2d4eebe"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-lvgl-sources",
+      "name": "lvgl-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "1ed1ddd881c3784049a92bb9fe37c38c6c74d998",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/lvgl@1ed1ddd881c3784049a92bb9fe37c38c6c74d998"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-mbedtls-sources",
+      "name": "mbedtls-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "5f889934359deccf421554c7045a8381ef75298f",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/mbedtls@5f889934359deccf421554c7045a8381ef75298f"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-mcuboot-sources",
+      "name": "mcuboot-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "20f98e0a975c24864872e0df5701eb1082e9c957",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/mcuboot@20f98e0a975c24864872e0df5701eb1082e9c957"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-mipi-sys-t-sources",
+      "name": "mipi-sys-t-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "33e5c23cbedda5ba12dbe50c4baefb362a791001",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/mipi-sys-t@33e5c23cbedda5ba12dbe50c4baefb362a791001"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-nrf-wifi-sources",
+      "name": "nrf-wifi-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "eeceee739252cf2d56a5ad9356553d87aae8c57d",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/nrf_wifi@eeceee739252cf2d56a5ad9356553d87aae8c57d"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-open-amp-sources",
+      "name": "open-amp-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "f7f4d083c7909a39d86e217376c69b416ec4faf3",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/open-amp@f7f4d083c7909a39d86e217376c69b416ec4faf3"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-openthread-sources",
+      "name": "openthread-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "3ae741f95e7dfb391dec35c48742862049eb62e8",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/openthread@3ae741f95e7dfb391dec35c48742862049eb62e8"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-percepio-sources",
+      "name": "percepio-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "49e6dc202aa38c2a3edbafcc2dab85dec6aee973",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/percepio@49e6dc202aa38c2a3edbafcc2dab85dec6aee973"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-picolibc-sources",
+      "name": "picolibc-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "82d62ed1ac55b4e34a12d0390aced2dc9af13fc9",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/picolibc@82d62ed1ac55b4e34a12d0390aced2dc9af13fc9"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-segger-sources",
+      "name": "segger-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "cf56b1d9c80f81a26e2ac5727c9cf177116a4692",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/segger@cf56b1d9c80f81a26e2ac5727c9cf177116a4692"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-tinycrypt-sources",
+      "name": "tinycrypt-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "1012a3ebee18c15ede5efc8332ee2fc37817670f",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/tinycrypt@1012a3ebee18c15ede5efc8332ee2fc37817670f"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-trusted-firmware-a-sources",
+      "name": "trusted-firmware-a-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "713ffbf96c5bcbdeab757423f10f73eb304eff07",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/trusted-firmware-a@713ffbf96c5bcbdeab757423f10f73eb304eff07"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-trusted-firmware-m-sources",
+      "name": "trusted-firmware-m-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "857f3697ece6f44a663f007de71205a7b34974ef",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/trusted-firmware-m@857f3697ece6f44a663f007de71205a7b34974ef"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-uoscore-uedhoc-sources",
+      "name": "uoscore-uedhoc-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "54abc109c9c0adfd53c70077744c14e454f04f4a",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/uoscore-uedhoc@54abc109c9c0adfd53c70077744c14e454f04f4a"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-zcbor-sources",
+      "name": "zcbor-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "9b07780aca6fb21f82a241ba386ad9b379809337",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/zcbor@9b07780aca6fb21f82a241ba386ad9b379809337"
+    },
+    {
+      "@type": "Package",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-nrf-hw-models-sources",
+      "name": "nrf-hw-models-sources",
+      "comment": "Utility target; no files",
+      "primaryPurpose": "source",
+      "packageVersion": "fe4ff0e191a52de4f85ecc3475f0253eca6fc5bf",
+      "downloadLocation": "git+https://github.com/zephyrproject-rtos/nrf_hw_models@fe4ff0e191a52de4f85ecc3475f0253eca6fc5bf"
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-cpuhalt.c",
+      "name": "./zephyr/arch/x86/core/cpuhalt.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "1f31e704a9c1e22527122b24c776fef02569f97c"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "2145906c4fce4e3cce064283c0e37752824893c40ac5bb3cfc1d0c8f7c2e905d"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-cpuid.c",
+      "name": "./zephyr/arch/x86/core/cpuid.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "b0b18d9fc3ee26ec3d62bed5f96b3b91bc0a083c"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "c644f393f41a4158748c51981a8d0c07f0aff8babe50f95bb72fbd6964bc9422"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-early-serial.c",
+      "name": "./zephyr/arch/x86/core/early_serial.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "d2cb6f828c1d091c3dd5a53d9c3d11944c2fbcc6"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "90041edfbca1749a1b2c35feb47aa22ca5751e12bab28ab9ac5d800612f21600"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-fatal.c",
+      "name": "./zephyr/arch/x86/core/fatal.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "77066e30dcf0478d029a0bc83760fdc9ba55c826"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "b2bab25b11dae6430e5fc4efb02bb952212ab86ebf1e8d3c6ab493100baf20af"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-crt0.S",
+      "name": "./zephyr/arch/x86/core/ia32/crt0.S",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "6b0cc9937a72f9d627928cafacc7874c7446e643"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "a222a6dcd63f720cb3473c090236828dab7e289d4874dd9148014e44e134644a"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-excstub.S",
+      "name": "./zephyr/arch/x86/core/ia32/excstub.S",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "0f450ecd450c7b4fcacdff1338701f6b09977d7f"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "c697aa4b41c103f5c106363871722a2d13245c018cf3e222ddffbe99cae8ce59"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-fatal.c-2",
+      "name": "./zephyr/arch/x86/core/ia32/fatal.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "cc6a50f90fb3c43060e94a6754f533e70c3f89b5"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "8a1389b197ea83dd4044bdc53f4a058dc1b0e6ff4673328687f48c24215a58f2"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-intstub.S",
+      "name": "./zephyr/arch/x86/core/ia32/intstub.S",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "eed4bfa57c1cf713cd95bd569aa5346ab04c2160"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "4f5f764f957c500e1434bbc00c1f658f2988b0fad7199149ec8ea9302ecf2335"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-irq-manage.c",
+      "name": "./zephyr/arch/x86/core/ia32/irq_manage.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "3383f3c3a42715a1d6e367172b8a086ecf3cf420"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "e57c7008d928e951607b5d82d3af7a6639bfd4584265c749454e9fefa4c8d91b"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-soft-float-stubs.c",
+      "name": "./zephyr/arch/x86/core/ia32/soft_float_stubs.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "ad1b5bc52f4d209c6cdc6c621d5f7af05e738cd0"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "720911820551bd970bf8c5fb11d1506c5af14de5ae8a753ee4082b1e0a093867"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-swap.S",
+      "name": "./zephyr/arch/x86/core/ia32/swap.S",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "8d9d607952768184c47f695dbed5d5d71c6449d1"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "4aab2dca479b1ae6c8e1208d5a99d9b5563736c20c23d50358484da1453171ab"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-thread.c",
+      "name": "./zephyr/arch/x86/core/ia32/thread.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "daca1775a60227d233769590d6fcce60f38445a6"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "5e463606d39e6835c10e93d0590a9514e15972eaba1cb7f9d94fe87ee3c3d7fc"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-tls.c-2",
+      "name": "./zephyr/arch/x86/core/ia32/tls.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "248f72556afc3657f0f3c7fa51407d6c233bc15b"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "83ca0cbe8bdb793a8a1340aeaf93839ceee2da26154b89995123e9ff760b5324"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-memmap.c",
+      "name": "./zephyr/arch/x86/core/memmap.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "5f86b7f33afd0bf55331574180e45df8d405a3dc"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "459b8faff3429bb71a7e4769c8b1e31746303399f21ac5a06deb3b35ff8e9052"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-multiboot.c",
+      "name": "./zephyr/arch/x86/core/multiboot.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "00e7550914982584ed81159d2b3f8cb6ecefdee1"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "089b4ef3da868e1629eeed5e48728a9c3b81a65e9d5dec09473e6f3254ee6342"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-offsets.c",
+      "name": "./zephyr/arch/x86/core/offsets/offsets.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "0904f0ef0d32e84c1573448b466beea864c89071"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "99ad1f5dd752df5bd66362f432122780808ebc5ea64bdb6d653d93825f1af57e"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-prep-c.c",
+      "name": "./zephyr/arch/x86/core/prep_c.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "cd568e24882c9348c6fe530e93c92f7526ef90f0"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "7412806cd4ad94df08f667eac09ce41446132f536ebe56c0732b0bbdd4baa1dd"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-spec-ctrl.c",
+      "name": "./zephyr/arch/x86/core/spec_ctrl.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "ee9f621c9cb747e3cc1161b7abed418cfe4e7cdb"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "4ea1fbbe3c1a814177eac71915f8233093c235ef5c9a663b3db54d4cc89d8005"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-tls.c",
+      "name": "./zephyr/arch/x86/core/tls.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "062873a9ae9e81a9eb4a61e363d545b97da7098a"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "8c76769d7531158940d203bb49e648e8cc5f68b8a3043b196c67fb091fb96d81"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-x86-mmu.c",
+      "name": "./zephyr/arch/x86/core/x86_mmu.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "6b48913e5b44c6044bf670433a08ce4a8d20a035"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "800ea1c7522e6dbfa494096d9311f98100160d4e6a66596a833dea356269054c"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-uart-console.c",
+      "name": "./zephyr/drivers/console/uart_console.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "f3c71dac8170762e6912a9e3823420dcf3a5de0d"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "9fd8ef1990c461fce52e46f7058e0c630cf6e06bf94fbc47e5b43301884741c0"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-intc-ioapic.c",
+      "name": "./zephyr/drivers/interrupt_controller/intc_ioapic.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "46d8ea9bf8ab40f84a41779142075c9819d08c67"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "0268ae37642177020d905263eab22eb1a8f1189122ab4961d519a81f8ac13dcb"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-intc-loapic.c",
+      "name": "./zephyr/drivers/interrupt_controller/intc_loapic.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "3e8e3f6822c75a6e8a40b5374e91bcd588a6ecf9"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "179f8230f6475d38aef5665f2550da011acad9e6e9113090554c56f608ac612b"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-intc-system-apic.c",
+      "name": "./zephyr/drivers/interrupt_controller/intc_system_apic.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "c0ce67eeda12bdff77a2cffba3a1ba39c06f86f6"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "b5e1dbc51f94c97213ca107ad065b0bab696a6cbc60e35c83ebce0d4deb6464e"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-uart-ns16550.c",
+      "name": "./zephyr/drivers/serial/uart_ns16550.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "9341cbb6420d0a336b171a09b401f38215963c63"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "adf92064b18682e85e7c57210b13d7da1ae0de33dd880cf291922f834716a2c5"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-hpet.c",
+      "name": "./zephyr/drivers/timer/hpet.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "f015fd382c3770359977ece2c8fbec01ef99307b"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "edaf434f5d296f3dfee94f04eecd79c67c178130c1d14b223ee7df11a56c0c56"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-sys-clock-init.c",
+      "name": "./zephyr/drivers/timer/sys_clock_init.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "8555c132c4b3041445b86be053184cbb5cade22a"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "426a9d15a2a26d8f250dbd44057f5a56a73efddf9184d2664faec796d578354c"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-banner.c",
+      "name": "./zephyr/kernel/banner.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "a112e978eb3b897b7b730311c54b0eb009e331ff"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "2319b404a9dce5e3d26d692aab552f24a84429e3d2e6ae45365e5d391c9ab19a"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-busy-wait.c",
+      "name": "./zephyr/kernel/busy_wait.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "7f19c70d13a09f6cff11f136853c65027f11ac9b"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "fa71ef2d8e936a4269744056b02d8690f39d8a0db76975985a3266fc6cdcd6dc"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-condvar.c",
+      "name": "./zephyr/kernel/condvar.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "1befb2ef72117698c33a12f1871d3736dcc3c799"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "20be8d9c4b267a8c010c1d5225f787bce2664ef32125f546ecccf03878e67f09"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-device.c",
+      "name": "./zephyr/kernel/device.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "c295138b21d58ebd2deee4f916a4ff46d8628044"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "d1062e57f9e99d7a78671e8986562e662a671b0fef3a13160a9e00e29b76d872"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-dynamic-disabled.c",
+      "name": "./zephyr/kernel/dynamic_disabled.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "ef497839cbed688b1a281b81ef439aaa6c20480b"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "7d2627bcb64f6eef6536d14f7458bca1db35ace85134782ef921d6bc989aa31a"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-errno.c",
+      "name": "./zephyr/kernel/errno.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "43f96f87071d1be282defc98ce67f2ac28bbc607"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "79083970578e3c46fa4eb83c35858dccc9048db3a3df82d87e7fbbbd92bcff55"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-fatal.c-3",
+      "name": "./zephyr/kernel/fatal.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "4980cf15bc7a13c72c1b36a37df6e267f8ae4436"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "63a403ccdf73d0961e7a8d3b586e8a06908b1352ce226073434cdef5298fc30f"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-float.c",
+      "name": "./zephyr/kernel/float.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "e879f53dbe0b5bc9e1412e5d0078c85110e1e8d9"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "81d352f3d5b6231ee66301375cb8ac38b77cb4638f0592212151ede00f58b51a"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-idle.c",
+      "name": "./zephyr/kernel/idle.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "db84335fb541756113c198b6a0c3ec88c6090adf"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "5825a70175c55694c36810442eea20fe4a00cb6d0a3cb3a35a98baeb948ef21a"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-init.c",
+      "name": "./zephyr/kernel/init.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "11a5b960536946be9e26f2966929a3007c0da52a"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "0349fed6a5405af5c3bade7b9749669ce916f5274761e511a3a2df8b188ef21d"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-kheap.c",
+      "name": "./zephyr/kernel/kheap.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "ac340c726bbca239b0f210cdf776b87950755272"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "751b523539bd149a73b7900539cf2ca5ef6b3a83853dd1477c4c18cf6d26854f"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-mailbox.c",
+      "name": "./zephyr/kernel/mailbox.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "ab38e3217a895ecdad7af491a2687eb28b10489f"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "1e68899bcd31ca25db98341dbe2ba373290aa33f6868ae55fe4779de68cce156"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-main-weak.c",
+      "name": "./zephyr/kernel/main_weak.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "be7604e0fd0a8168af9a8e89b7e29a666d00e9f7"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "42fbf6062eaaf4e3787134f71327eb48ca5b263dda8e32e3e264d625595e91ae"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-mem-slab.c",
+      "name": "./zephyr/kernel/mem_slab.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "e6bcabe3ddd7fe9c4397f98f8f3d6f0f794c2004"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "783a1955fc7de7b8b9c2ad67eab805467d3452e3b9c8a58065ea571741f8f103"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-mempool.c",
+      "name": "./zephyr/kernel/mempool.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "df5763702d2ad483d90b8da583875605b6c47ca4"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "b0672460bce0716c8fcbc58278e3ada1970badc6ebfaba87c0f3716f90b2bcf2"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-mmu.c",
+      "name": "./zephyr/kernel/mmu.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "621e480ee479c11b43f00e2d34f12e7b61a14b02"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "258bcd04e709b54fc306f673240dc92a27aa81703eafc4aae9e40152ffd29646"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-msg-q.c",
+      "name": "./zephyr/kernel/msg_q.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "e8de1f934e5e6c2f8834ba2622e345f23728bfcd"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "2c7cbc5f6b4ac3601e930766bff86d177779ea1c29b817329acc2c82d33fe64f"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-mutex.c",
+      "name": "./zephyr/kernel/mutex.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "b4b21bed913f4a3924b000931d0c6686048f1b37"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "d40058963b4e2b57779f77fd2647ade2e49fcd41ea12ed4e53a3782b95ade641"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-pipe.c",
+      "name": "./zephyr/kernel/pipe.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "038f68c702b2435912beff2817388e92bfaa3e80"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "6c24d0809464b00beea6213bb311a0d5d7f453b79e13a59404e4eca9b789b76c"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-priority-queues.c",
+      "name": "./zephyr/kernel/priority_queues.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "6267e887e73c16b5409ba77c218b1041471f0b6a"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "01fef29611b2c43deefe75585c5cbe1c842b00307ec96780e92dd37b47a088ad"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-queue.c",
+      "name": "./zephyr/kernel/queue.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "6c731e0b9f0768b3288c304c22647b6e5b571344"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "4274e01743bfaf05ceec10a39a049f94a6ba1f040753a2c492976dcb0c69c1f3"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-sched.c",
+      "name": "./zephyr/kernel/sched.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "4cdff187ff251c4525fdaf16fadc33aea4ff9d53"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "8936b727d1418b07e16a9499d478bbdd37fbb7cc947848053fab6352ccbf1334"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-sem.c",
+      "name": "./zephyr/kernel/sem.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "64d76e03a9ba57068b4fa8b7dd0d30583da1feb7"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "7731c241d90e49a93afaeeb35714ac3489a9ae165fb98b25d3b0e1cccf35c878"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-stack.c",
+      "name": "./zephyr/kernel/stack.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "cfe69fc5a0f696f7550c43dfb0d1597ff5ea0fbe"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "0e23742673ad9ec6b403af6971a0aa6a99ac046e3cfeb9a7ce1ffa093499354c"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-system-work-q.c",
+      "name": "./zephyr/kernel/system_work_q.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "e2c9e68dcd322a1765962972f1744adc69e756ed"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "04e6ac82aecac8460b1e8761c06b50dad781fe457524be5cd83839932a3f5e99"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-thread.c-2",
+      "name": "./zephyr/kernel/thread.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "1371a8f17c7eccf6608ac333b55c2640e906a7e8"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "ae238706c78a966e7897aa6dfe911bf2b29aa33517033369b3bc1742b85b27b0"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-timeout.c",
+      "name": "./zephyr/kernel/timeout.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "fb25b75a13145c58bbf10afcc508e92af21e0161"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "a82d39b5f64d8772ec2a7aa78f84fd0dcb81c73182f264f4efc320a9111c4c82"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-timer.c",
+      "name": "./zephyr/kernel/timer.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "e8834541e3c71c793864e5b942e748a931f1036d"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "78ff89dc2ba8e9179c13a12a18a2b16bb19337d7d9fe52b4410a775bd18cf949"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-timeslicing.c",
+      "name": "./zephyr/kernel/timeslicing.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "795a201b6aef9d0a8fd88c82e17f31d15e644e0f"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "fec3805eb62063e6c7694c2660e206df5ce46b437e4462f36e27bb71fa85c5a5"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-version.c",
+      "name": "./zephyr/kernel/version.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "480e7aba3070de62c5681192a2a31e385074d12c"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "c03c0e0b32c550cd044490a6efa1ef0fc6b5b550cbdb191fc024a7a2c3cb0314"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-work.c",
+      "name": "./zephyr/kernel/work.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "0c0cac1e327b3bc2cc0701d00ae38c730752feb3"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "bb010b78fae5f0e91aa553808d32db99be6e018f94843b622c23303cf01df017"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-heap.c",
+      "name": "./zephyr/lib/heap/heap.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "7824165aea6755f2e1fc54c69795d4ca8ff4ca35"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "16e09843e7cb7fca12a978267a152ed3451b4c8c65a4e6fedc6df3d8cf024045"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-abort.c",
+      "name": "./zephyr/lib/libc/common/source/stdlib/abort.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "f0f1e835a9bef08b3093115887951d49ae154083"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "1bdf701115a6779f79ad94284c2e4aed4d3949164d3bdff07fd30e65da5745f2"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-malloc.c",
+      "name": "./zephyr/lib/libc/common/source/stdlib/malloc.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "32f6778aff0a084940e44c15ae80c2267082edfe"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "bcd944bfefd7ce3638ad6fc89fabf8a1f6544340f6dedb6593b20cbbbe215c83"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-assert.c",
+      "name": "./zephyr/lib/libc/picolibc/assert.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "4fb31eb36704b072f6d1b9dfb2008a291d932d8d"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "d1fd4cbd6cac5c9a8fadf6791d7ccf7d98329ef393b7561a6575a65535e2c8ed"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-cbprintf.c",
+      "name": "./zephyr/lib/libc/picolibc/cbprintf.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "67ee235120a4e7c675ac29c9a04e245701c86ea0"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "9ccd095d5159b94585f7b70fe9ff07218a561920587f96ef86decb8180ebd8c1"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-chk-fail.c",
+      "name": "./zephyr/lib/libc/picolibc/chk_fail.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "41535f3b76dcf1cbaf4b3390e9480a6fec5ded94"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "705fc796458995926f9eb208f4a92a3084da8377ec8307dc5a69dd9e40303c58"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-errno-wrap.c",
+      "name": "./zephyr/lib/libc/picolibc/errno_wrap.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "9af2660b105b2b9ca01c64d00b78add5791e6bf1"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "3ab1673e88c424788fcd093527058d727b776a12677e9996b434083d553f5940"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-exit.c",
+      "name": "./zephyr/lib/libc/picolibc/exit.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "8292d0478f30bc09cdd1afb24f4b87eb62bbbfbb"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "d6c02e06cace94d70c9ea241dba2e9d46dc5d446ec8f8aa745d9ce1064c6d074"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-locks.c",
+      "name": "./zephyr/lib/libc/picolibc/locks.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "0ba62dd0b1c6a7b37bcaa5fb440f3d6619a52f80"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "01210b80f67d4ae7b5f6d9e41c977239f8fce6ecf298f08824490213a4af07af"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-stdio.c",
+      "name": "./zephyr/lib/libc/picolibc/stdio.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "2a76934620512fede49531326bf9e6734fe5c197"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "164e7af711517c219af88560d5a7c9d3517c6364339182be50bb1150f7eb55db"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-assert.c-2",
+      "name": "./zephyr/lib/os/assert.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "87ff4b5a2a8e86711ceb2ed91398ad3ab17aea39"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "696129fa3ea62020cc8b5b0de9b52c5926eb5110650657d2cfeeb6e914fb769b"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-cbprintf-complete.c",
+      "name": "./zephyr/lib/os/cbprintf_complete.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "9bb170ef47cd6289b074225c712646dedc131f19"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "b1051226c00f7451fd16238b12a6c9d48d3828a5675a451b992f67c239a402fa"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-cbprintf-packaged.c",
+      "name": "./zephyr/lib/os/cbprintf_packaged.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "22d397b28a89d1d26357c6b9d00a9e7d99dca006"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "44cd5100ee7419d9dba3174742eaca222de86f06c2cf2b8d2277e209383942fb"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-printk.c",
+      "name": "./zephyr/lib/os/printk.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "bf228cdbc2e2e29fc6b28ef631eaa8ebca6aab44"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "783b06712e50ab18e38489270d0a0a3ff996a03fc05ed394a3962d1a0dae64bb"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-sem.c-2",
+      "name": "./zephyr/lib/os/sem.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "e456d36a24bade411536ee49936a579998c38999"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "ebf54b1f8ce07c21ffc7120dac844062228d850c68d4c4f0bb98976d9f9d2493"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-thread-entry.c",
+      "name": "./zephyr/lib/os/thread_entry.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "0cd6c67c5ba03c8181af7a1738d88e55be47c803"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "5e3b99b1cf4253289c47d1dc7495eeff90f8d446cbb3be96afb71c7767dfa046"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-bitarray.c",
+      "name": "./zephyr/lib/utils/bitarray.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "23026f7e2bd4b4681f49a287594ea5945e5177da"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "a453a5883eb8ff9e809ea9962079a793082f2ad4d4a98d646c8f88596223670d"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-dec.c",
+      "name": "./zephyr/lib/utils/dec.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "d319043c3e3063ddf8a7d731c76f3371708c7977"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "b6991d4a5dd46650e0b3a85ed0adcdb87842832bc4c5108fc0918f125316ade0"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-hex.c",
+      "name": "./zephyr/lib/utils/hex.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "c25f6553650e8348b98ce044d521a83d73012433"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "3500c88db0350a67e9c8e84d6ae71daa78d0792f71938773744946ab2e8c390d"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-rb.c",
+      "name": "./zephyr/lib/utils/rb.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "e3e2adb9ab8c66113dfdbc8ece457ed19e2f9ef1"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "9ffd8e4d737a2a7f060f0c3a412895ddf5d093f41adbca6af301564ec319b961"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-ring-buffer.c",
+      "name": "./zephyr/lib/utils/ring_buffer.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "590765021df365c2aef49ccf234d95c29268d79a"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "b82902a77f59baa7d7047affb61f270a9b47457a8708d71347ff833bc705092a"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-timeutil.c",
+      "name": "./zephyr/lib/utils/timeutil.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "c76455ba424406b26c47a55d1dd4dc58a992e06d"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "b3ca878aaa7c626284162b4f32483f8dde7478ea7e267a5edb60e3ff854c7355"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-empty-file.c",
+      "name": "./zephyr/misc/empty_file.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-random-test-csprng.c",
+      "name": "./zephyr/subsys/random/random_test_csprng.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "aac79fd9319ac18045a1d71f83f5bcae09eaf842"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "0647707da2af42e269b44674dd3b492a28890a7854377425de940614f1862692"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-random-timer.c",
+      "name": "./zephyr/subsys/random/random_timer.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "93b2ddb1871bb3461019aa05bd1f061a5ea24b88"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "76da5749ae1879bdb43607a5f3607f5e83a30911186d888af137f27f6706c9c6"
+        }
+      ]
+    },
+    {
+      "@type": "File",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-tracing-none.c",
+      "name": "./zephyr/subsys/tracing/tracing_none.c",
+      "verifiedUsing": [
+        {
+          "@type": "Hash",
+          "algorithm": "sha1",
+          "hashValue": "bbff5c838a8591db381fb3fdd3dd27a7dc3137f5"
+        },
+        {
+          "@type": "Hash",
+          "algorithm": "sha256",
+          "hashValue": "f8105978be522f4d6e6d90403d808af633e4781a327d04121c0519ebe205b78d"
+        }
+      ]
+    },
+    {
+      "@type": "Relationship",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-Relationship-53",
+      "from": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-DOCUMENT",
+      "to": [
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-zephyr-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-acpica-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-cmsis-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-cmsis-dsp-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-cmsis-nn-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-fatfs-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-adi-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-altera-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-ambiq-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-atmel-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-espressif-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-ethos-u-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-gigadevice-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-infineon-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-intel-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-microchip-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-nordic-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-nuvoton-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-nxp-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-openisa-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-quicklogic-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-renesas-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-rpi-pico-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-silabs-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-st-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-stm32-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-tdk-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-telink-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-ti-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-wch-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hal-wurthelektronik-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-xtensa-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-hostap-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-liblc3-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-libmctp-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-libmetal-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-littlefs-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-loramac-node-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-lvgl-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-mbedtls-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-mcuboot-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-mipi-sys-t-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-nrf-wifi-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-open-amp-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-openthread-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-percepio-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-picolibc-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-segger-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-tinycrypt-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-trusted-firmware-a-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-trusted-firmware-m-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-uoscore-uedhoc-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-zcbor-sources",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-nrf-hw-models-sources"
+      ],
+      "relationshipType": "describes"
+    },
+    {
+      "@type": "Relationship",
+      "@id": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-Relationship-137",
+      "from": "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-zephyr-sources",
+      "to": [
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-cpuhalt.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-cpuid.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-early-serial.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-fatal.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-crt0.S",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-excstub.S",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-fatal.c-2",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-intstub.S",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-irq-manage.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-soft-float-stubs.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-swap.S",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-thread.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-tls.c-2",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-memmap.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-multiboot.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-offsets.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-prep-c.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-spec-ctrl.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-tls.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-x86-mmu.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-uart-console.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-intc-ioapic.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-intc-loapic.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-intc-system-apic.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-uart-ns16550.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-hpet.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-sys-clock-init.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-banner.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-busy-wait.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-condvar.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-device.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-dynamic-disabled.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-errno.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-fatal.c-3",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-float.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-idle.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-init.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-kheap.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-mailbox.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-main-weak.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-mem-slab.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-mempool.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-mmu.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-msg-q.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-mutex.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-pipe.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-priority-queues.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-queue.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-sched.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-sem.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-stack.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-system-work-q.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-thread.c-2",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-timeout.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-timer.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-timeslicing.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-version.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-work.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-heap.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-abort.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-malloc.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-assert.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-cbprintf.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-chk-fail.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-errno-wrap.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-exit.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-locks.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-stdio.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-assert.c-2",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-cbprintf-complete.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-cbprintf-packaged.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-printk.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-sem.c-2",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-thread-entry.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-bitarray.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-dec.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-hex.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-rb.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-ring-buffer.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-timeutil.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-empty-file.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-random-test-csprng.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-random-timer.c",
+        "http://spdx.org/spdxdocs/zephyr-22a29c5f-f84d-4e95-9d83-ae1dc5fe94bd/zephyr#SPDXRef-File-tracing-none.c"
+      ],
+      "relationshipType": "contains"
+    }
+  ]
+}
