@@ -149,11 +149,9 @@ class JSONLDV3Parser:
                 if software_obj:
                     payload.add_element(software_obj)
 
-            # Generic handler for unknown/custom extension types
+            # TODO: Add generic handler for unknown/custom extension types
             else:
-                extension_element = self._parse_extension_object(obj)
-                if extension_element:
-                    payload.add_element(extension_element)
+                pass
 
     # --- Extension/Profile Parsers ---
     def _parse_build(self, obj: Dict[str, Any]):
@@ -271,15 +269,6 @@ class JSONLDV3Parser:
             )
         except Exception as e:
             logger.warning(f"Error parsing Licensing extension: {str(e)}")
-            return None
-
-    def _parse_extension_object(self, obj: Dict[str, Any]):
-        """Generic handler for unknown/custom extension/profile types."""
-        try:
-            from spdx_tools.spdx3.model.extension_element import ExtensionElement
-            return ExtensionElement.from_json(obj)
-        except Exception as e:
-            logger.warning(f"Error parsing unknown/custom extension object: {str(e)}")
             return None
 
     def _parse_document_object(self, obj: Dict[str, Any], context: Optional[str]) -> SpdxDocument:
