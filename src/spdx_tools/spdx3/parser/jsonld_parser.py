@@ -372,11 +372,11 @@ class JSONLDV3Parser:
                 copyright_text=copyright_text,
                 creation_info=creation_info,
                 # For simplicity, using empty lists for complex types
-                primary_purpose=[],
+                primary_purpose=None,
                 built_time=None,
                 release_time=None,
                 validated=None,
-                attribution_text=[],
+                attribution_text=None,
                 verified_using=[],
                 external_reference=[],
                 external_identifier=[],
@@ -434,7 +434,7 @@ class JSONLDV3Parser:
                 creation_info=creation_info,
                 # For simplicity, using empty lists or None for complex types
                 content_type=None,
-                attribution_text=[],
+                attribution_text=None,
                 verified_using=verified_using,
                 external_reference=[],
                 external_identifier=[],
