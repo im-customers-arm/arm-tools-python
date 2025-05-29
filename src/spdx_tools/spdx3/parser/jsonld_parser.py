@@ -337,15 +337,15 @@ class JSONLDV3Parser:
             name = self._get_required(obj, "name")
             
             # Extract optional fields
-            version = self._get_optional(obj, "packageVersion")
+            package_version = self._get_optional(obj, "packageVersion")
             summary = self._get_optional(obj, "summary")
             description = self._get_optional(obj, "description")
             comment = self._get_optional(obj, "comment")
             download_location = self._get_optional(obj, "downloadLocation")
             
             # Parse supplier and originator (if any)
-            supplier = self._get_optional(obj, "supplier")
-            originator = self._get_optional(obj, "originator")
+            supplied_by = self._get_optional(obj, "supplier")
+            originated_by = self._get_optional(obj, "originator")
             
             # Handle copyright text
             copyright_text = self._get_optional(obj, "software_copyrightText")
@@ -362,20 +362,19 @@ class JSONLDV3Parser:
             return Package(
                 spdx_id=spdx_id,
                 name=name,
-                version=version,
+                package_version=package_version,
                 summary=summary,
                 description=description,
                 comment=comment,
                 download_location=download_location,
-                supplier=supplier,
-                originator=originator,
+                supplied_by=supplied_by,
+                originated_by=originated_by,
                 copyright_text=copyright_text,
                 creation_info=creation_info,
                 # For simplicity, using empty lists for complex types
                 primary_purpose=None,
                 built_time=None,
                 release_time=None,
-                validated=None,
                 attribution_text=None,
                 verified_using=[],
                 external_reference=[],
