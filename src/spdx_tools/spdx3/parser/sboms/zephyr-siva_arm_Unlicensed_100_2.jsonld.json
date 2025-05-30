@@ -1,0 +1,3186 @@
+{
+  "@context" : "https://spdx.org/rdf/3.0.1/spdx-context.jsonld",
+  "@graph" : [ {
+    "@id" : "_:creationInfo_0",
+    "type" : "CreationInfo",
+    "specVersion" : "3.0.1",
+    "createdBy" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd0", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd1" ],
+    "createdUsing" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/additionalToolSPDXRef-gnrtd2" ],
+    "created" : "2025-04-28T17:16:05Z"
+  }, {
+    "@id" : "_:creationInfo_1",
+    "type" : "CreationInfo",
+    "specVersion" : "3.0.1",
+    "createdBy" : [ "https://spdx.org/licenses/creatoragent/3_26_0" ],
+    "created" : "2024-12-30T00:00:00Z",
+    "comment" : "This is a generated SPDX License object from the SPDX license list"
+  }, {
+    "@id" : "_:creationInfo_2",
+    "type" : "CreationInfo",
+    "specVersion" : "3.0.1",
+    "createdBy" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd378", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd377" ],
+    "createdUsing" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/additionalToolSPDXRef-gnrtd379" ],
+    "created" : "2025-04-28T17:16:05Z"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd3",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd4" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd5",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd4",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd6",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd4",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd7",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd8" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd9",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd8",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd10",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd8",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd11",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd12" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd13",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd12",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd14",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd15" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd16",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd15",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd17",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd15",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd18",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd19" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd20",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd19",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd21",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd22" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd23",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd22",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd24",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd22",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd25",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd26" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd27",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd26",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd28",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd26",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd29",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd30" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd31",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd30",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd32",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd30",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd33",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd34" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd35",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd34",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd36",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd34",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd37",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd38" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd39",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd38",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd40",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd38",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd41",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd42" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd43",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd42",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd44",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd42",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd45",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd46" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd47",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd46",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd48",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd46",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd49",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd50" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd51",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd50",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd52",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd50",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd53",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd54" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd55",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd54",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd56",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd54",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd57",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd58" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd59",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd58",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd60",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd61" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd62",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd61",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd63",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd64" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd65",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd64",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd66",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd64",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd67",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd68" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd69",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd68",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd70",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd68",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd71",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd72" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd73",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd72",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd74",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd72",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd75",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd76" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd77",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd76",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd78",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd79" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd80",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd79",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd81",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd79",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd82",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd83" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd84",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd83",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd85",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd83",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd86",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd87" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd88",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd87",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd89",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd87",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd90",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd91" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd92",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd91",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd93",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd91",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd94",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd95" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd96",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd95",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd97",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd95",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd98",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd99" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd100",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd99",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd101",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd102" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd103",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd102",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd104",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd102",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd105",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd106" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd107",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd106",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd108",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd109" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd110",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd109",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd111",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd109",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd112",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd113" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd114",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd113",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd115",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd113",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd116",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd117" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd118",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd117",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd119",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd117",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd120",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd121" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd122",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd121",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd123",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd121",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd124",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd125" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd126",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd125",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd127",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd125",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd128",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd129" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd130",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd129",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd131",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd129",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd132",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd133" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd134",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd133",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd135",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd133",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd136",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd137" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd138",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd137",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd139",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd137",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd140",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd141" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd142",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd141",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd143",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd144" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd145",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd144",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd146",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd144",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd147",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd148" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd149",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd148",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd150",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd148",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd151",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd152" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd153",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd152",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd154",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd152",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd155",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd156" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd157",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd156",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd158",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd156",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd159",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd160" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd161",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd160",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd162",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd160",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd163",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd164" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd165",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd164",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd166",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd164",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd167",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd168" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd169",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd168",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd170",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd168",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd171",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd172" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd173",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd172",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd174",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd172",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd175",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd176" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd177",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd176",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd178",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd179" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd180",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd179",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd181",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd182" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd183",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd182",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd184",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd182",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd185",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd186" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd187",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd186",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd188",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd186",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd189",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd190" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd191",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd190",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd192",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd190",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd193",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd194" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd195",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd194",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd196",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd194",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd197",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd198" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd199",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd198",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd200",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd198",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd201",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd202" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd203",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd202",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd204",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd202",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd205",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd206" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd207",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd206",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd208",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd209" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd210",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd209",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd211",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd209",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd212",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd213" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd214",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd213",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd215",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd213",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd216",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd217" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd218",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd217",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd219",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd217",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd220",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd221" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd222",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd221",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd223",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd221",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd224",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd225" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd226",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd225",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd227",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd225",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd228",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd229" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd230",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd229",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd231",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd229",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd232",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd233" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd234",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd233",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd235",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd233",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd236",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd237" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd238",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd237",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd239",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd237",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd240",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd241" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd242",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd241",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd243",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd241",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd244",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd245" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd246",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd245",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd247",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd245",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd248",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd249" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd250",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd249",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd251",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd249",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd252",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd253" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd254",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd253",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd255",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd256" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd257",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd256",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd258",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd256",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd259",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd260" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd261",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd260",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd262",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd260",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd263",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd264" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd265",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd264",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd266",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd267" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd268",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd267",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd269",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd270" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd271",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd270",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd272",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd273" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd274",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd273",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd275",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd276" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd277",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd276",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd278",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd276",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd279",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd280" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd281",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd280",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd282",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd280",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd283",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd284" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd285",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd284",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd286",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd284",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd287",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd288" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd289",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd288",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd290",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd291" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd292",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd291",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd293",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd291",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd294",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd295" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd296",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd295",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd297",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd298" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd299",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd298",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd300",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd298",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd301",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd302" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd303",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd302",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd304",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd305" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd306",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd305",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd307",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd308" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd309",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd308",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd310",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd311" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd312",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd311",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd313",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd314" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd315",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd314",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd316",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd314",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd317",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd318" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd319",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd318",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd320",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd318",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd321",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd322" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd323",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd322",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd324",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd325" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd326",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd325",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd327",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd328" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd329",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd328",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd330",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd328",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd331",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd332" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd333",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd332",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd334",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd332",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd335",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd336" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd337",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd336",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd338",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd339" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd340",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd339",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd341",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd339",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd342",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd343" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd344",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd343",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd345",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd343",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd346",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd347" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd348",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd347",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd349",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd347",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd350",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd351" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd352",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd351",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd353",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd351",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd354",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd355" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd356",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd355",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd357",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd355",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd358",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd359" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd360",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd359",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd361",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd359",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd362",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd363" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd364",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd363",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd365",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd363",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd366",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd367" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd368",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd367",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd369",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd370" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd371",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd370",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd372",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd370",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd373",
+    "type" : "Relationship",
+    "relationshipType" : "describes",
+    "completeness" : "noAssertion",
+    "to" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd374" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd375",
+    "type" : "Relationship",
+    "relationshipType" : "hasConcludedLicense",
+    "to" : [ "https://spdx.org/rdf/3.0.1/terms/ExpandedLicensing/NoAssertionLicense" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd374",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd376",
+    "type" : "Relationship",
+    "relationshipType" : "hasDeclaredLicense",
+    "to" : [ "http://spdx.org/licenses/Apache-2.0" ],
+    "from" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd374",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/document0",
+    "type" : "SpdxDocument",
+    "dataLicense" : "http://spdx.org/licenses/CC0-1.0",
+    "rootElement" : [ "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd68", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd64", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd61", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd260", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd264", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd144", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd141", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd148", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd302", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd267", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd129", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd249", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd58", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd54", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd50", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd370", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd253", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd374", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd133", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd137", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd256", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd314", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd318", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd87", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd83", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd280", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd160", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd284", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd164", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd202", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd288", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd168", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd322", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd4", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd305", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd79", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd308", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd76", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd72", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd270", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd276", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd152", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd273", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd156", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd311", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd217", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd339", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd336", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd26", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd22", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd182", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd221", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd186", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd8", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd225", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd343", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd102", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd206", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd19", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd328", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd325", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd15", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd209", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd12", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd99", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd95", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd91", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd172", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd291", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd176", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd298", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd295", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd213", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd332", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd179", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd237", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd117", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd359", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd46", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd42", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd121", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd363", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd241", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd125", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd367", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd245", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd229", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd347", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd106", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd38", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd109", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd34", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd30", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd190", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd194", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd198", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd351", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd233", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd113", "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd355" ],
+    "name" : "workspace",
+    "creationInfo" : "_:creationInfo_2"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/additionalToolSPDXRef-gnrtd2",
+    "type" : "Tool",
+    "name" : "reuse-5.0.2",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/additionalToolSPDXRef-gnrtd379",
+    "type" : "Tool",
+    "name" : "reuse-5.0.2",
+    "creationInfo" : "_:creationInfo_2"
+  }, {
+    "spdxId" : "https://spdx.org/licenses/creatoragent/3_26_0",
+    "type" : "Agent",
+    "description" : "This object is created and maintained by the SPDX legal team (https://spdx.dev/engage/participate/legal-team/)",
+    "name" : "SPDX Legal Team",
+    "creationInfo" : "_:creationInfo_1"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd0",
+    "type" : "Organization",
+    "name" : "Anonymous",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd377",
+    "type" : "Organization",
+    "name" : "Anonymous",
+    "creationInfo" : "_:creationInfo_2"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd1",
+    "type" : "Person",
+    "name" : "Anonymous",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd378",
+    "type" : "Person",
+    "name" : "Anonymous",
+    "creationInfo" : "_:creationInfo_2"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd4",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2022 Microchip Technology Inc.",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "46a640ab0cf6bd2f48f1c1308e674e05906f02f9"
+    } ],
+    "name" : "./drivers/led/Kconfig.xec",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd8",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2024 Nordic Semiconductor ASA",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "00e9f36e839a8e4436e3b226cab8e4b11a6410c6"
+    } ],
+    "name" : "./boards/nordic/nrf54l15dk/nrf54l15dk_common.dtsi",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd12",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "668f3cbda26fe8f8cf3e47c63c055fc1178c7857"
+    } ],
+    "name" : "./boards/st/nucleo_f429zi/doc/img/nucleo_f429zi_cn12.jpg",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd15",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2015 Intel Corporation\nCopyright (c) 2023 Codecoup",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "c70eb15ded2b4a16ac51530d1a011a58c992bd8c"
+    } ],
+    "name" : "./tests/lib/net_buf/buf_simple/src/main.c",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd19",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "d7e8eb0cdf811c2fd465bc3878204cae47727cd2"
+    } ],
+    "name" : "./.github/workflows/backport.yml",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd22",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2021 Intel Corporation",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "59f25348929ac171f7ca7a8c12a5755c9c07804d"
+    } ],
+    "name" : "./lib/mem_blocks/mem_blocks.c",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd26",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2022-2023 Nordic Semiconductor ASA",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "189706bc2446abfdc430ad1314e7523573b931f8"
+    } ],
+    "name" : "./subsys/mgmt/mcumgr/util/include/mgmt/mcumgr/util/zcbor_bulk.h",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd30",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2024 Analog Devices Inc.",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "dabaffcc0ded1088c8d5ff40c9be93ed621920da"
+    } ],
+    "name" : "./drivers/sensor/adi/adxl372/adxl372_stream.c",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd34",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2023 Teslabs Engineering S.L.",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "9bc3bba07bc4d9d45fb3c6aadda2bf5d607dd58e"
+    } ],
+    "name" : "./boards/st/nucleo_g431rb/st_morpho_connector.dtsi",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd38",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2016 Intel Corporation",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "c241b67fd9eaa5120f2772bd851b978b58890480"
+    } ],
+    "name" : "./drivers/sensor/ti/ti_hdc/ti_hdc.h",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd42",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2024 Renesas Electronics Corporation",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "867fc85408d3ae86bf02ce491a1cc658e3d445fe"
+    } ],
+    "name" : "./drivers/pinctrl/renesas/ra/pinctrl_ra.c",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd46",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2025 Silicon Laboratories Inc. www.silabs.com",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "ca5c1918c7c99685e83f6b3a3bab619bd4b28475"
+    } ],
+    "name" : "./lib/heap/heap_array.c",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd50",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2016 Freescale Semiconductor, Inc.\nCopyright (c) 2019, Henrik Brix Andersen <henrik@brixandersen.dk>\nCopyright (c) 2019, NXP",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "9eb79d60b915493ba53aa3f82149be2ed1b34120"
+    } ],
+    "name" : "./drivers/i2c/i2c_rv32m1_lpi2c.c",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd54",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2022 Henrik Brix Andersen <henrik@brixandersen.dk>",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "fab88d0b3d9afbafecab03f972b36b560d44cff2"
+    } ],
+    "name" : "./include/zephyr/drivers/can/can_sja1000.h",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd58",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "fc6b220fb9d393d9fdf814b77cf6594742746b71"
+    } ],
+    "name" : "./dts/bindings/adc/adi,ad4114-adc.yaml",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd61",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "2d3431d30602bdfb5e019c6bf3d2d22fa97dbc36"
+    } ],
+    "name" : "./dts/bindings/flash_controller/st,stm32f4-flash-controller.yaml",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd64",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2023-2024 Marcin Niestroj",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "868b58ad6743cf48949d0d4376d52360358fd569"
+    } ],
+    "name" : "./drivers/net/nsos_netdb.h",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd68",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2022 Tomislav Milkovic",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "a8c89525820b6ffc45140f19c1413da3a14c5677"
+    } ],
+    "name" : "./dts/arm/st/l4/stm32l486Xg.dtsi",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd72",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2022 YuLong Yao <feilongphone@gmail.com>",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "befb6534b78fc5620177f4f4ea9fe69f6219a094"
+    } ],
+    "name" : "./soc/gd/gd32/gd32a50x/Kconfig.soc",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd76",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "abe787b1f1fc09fae6db96900d823e82a3b257af"
+    } ],
+    "name" : "./boards/st/stm32l1_disco/support/openocd.cfg",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd79",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2018 Intel Corporation",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "4803647fbbe779b361334e0383fcbc8f858771ee"
+    } ],
+    "name" : "./subsys/portability/cmsis_rtos_v1/cmsis_semaphore.c",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd83",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "06f2eec45204005e37e53fa14030b5ea5301bd62"
+    } ],
+    "name" : "./tests/bsim/bluetooth/host/att/read_fill_buf/server/CMakeLists.txt",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd87",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2022 ITE Technology Corporation.",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "1cb44728db59bbf9d6ea614007ea1af20ed56e50"
+    } ],
+    "name" : "./dts/bindings/sensor/ite,it8xxx2-vcmp.yaml",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd91",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2023 Ambiq Micro Inc. <www.ambiq.com>",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "c07011ac3bb8f35a3796198539833c1e5e1d41ac"
+    } ],
+    "name" : "./soc/ambiq/apollo3x/pinctrl_soc.h",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd95",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2019 STMicroelectronics",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "3eaa75bce6a7a2d79a0b57a91aab71e17f5c465a"
+    } ],
+    "name" : "./samples/shields/x_nucleo_iks01a3/standard/CMakeLists.txt",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd99",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "bdd0226564c05a329635aace79aeb36ab3ae9ec1"
+    } ],
+    "name" : "./samples/drivers/dac/boards/twr_ke18f.overlay",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd102",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2024 Nordic Semiconductor ASA\nCopyright (c) 2025 Ezurio LLC",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "b7673a8b4ed0089e96ab04f6c9a06cbb957146c7"
+    } ],
+    "name" : "./tests/drivers/counter/counter_basic_api/boards/bl54l15_dvk_nrf54l15_cpuapp.overlay",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd106",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "35652408538a7f6aa1ab2a262b653479705f7e48"
+    } ],
+    "name" : "./tests/drivers/can/timing/boards/stm32h745i_disco_stm32h745xx_m7.conf",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd109",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2024 Nordic Semiconductor ASA",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "da94caf5776dd9a2939a10bdd5fd27cb689a8d0a"
+    } ],
+    "name" : "./tests/cmake/overlays/soc_folder_kconfig/Kconfig",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd113",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) Benjamin Björnsson <benjamin.bjornsson@gmail.com>",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "6a6215bf1d944dd7142e3443c3e3491a1c36ad82"
+    } ],
+    "name" : "./tests/drivers/adc/adc_api/boards/mec15xxevb_assy6853.overlay",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd117",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2022 Cypress Semiconductor Corporation (an Infineon company) or",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "9900e81284d4c27adb284232def2e00783a76906"
+    } ],
+    "name" : "./dts/arm/infineon/cat1a/mpns/CY8C6316BZI_BLF53.dtsi",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd121",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2017 Intel Corp.",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "71564f414a3c3e0dd7a1dad46d0a499a010666ed"
+    } ],
+    "name" : "./subsys/usb/device/class/netusb/Kconfig",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd125",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright 2022 NXP",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "617793951b8e067d73c3ef5433493afb9413d3c1"
+    } ],
+    "name" : "./tests/boot/test_mcuboot/swapped_app/src/main.c",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd129",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "d59d9fa3491944cedf0b501666c5902492658c06"
+    } ],
+    "name" : "./soc/intel/apollo_lake/CMakeLists.txt",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd133",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2022 Nordic Semiconductor ASA",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "f509dcad3e03b0400cec42ba34c690982acfec23"
+    } ],
+    "name" : "./samples/boards/bbc/microbit/line_follower_robot/dts/bindings/motor-controller.yaml",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd137",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2015-2016 Intel Corporation",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "7f3d8868dc0fb119dfcd5dafe9dbe313d2ac2985"
+    } ],
+    "name" : "./drivers/bluetooth/hci/h5.c",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd141",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "db06f593470401e683b85b25c1fc8c48ddc77f34"
+    } ],
+    "name" : "./tests/kernel/threads/thread_stack/prj_armv8m_mpu_stack_guard.conf",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd144",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright 2024 NXP",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "fde7326472b37b585cbc922c9c392efd1000ee61"
+    } ],
+    "name" : "./samples/subsys/ipc/openamp_rsc_table/boards/imx8mp_evk_mimx8ml8_m7.overlay",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd148",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2019-2020 Nordic Semiconductor ASA",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "c6d7d111d985e089fcec0782ff68538458fe9b0b"
+    } ],
+    "name" : "./boards/nordic/nrf5340dk/nrf5340_cpuapp_common.dtsi",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd152",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2024 Martin Stumpf <finomnis@gmail.com>",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "a2a35489845352228996699b238d6c03aba749c2"
+    } ],
+    "name" : "./samples/modules/lvgl/screen_transparency/src/main.c",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd156",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright 2022 NXP\nCopyright 2022 Nordic Semiconductor ASA",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "23024b6e1950f563e9dc877bfb77cd3d5e9dfd3e"
+    } ],
+    "name" : "./drivers/regulator/regulator_shell.c",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd160",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2019 Stephanos Ioannidis <root@stephanos.io>",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "4ec831495646ef3730e9d32e7c025cddbf94beb5"
+    } ],
+    "name" : "./include/zephyr/arch/arch_inlines.h",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd164",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2023 Nuvoton Technology Corporation.",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "79d1f9fa3031bc4b91d5414f2d416b4ffb28d92c"
+    } ],
+    "name" : "./drivers/spi/spi_numaker.c",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd168",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2023 EPAM Systems",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "1ce9adab34d9b5496adef459c9faaa6eb63113f3"
+    } ],
+    "name" : "./boards/renesas/rcar_salvator_xs/rcar_salvator_xs_defconfig",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd172",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2016 Intel Corporation",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "e1a3ab06d9312a0adc6376163c5d4dd41b96364b"
+    } ],
+    "name" : "./drivers/sensor/st/lis3mdl/Kconfig",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd176",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "fcd4b4c9b3d708d47f5002fbd371fda3b4634669"
+    } ],
+    "name" : "./samples/application_development/code_relocation_nocopy/boards/stm32h747i_disco_m7.conf",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd179",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "21d0723ae85973edec8fee780b8726e4d34cf717"
+    } ],
+    "name" : "./doc/connectivity/bluetooth/img/ctlr_sched_msc_event_abort.png",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd182",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2021 Nordic Semiconductor ASA",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "ec52f6e77b35ed72cad03fb35cef7cd8d2cd9cfe"
+    } ],
+    "name" : "./drivers/audio/dmic_nrfx_pdm.c",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd186",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2021, MADMACHINE LIMITED",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "2d448b8770503952539b1310724ba549f3a5e8ce"
+    } ],
+    "name" : "./boards/madmachine/mm_feather/mmfeather_sdram_ini_dcd.c",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd190",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright 2023 Nordic Semiconductor",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "b07a0ab658dd5f4418d463f45b5be091608cafec"
+    } ],
+    "name" : "./tests/bsim/bluetooth/mesh/tests_scripts/op_agg/loopback.sh",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd194",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2022 Nordic Semiconductor ASA",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "2654e38a13bc466daede565742f38909362ff8e0"
+    } ],
+    "name" : "./tests/subsys/mgmt/mcumgr/fs_mgmt_hash_supported/prj.conf",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd198",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2025 Ezurio LLC\nCopyright (c) 2025 Nordic Semiconductor ASA",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "92e63f7d14890e7f8733aa8d05e68a4fbc59de54"
+    } ],
+    "name" : "./tests/bluetooth/tester/boards/bl54l15_dvk_nrf54l15_cpuapp.conf",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd202",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (C) 2024 EPAM Systems.",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "a7bf0601db66a65ab41a36a674c0f0ed10a69b00"
+    } ],
+    "name" : "./snippets/xen_dom0/boards/rcar_spider_s4_r8a779f0_a55.overlay",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd206",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "9c80cc6bd31e27b372ddec78157d21a3aeab3d37"
+    } ],
+    "name" : "./tests/drivers/i2c/i2c_api/boards/ek_ra2a1.overlay",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd209",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2024 Cienet",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "f251671a092a314cee3941f212c35f0c65689d09"
+    } ],
+    "name" : "./drivers/sensor/sensor_clock_external.c",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd213",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "80c5c8628852aae30c802d2cf132fe6a4bff0fe0"
+    } ],
+    "name" : "./tests/lib/cmsis_nn/CMakeLists.txt",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd217",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2017 Linaro Limited",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "22d058b2c452ea6627c20b5edc6130d5e8be2520"
+    } ],
+    "name" : "./include/zephyr/dt-bindings/i2c/i2c.h",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd221",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2018-2023 Nordic Semiconductor ASA",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "31a519bbec9da9270c17211c76f98bd46dcde87b"
+    } ],
+    "name" : "./boards/nordic/nrf52840dongle/Kconfig",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd225",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2022 GARDENA GmbH",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "d0c98a92f76a92b8f21bdd0be3fbfb2ca5396026"
+    } ],
+    "name" : "./tests/net/lib/lwm2m/observation/src/lwm2m_observation.c",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd229",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2024 Vitrolife A/S",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "80d04c44b1a9ca67e5417bfa6aa18e6742615acc"
+    } ],
+    "name" : "./samples/sensor/veaa_x_3/Kconfig",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd233",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "1b40f60be5dddb2a3164dde2681418d5b0e8baab"
+    } ],
+    "name" : "./samples/subsys/testsuite/pytest/shell/CMakeLists.txt",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd237",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2022 Nordic Semiconductor",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "d313b4bf2f7c166f094ee5f66e14da5e5661351c"
+    } ],
+    "name" : "./boards/ezurio/pinnacle_100_dvk/pinnacle_100_dvk-pinctrl.dtsi",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd241",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2025 Nordic Semiconductor ASA",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "485b02f036251a2e07b2aa871da877209d9ee96f"
+    } ],
+    "name" : "./tests/bsim/bluetooth/host/misc/disconnect/common/common.h",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd245",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2016 Intel Corporation",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "557fb8f3f5eb27f011809df5b4b5fe826a4e9e6b"
+    } ],
+    "name" : "./subsys/net/l2/ieee802154/ieee802154_6lo_fragment.h",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd249",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2022 The Chromium OS Authors.",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "546dcf7b271bc91de310a42c62ca43128d99b96e"
+    } ],
+    "name" : "./samples/subsys/usb_c/sink/boards/b_g474e_dpow1.overlay",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd253",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "2ef1d1c11b279089b07a988c3ce95cfd4de304e8"
+    } ],
+    "name" : "./boards/st/stm32f7508_dk/doc/img/stm32f7508_dk.jpg",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd256",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2022 Nordic Semiconductor ASA",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "e9a2c81d77d260a08abfed84bf523915ae2043c5"
+    } ],
+    "name" : "./tests/bsim/bluetooth/host/gatt/notify/src/common.h",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd260",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2022 Henrik Brix Andersen <henrik@brixandersen.dk>",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "16d6f3c225bd6065c946cf22037ca38bad3375c6"
+    } ],
+    "name" : "./drivers/can/Kconfig.kvaser",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd264",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "7a7bfec76c0a8161d003c2e2f734bd839683b5b8"
+    } ],
+    "name" : "./tests/drivers/watchdog/wdt_basic_api/prj.conf",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd267",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "3ced1b2cd60c7b4f5f6a4b87fbc4816045a62a91"
+    } ],
+    "name" : "./samples/net/sockets/echo_client/overlay-ot.conf",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd270",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "a05f26ac660e1f65005340e1cf98bede541e1cdd"
+    } ],
+    "name" : "./.github/workflows/license_check.yml",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd273",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "e4b97f12d0a0e00ae3b419cfc14af2b3f5600335"
+    } ],
+    "name" : "./boards/qemu/xtensa/qemu_xtensa_sample_controller32_mpu.yaml",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd276",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2021-2024 Intel Corporation",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "debcffadc2437c55cace0b60663e47d880e78094"
+    } ],
+    "name" : "./soc/intel/lakemont/CMakeLists.txt",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd280",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2023 Arm Limited (or its affiliates). All rights reserved.",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "05d49bc7fae9557c17b8ebf8a479e99f62a19077"
+    } ],
+    "name" : "./drivers/ethernet/eth_smsc91x_priv.h",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd284",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2023 Intel Corporation.",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "7e078a06fb90866342af439f207670892b327e79"
+    } ],
+    "name" : "./drivers/counter/counter_dw_timer.c",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd288",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "6d17149c3be8e37b956c1cc75612de799b20bf70"
+    } ],
+    "name" : "./boards/ite/it8xxx2_evb/doc/WinFlashTool_P2.jpg",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd291",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "abd15df3253091bf22a4c4d4cbd62aab85435624"
+    } ],
+    "name" : "./samples/basic/custom_dts_binding/CMakeLists.txt",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd295",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "7e6b103f83bc49423aa780ad7ef06525eef8ea5c"
+    } ],
+    "name" : "./boards/st/nucleo_f767zi/doc/index.rst",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd298",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2023 Espressif Systems (Shanghai) Co., Ltd.",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "ddb6a118ff75e65e17584b1f9148ac4d332d1d39"
+    } ],
+    "name" : "./dts/xtensa/espressif/esp32s3/esp32s3_mini_n4r2.dtsi",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd302",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "962cafe8e6f3ef919e1ff7a4a681869bccdaf06f"
+    } ],
+    "name" : "./boards/fanke/fk7b0m1_vbt6/fk7b0m1_vbt6.yaml",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd305",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "d2dfd80119c19a9e74b39dc5eb2c3042dae68ad1"
+    } ],
+    "name" : "./doc/services/zbus/images/zbus_overview.svg",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd308",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "707fe0462b18b86d9a916293ef2c2366643fffb3"
+    } ],
+    "name" : "./tests/benchmarks/sys_kernel/prj.conf",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd311",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "0d7182a77d3ec3bc9e6075ff651ce71a83b01a5f"
+    } ],
+    "name" : "./samples/subsys/shell/fs/boards/reel_board.conf",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd314",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2024 STMicroelectronics",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "a8ffbe4fa0f3a2119fce48db3f08f4a03b05b239"
+    } ],
+    "name" : "./samples/sensor/stream_fifo/src/main.c",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd318",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2023 Codecoup",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "09ee7abd0d8e1680efc8d7416680aaf45cff8aa2"
+    } ],
+    "name" : "./tests/bluetooth/audio/mocks/src/mem_slab.c",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd322",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "fad385eda7806b5562765d70cc62ee8e8067e098"
+    } ],
+    "name" : "./tests/drivers/spi/spi_loopback/boards/numaker_pfm_m467.conf",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd325",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "7878ba5352f7278f63e99660ec574ffcd997405c"
+    } ],
+    "name" : "./boards/intel/niosv_g/niosv_g.yaml",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd328",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2020, Manivannan Sadhasivam <mani@kernel.org>",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "36ade8ba92d2dfa1732491cfc042309fdcb61fd1"
+    } ],
+    "name" : "./soc/nxp/imx/imx8m/m4_mini/soc.h",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd332",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2023 Graphcore Ltd, All rights reserved.",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "d3b67eed18d8c41b9d55693df3e7f6ae15344692"
+    } ],
+    "name" : "./tests/drivers/spi/spi_loopback/overlay-stm32-spi-16bits-dma-dt-nocache-mem.conf",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd336",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "3356a283d5dbd72f2eb472c907abc3990ce1dcdf"
+    } ],
+    "name" : "./boards/wch/ch32v003evt/board.yml",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd339",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2018 qianfan Zhao",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "ba2bc1b29ce73181ed32ed362dca3ffefda9311b"
+    } ],
+    "name" : "./boards/st/nucleo_f070rb/Kconfig.nucleo_f070rb",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd343",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2021 Actinius",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "fbea3aaff4ebbdacd96cd244594fa1a1486b582a"
+    } ],
+    "name" : "./boards/actinius/icarus_bee/actinius_icarus_bee_nrf9160_ns.dts",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd347",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2022 Codecoup",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "d2e48672d7934e6564c3aaa76e726b022b10e074"
+    } ],
+    "name" : "./samples/bluetooth/hap_ha/src/hap_ha.h",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd351",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2018 Linaro Limited",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "edfc8c5a495f1f9ccdeabb484c0fd28184ced3ab"
+    } ],
+    "name" : "./dts/arm/st/f4/stm32f401Xe.dtsi",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd355",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2019 eTactica ehf",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "d5b1b32b79b78ec791fe9f11efa18a5bc299f26b"
+    } ],
+    "name" : "./dts/arm/st/l1/stm32l151X8-a.dtsi",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd359",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright 2024 Nordic Semiconductor ASA",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "b64943f4c5245d7496b65092e53cd07af161ac40"
+    } ],
+    "name" : "./samples/drivers/watchdog/boards/nrf54l15dk_nrf54l10_cpuapp.overlay",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd363",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2023 Cypress Semiconductor Corporation (an Infineon company) or",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "a17418d211df73bfc19ffba7c1a24a64e02ffe03"
+    } ],
+    "name" : "./soc/infineon/cat1a/psoc6_legacy/Kconfig.soc",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd367",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "e78a83d5a391ae45db9bbf3fdb3ef8f7961b58ab"
+    } ],
+    "name" : "./doc/develop/tools/index.rst",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd370",
+    "type" : "software_File",
+    "software_copyrightText" : "Copyright (c) 2024 Nordic Semiconductor ASA\nCopyright (c) 2025 Ezurio LLC",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "c3b9625f0b779094e8d1d50255674c4245f87d4c"
+    } ],
+    "name" : "./tests/drivers/uart/uart_errors/boards/bl54l15_dvk_nrf54l15_cpuapp.overlay",
+    "creationInfo" : "_:creationInfo_0"
+  }, {
+    "spdxId" : "http://spdx.org/spdxdocs/spdx-v2.1-9309d0b1-5659-4ef6-b1c5-6631efc2722a-specv3/SPDXRef-gnrtd374",
+    "type" : "software_File",
+    "software_copyrightText" : "NONE",
+    "verifiedUsing" : [ {
+      "type" : "Hash",
+      "algorithm" : "sha1",
+      "hashValue" : "6f3dbc44c15d776269b7b435226b7db013e8dd0c"
+    } ],
+    "name" : "./tests/bluetooth/tester/boards/nrf52dk_nrf52832.overlay",
+    "creationInfo" : "_:creationInfo_0"
+  } ]
+}
