@@ -1,0 +1,61 @@
+{
+  "@context": "https://spdx.org/rdf/3.0.0/spdx-context.jsonld",
+  "@graph": [
+    {
+      "@id": "_:creationInfo_0",
+      "type": "CreationInfo",
+      "specVersion": "3.0.1",
+      "createdBy": ["http://spdx.org/spdxdocs/example-doc/SPDXRef-Org1", "http://spdx.org/spdxdocs/example-doc/SPDXRef-Person1"],
+      "createdUsing": ["http://spdx.org/spdxdocs/example-doc/SPDXRef-Tool1"],
+      "created": "2025-05-29T00:00:00Z"
+    },
+    {
+      "spdxId": "http://spdx.org/spdxdocs/example-doc/document0",
+      "type": "SpdxDocument",
+      "dataLicense": "https://spdx.org/licenses/CC0-1.0",
+      "name": "workspace",
+      "creationInfo": "_:creationInfo_0",
+      "rootElement": ["http://spdx.org/spdxdocs/example-doc/SPDXRef-Package1", "http://spdx.org/spdxdocs/example-doc/SPDXRef-File1"]
+    },
+    {
+      "spdxId": "http://spdx.org/spdxdocs/example-doc/SPDXRef-Package1",
+      "type": "software_Package",
+      "name": "Example Package",
+      "software_packageVersion": "1.0.0",
+      "creationInfo": "_:creationInfo_0"
+    },
+    {
+      "spdxId": "http://spdx.org/spdxdocs/example-doc/SPDXRef-File1",
+      "type": "software_File",
+      "name": "Example File",
+      "software_copyrightText": "NONE",
+      "creationInfo": "_:creationInfo_0"
+    },
+    {
+      "spdxId": "http://spdx.org/spdxdocs/example-doc/SPDXRef-Rel1",
+      "type": "Relationship",
+      "relationshipType": "describes",
+      "from": "http://spdx.org/spdxdocs/example-doc/document0",
+      "to": ["http://spdx.org/spdxdocs/example-doc/SPDXRef-File1"],
+      "creationInfo": "_:creationInfo_0"
+    },
+    {
+      "spdxId": "http://spdx.org/spdxdocs/example-doc/SPDXRef-Person1",
+      "type": "Person",
+      "name": "Jane Doe",
+      "creationInfo": "_:creationInfo_0"
+    },
+    {
+      "spdxId": "http://spdx.org/spdxdocs/example-doc/SPDXRef-Org1",
+      "type": "Organization",
+      "name": "Example Org",
+      "creationInfo": "_:creationInfo_0"
+    },
+    {
+      "spdxId": "http://spdx.org/spdxdocs/example-doc/SPDXRef-Tool1",
+      "type": "Tool",
+      "name": "Example Tool",
+      "creationInfo": "_:creationInfo_0"
+    }
+  ]
+}
