@@ -570,7 +570,7 @@ class JSONLDV3Parser:
             An SpdxDocument object
         """
         try:
-            with open(file_path, 'r') as f:
+            with open(file_path, 'r', encoding='utf-8') as f:
                 document = json.load(f)
         except json.JSONDecodeError as e:
             raise ParserException(f"Invalid JSON in file {file_path}: {str(e)}")
