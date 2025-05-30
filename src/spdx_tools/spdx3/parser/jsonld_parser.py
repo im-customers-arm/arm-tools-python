@@ -166,7 +166,7 @@ class JSONLDV3Parser:
 
     def _parse_ai(self, obj: Dict[str, Any]):
         """Parse an AI extension/profile object from JSON-LD."""
-        from spdx_tools.spdx3.model.ai.ai import AI
+        from spdx_tools.spdx3.model.ai import AI
         try:
             spdx_id = self._get_required(obj, "spdxId")
             name = self._get_required(obj, "name")
@@ -224,7 +224,7 @@ class JSONLDV3Parser:
 
     def _parse_licensing(self, obj: Dict[str, Any]):
         """Parse a Licensing extension/profile object from JSON-LD."""
-        from spdx_tools.spdx3.model.licensing.licensing import Licensing
+        from spdx_tools.spdx3.model.licensing import Licensing
         try:
             spdx_id = self._get_required(obj, "spdxId")
             name = self._get_required(obj, "name")
