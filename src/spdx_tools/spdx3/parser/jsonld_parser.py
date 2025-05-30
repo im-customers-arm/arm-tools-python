@@ -48,28 +48,6 @@ class JSONLDV3Parser:
             self.validator = JSONLDSchemaValidator()
         self.object_cache = {}  # Cache for resolved objects
 
-    def build_spdx_v3_payload(self, document: Dict[str, Any]) -> Payload:
-        payload = Payload()
-        
-        spdx_document = self.parse_document(document)
-        payload.add_element(spdx_document)
-        
-        self._parse_graph(document, payload)
-        
-        # TODO: Check if these properties are in the object.
-        # Other properties to get
-        #  document_namespace: str = document.creation_info.document_namespace
-        #  creation_info: CreationInfo = spdx_document.creation_info
-        
-        # These are added iteratively to the Payload instance.
-        # packages
-        # files
-        # snippets
-        # relationships # Note this has nuanced merging functionality. 
-        # annotations
-        
-        return payload
-
     def _parse_graph(self, document: Dict[str, Any], payload: Payload) -> None:
         """Parse the entire SPDX v3 graph and add elements to a Payload."""
         graph = document.get("@graph", [])
@@ -85,7 +63,7 @@ class JSONLDV3Parser:
             obj_type = obj.get("type") or obj.get("@type")
 
             if obj_type == "SpdxDocument":
-                document = self._parse_document_object(obj, document.get("@context"))
+                document = self._parse_document_element(obj, document.get("@context"))
                 payload.add_element(document)
 
             elif obj_type in ["Package", "software_Package"]:
@@ -94,7 +72,7 @@ class JSONLDV3Parser:
                     payload.add_element(package)
 
             elif obj_type in ["File", "software_File"]:
-                file = self._parse_file(obj)
+                file = self._parse_file_element(obj)
                 if file:
                     payload.add_element(file)
 
@@ -271,7 +249,7 @@ class JSONLDV3Parser:
             logger.warning(f"Error parsing Licensing extension: {str(e)}")
             return None
 
-    def _parse_document_object(self, obj: Dict[str, Any], context: Optional[str]) -> SpdxDocument:
+    def _parse_document_element(self, obj: Dict[str, Any], context: Optional[str]) -> SpdxDocument:
         """
         Parse an SpdxDocument object from JSON-LD.
         
@@ -385,7 +363,7 @@ class JSONLDV3Parser:
             logger.warning(f"Error parsing Package: {str(e)}")
             return None
 
-    def _parse_file(self, obj: Dict[str, Any]) -> Optional[File]:
+    def _parse_file_element(self, obj: Dict[str, Any]) -> Optional[File]:
         """
         Parse a File object from JSON-LD.
         
@@ -559,7 +537,7 @@ class JSONLDV3Parser:
             return None
 
     # Original entry point. Will replicate the bump from v2 workflow in this file.
-    def parse_document(self, document: Dict[str, Any]) -> SpdxDocument:
+    def check_spdx_document_validity(self, document: Dict[str, Any]) -> SpdxDocument:
         """
         Parse an SPDX v3 document dictionary into an SpdxDocument object.
         
@@ -569,89 +547,17 @@ class JSONLDV3Parser:
         Returns:
             An SpdxDocument object
         """
-        if self.validate:
+        try:
             errors = self.validator.validate(document)
             if errors:
                 error_msg = "\n".join(errors)
                 raise ParserException(f"Invalid SPDX v3 document:\n{error_msg}")
-        
-        try:
-            # Reset object cache for this parsing session
-            self.object_cache = {}
-            
-            # Extract the graph array from the document
-            graph = document.get("@graph", [])
-            if not graph:
-                raise ParserException("Missing @graph element in SPDX v3 JSON-LD document")
-                
-            # Build a map of all objects by their @id for reference resolution
-            self._build_object_map(graph)
-            
-            # Find the SpdxDocument object in the graph
-            spdx_doc_obj = self._find_spdx_document(graph)
-            if not spdx_doc_obj:
-                raise ParserException("Could not find SpdxDocument object in the graph")
-            
-            # Extract basic fields from the SPDX document object
-            spdx_id = self._get_required(spdx_doc_obj, "spdxId")
-            doc_type = self._get_optional(spdx_doc_obj, "type")
-            data_license = self._get_optional(spdx_doc_obj, "dataLicense")
-            name = self._get_required(spdx_doc_obj, "name")
-            
-            # Get lists (may need to resolve references)
-            element = self._get_list_field(spdx_doc_obj, "element", [])
-            root_element = self._get_list_field(spdx_doc_obj, "rootElement", [])
-            
-            # Optional fields
-            summary = self._get_optional(spdx_doc_obj, "summary")
-            description = self._get_optional(spdx_doc_obj, "description")
-            comment = self._get_optional(spdx_doc_obj, "comment")
-            extension = self._get_optional(spdx_doc_obj, "extension")
-            context = self._get_optional(document, "@context")  # Context is usually at the root
-            
-            # Parse complex objects
-            creation_info = self._parse_creation_info(self._resolve_reference(spdx_doc_obj.get("creationInfo")))
-            verified_using = self._parse_integrity_methods(
-                [self._resolve_reference(ref) for ref in self._ensure_list(spdx_doc_obj.get("verifiedUsing", []))]
-            )
-            external_reference = self._parse_external_references(
-                [self._resolve_reference(ref) for ref in self._ensure_list(spdx_doc_obj.get("externalReference", []))]
-            )
-            external_identifier = self._parse_external_identifiers(
-                [self._resolve_reference(ref) for ref in self._ensure_list(spdx_doc_obj.get("externalIdentifier", []))]
-            )
-            namespaces = self._parse_namespace_maps(
-                [self._resolve_reference(ref) for ref in self._ensure_list(spdx_doc_obj.get("namespaces", []))]
-            )
-            imports = self._parse_external_maps(
-                [self._resolve_reference(ref) for ref in self._ensure_list(spdx_doc_obj.get("imports", []))]
-            )
-            
-            # Create the SpdxDocument instance
-            spdx_doc = SpdxDocument(
-                spdx_id=spdx_id,
-                name=name,
-                element=element,
-                root_element=root_element,
-                creation_info=creation_info,
-                summary=summary,
-                description=description,
-                comment=comment,
-                verified_using=verified_using,
-                external_reference=external_reference,
-                external_identifier=external_identifier,
-                extension=extension,
-                namespaces=namespaces,
-                imports=imports,
-                context=context,
-            )
-            
-            return spdx_doc
-        
+
         except KeyError as e:
             raise ParserException(f"Missing required field: {e}")
         except Exception as e:
             raise ParserException(f"Error parsing SPDX v3 document: {e}")
+
 
     def parse_file(self, file_path: str) -> Payload:
         """
@@ -671,28 +577,14 @@ class JSONLDV3Parser:
         except FileNotFoundError:
             raise ParserException(f"File not found: {file_path}")
         
-        payload = self.build_spdx_v3_payload(document)
+        if self.validate:
+            self.check_spdx_document_validity(document)
 
+        payload = Payload()
+        self._parse_graph(document, payload)
+        
         return payload
-        
-
-    def parse_json_string(self, json_string: str) -> SpdxDocument:
-        """
-        Parse an SPDX v3 JSON-LD string into an SpdxDocument object.
-        
-        Args:
-            json_string: JSON-LD content as a string
-            
-        Returns:
-            An SpdxDocument object
-        """
-        try:
-            document = json.loads(json_string)
-        except json.JSONDecodeError as e:
-            raise ParserException(f"Invalid JSON string: {str(e)}")
-        
-        return self.parse_document(document)
-    
+  
     def _build_object_map(self, graph: List[Dict[str, Any]]) -> None:
         """
         Build a map of all objects in the graph by their @id.
