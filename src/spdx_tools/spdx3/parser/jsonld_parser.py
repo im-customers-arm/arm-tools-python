@@ -4,9 +4,8 @@
 import json
 import logging
 from datetime import datetime
-import os
 from pathlib import Path
-from typing import Any, Dict, List, Optional, TypeVar, cast, Union
+from typing import Any, Dict, List, Optional, TypeVar, Union
 
 from spdx_tools.spdx3.model import CreationInfo
 from spdx_tools.spdx3.payload import Payload
@@ -15,7 +14,6 @@ from spdx_tools.spdx3.model.relationship import Relationship, RelationshipType, 
 
 
 from spdx_tools.spdx3.model import (
-    Bundle,
     CreationInfo,
     ExternalIdentifier,
     ExternalMap,
