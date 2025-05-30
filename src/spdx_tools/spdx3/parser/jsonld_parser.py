@@ -888,13 +888,17 @@ class JSONLDV3Parser:
                     comment=comment,
                 )
             elif obj_type in ["SoftwareDependency", "software_SoftwareDependency"]:
-                from spdx_tools.spdx3.model.software.software_dependency import SoftwareDependency
+                from spdx_tools.spdx3.model.software import SoftwareDependencyRelationship
                 spdx_id = self._get_required(obj, "spdxId")
-                dependency = self._get_optional(obj, "dependency")
+                from_element = self._get_optional(obj, "from_element")
+                relationship_type = self._get_optional(obj, "relationship_type")
+                to = self._get_list_field(obj, "to", [])
                 comment = self._get_optional(obj, "comment")
-                return SoftwareDependency(
+                return SoftwareDependencyRelationship(
                     spdx_id=spdx_id,
-                    dependency=dependency,
+                    from_element=from_element,
+                    relationship_type=relationship_type,
+                    to=to,
                     comment=comment,
                 )
             else:
