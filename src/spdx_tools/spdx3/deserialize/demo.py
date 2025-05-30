@@ -51,14 +51,21 @@ logger.info("====================")
 
 
 small_jsonld_file_path = Path(__file__).parent / "sboms" / "small.jsonld"
-zephyr_jsonld_file_path = Path(__file__).parent / "sboms" / "zephyr.spdx.jsonld"
+# zephyr_jsonld_file_path = Path(__file__).parent / "sboms" / "zephyr.spdx.jsonld"
+# zephyr_jsonld_file_path = Path(__file__).parent / "sboms" / "zephyr_fixed_after_iteratitive_agentic_edits.jsonld"
+# zephyr_jsonld_file_path = Path(__file__).parent / "sboms" / "zephyr_modified_with_ai.jsonld"
+zephyr_jsonld_file_path = Path(__file__).parent / "sboms" / "zephyr-siva_arm_Unlicensed_10.jsonld.json"
 
 
-deserializer_ok = run_deserializer(small_jsonld_file_path, validate=True)
-if deserializer_ok:
-    logger.info(f"Deserializer completed successfully for file {str(small_jsonld_file_path)}")
+# deserializer_ok = run_deserializer(small_jsonld_file_path, validate=True)
+# if deserializer_ok:
+#     logger.info(f"Deserializer completed successfully for file {str(small_jsonld_file_path)}")
 
-
+# This worked.
+# deserializer_ok = run_deserializer(zephyr_jsonld_file_path, validate=False)
+# TODO: consider whether it makes sense to remove validation check altogether.
+# This might be unnecessary responsibility for the parser/deserializer.
+# Arguably the responsibility of the SBOM-generating process.
 deserializer_ok = run_deserializer(zephyr_jsonld_file_path, validate=False)
 if deserializer_ok:
     logger.info(f"Deserializer completed successfully for file {str(zephyr_jsonld_file_path)}")
