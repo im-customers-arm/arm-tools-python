@@ -136,11 +136,9 @@ class JSONLDV3Parser:
         try:
             # Extract required fields for Build extension
             spdx_id = self._get_required(obj, "spdxId")
+            build_type = self._get_required(obj, "build_type")
             name = self._get_required(obj, "name")
             # Optional fields
-            build_system = self._get_optional(obj, "buildSystem")
-            build_script = self._get_optional(obj, "buildScript")
-            build_env = self._get_optional(obj, "buildEnvironment")
             comment = self._get_optional(obj, "comment")
             # Creation info
             creation_info = None
@@ -151,10 +149,8 @@ class JSONLDV3Parser:
                     creation_info = self._parse_creation_info(creation_info_obj)
             return Build(
                 spdx_id=spdx_id,
+                build_type=build_type,
                 name=name,
-                build_system=build_system,
-                build_script=build_script,
-                build_environment=build_env,
                 comment=comment,
                 creation_info=creation_info,
             )
@@ -846,13 +842,13 @@ class JSONLDV3Parser:
             elif obj_type in ["SoftwareBuild", "software_SoftwareBuild"]:
                 from spdx_tools.spdx3.model.software.software_build import SoftwareBuild
                 spdx_id = self._get_required(obj, "spdxId")
+                build_type = self._get_required(obj, "build_type")
                 build_id = self._get_optional(obj, "buildId")
-                build_system = self._get_optional(obj, "buildSystem")
                 comment = self._get_optional(obj, "comment")
                 return SoftwareBuild(
                     spdx_id=spdx_id,
+                    build_type=build_type,
                     build_id=build_id,
-                    build_system=build_system,
                     comment=comment,
                 )
             elif obj_type in ["SoftwareValidation", "software_SoftwareValidation"]:
