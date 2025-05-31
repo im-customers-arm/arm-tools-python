@@ -160,28 +160,35 @@ class JSONLDV3Parser:
 
     def _parse_ai(self, obj: Dict[str, Any]):
         """Parse an AI extension/profile object from JSON-LD."""
-        from spdx_tools.spdx3.model.ai import AI
+        from spdx_tools.spdx3.model.ai import AIPackage
         try:
             spdx_id = self._get_required(obj, "spdxId")
             name = self._get_required(obj, "name")
-            ai_type = self._get_optional(obj, "aiType")
-            ai_framework = self._get_optional(obj, "aiFramework")
-            ai_model = self._get_optional(obj, "aiModel")
             comment = self._get_optional(obj, "comment")
             creation_info = None
             creation_info_ref = obj.get("creationInfo")
+            supplied_by = obj.get('supplied_by', [])
+            download_location = obj.get('download_location')
+            package_version = obj.get('package_version')
+            primary_purpose = obj.get('primary_purpose')
+            release_time = obj.get('release_time')
+            hyperparameter = obj.get('hyperparameter', {})
+
             if creation_info_ref:
                 creation_info_obj = self._resolve_reference(creation_info_ref)
                 if creation_info_obj:
                     creation_info = self._parse_creation_info(creation_info_obj)
-            return AI(
+            return AIPackage(
                 spdx_id=spdx_id,
                 name=name,
-                ai_type=ai_type,
-                ai_framework=ai_framework,
-                ai_model=ai_model,
                 comment=comment,
                 creation_info=creation_info,
+                supplied_by=supplied_by,
+                download_location=download_location,
+                package_version=package_version,
+                primary_purpose=primary_purpose,
+                release_time=release_time,
+                hyperparameter=hyperparameter
             )
         except Exception as e:
             logger.warning(f"Error parsing AI extension: {str(e)}")

@@ -159,3 +159,24 @@ def test_unknown_type_handling():
     parser._parse_graph(doc, payload)
     entries = payload.get_full_map()
     assert "SPDXRef-Unknown" not in entries or entries["SPDXRef-Unknown"] is not None
+
+def test_parse_document_with_ai_extension():
+    parser = JSONLDV3Parser(validate=False)
+    hyperparameters = {"foo": "bar"}
+    doc = {
+        "@graph": [
+            {
+                "@id": "SPDXRef-AI",
+                "type": "AI",
+                "spdxId": "SPDXRef-AI",
+                "name": "AI Example",
+                "hyperparameter": hyperparameters
+            }
+        ]
+    }
+    payload = Payload()
+    parser._parse_graph(doc, payload)
+    entries = payload.get_full_map()
+    assert "SPDXRef-AI" in entries
+    assert getattr(entries["SPDXRef-AI"], "name", None) == "AI Example"
+    assert getattr(entries["SPDXRef-AI"], "hyperparameter", None) == hyperparameters
