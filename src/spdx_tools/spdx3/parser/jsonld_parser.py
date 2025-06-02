@@ -4,13 +4,7 @@
 import json
 import logging
 from datetime import datetime
-from pathlib import Path
 from typing import Any, Dict, List, Optional, TypeVar, Union
-
-from spdx_tools.spdx3.model import CreationInfo
-from spdx_tools.spdx3.payload import Payload
-from spdx_tools.spdx3.model.software import File, Package
-from spdx_tools.spdx3.model.relationship import Relationship, RelationshipType, RelationshipCompleteness
 
 
 from spdx_tools.spdx3.model import (
@@ -22,6 +16,10 @@ from spdx_tools.spdx3.model import (
     NamespaceMap,
     SpdxDocument,
 )
+
+from spdx_tools.spdx3.model.relationship import Relationship, RelationshipType, RelationshipCompleteness
+from spdx_tools.spdx3.model.software import File, Package
+from spdx_tools.spdx3.payload import Payload
 from spdx_tools.spdx3.validation.jsonld_validator import JSONLDSchemaValidator
 
 logger = logging.getLogger(__name__)
