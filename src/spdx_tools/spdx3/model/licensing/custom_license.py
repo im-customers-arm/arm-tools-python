@@ -12,7 +12,7 @@ from spdx_tools.spdx3.model.licensing.license import License
 class CustomLicense(License):
     def __init__(
         self,
-        license_id: str,
+        spdx_id: str,
         license_name: str,
         license_text: str,
         license_comment: Optional[str] = None,

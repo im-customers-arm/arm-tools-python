@@ -211,3 +211,24 @@ def test_parse_document_with_dataset_extension():
     assert getattr(entries["SPDXRef-Dataset"], "name", None) == "Dataset Example"
     assert getattr(entries["SPDXRef-Dataset"], "dataset_type", None) == [DatasetType.IMAGE]
     assert getattr(entries["SPDXRef-Dataset"], "dataset_size", None) == 1000
+
+def test_parse_document_with_licensing_extension():
+    parser = JSONLDV3Parser(validate=False)
+    doc = {
+        "@graph": [
+            {
+                "@id": "SPDXRef-Licensing",
+                "type": "Licensing",
+                "spdxId": "SPDXRef-Licensing",
+                "name": "Licensing Example",
+                "licenseText": "Permission is hereby granted to any licensee..."
+            }
+        ]
+    }
+    payload = Payload()
+    parser._parse_graph(doc, payload)
+    entries = payload.get_full_map()
+    assert "SPDXRef-Licensing" in entries
+    assert getattr(entries["SPDXRef-Licensing"], "spdx_id", None) == "SPDXRef-Licensing"
+    assert getattr(entries["SPDXRef-Licensing"], "license_name", None) == "Licensing Example"
+    assert getattr(entries["SPDXRef-Licensing"], "license_text", None) == "Permission is hereby granted to any licensee..."

@@ -12,7 +12,7 @@ from spdx_tools.spdx3.model.licensing.any_license_info import AnyLicenseInfo
 
 @dataclass_with_properties
 class License(AnyLicenseInfo):
-    license_id: str
+    spdx_id: str
     license_name: str
     license_text: str
     license_comment: Optional[str] = None

@@ -233,29 +233,19 @@ class JSONLDV3Parser:
 
     def _parse_licensing(self, obj: Dict[str, Any]):
         """Parse a Licensing extension/profile object from JSON-LD."""
-        from spdx_tools.spdx3.model.licensing import Licensing
+        from spdx_tools.spdx3.model.licensing import ListedLicense
         try:
             spdx_id = self._get_required(obj, "spdxId")
             name = self._get_required(obj, "name")
-            license_expression = self._get_optional(obj, "licenseExpression")
-            license_list_version = self._get_optional(obj, "licenseListVersion")
-            comment = self._get_optional(obj, "comment")
-            creation_info = None
-            creation_info_ref = obj.get("creationInfo")
-            if creation_info_ref:
-                creation_info_obj = self._resolve_reference(creation_info_ref)
-                if creation_info_obj:
-                    creation_info = self._parse_creation_info(creation_info_obj)
-            return Licensing(
+            license_text = self._get_optional(obj, "licenseText")
+
+            return ListedLicense(
                 spdx_id=spdx_id,
-                name=name,
-                license_expression=license_expression,
-                license_list_version=license_list_version,
-                comment=comment,
-                creation_info=creation_info,
+                license_name=name,
+                license_text=license_text,
             )
         except Exception as e:
-            logger.warning(f"Error parsing Licensing extension: {str(e)}")
+            logger.warning(f"Error parsing ListedLicense extension: {str(e)}")
             return None
 
     def _parse_document_element(self, obj: Dict[str, Any], context: Optional[str]) -> SpdxDocument:
