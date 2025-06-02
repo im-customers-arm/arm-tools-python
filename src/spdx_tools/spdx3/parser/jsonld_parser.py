@@ -200,8 +200,12 @@ class JSONLDV3Parser:
         try:
             spdx_id = self._get_required(obj, "spdxId")
             name = self._get_required(obj, "name")
+            originated_by = self._get_required(obj, "originator")
+            download_location = self._get_required(obj, "downloadLocation")
+            primary_purpose = self._get_required(obj, "primaryPurpose")
+            built_time = self._get_required(obj, "builtTime")
+            release_time = self._get_required(obj, "releaseTime")
             dataset_type = self._get_optional(obj, "datasetType")
-            dataset_format = self._get_optional(obj, "datasetFormat")
             dataset_size = self._get_optional(obj, "datasetSize")
             comment = self._get_optional(obj, "comment")
             creation_info = None
@@ -213,8 +217,12 @@ class JSONLDV3Parser:
             return Dataset(
                 spdx_id=spdx_id,
                 name=name,
+                originated_by=originated_by,
+                download_location=download_location,
+                built_time=built_time,
+                primary_purpose=primary_purpose,
+                release_time=release_time,
                 dataset_type=dataset_type,
-                dataset_format=dataset_format,
                 dataset_size=dataset_size,
                 comment=comment,
                 creation_info=creation_info,

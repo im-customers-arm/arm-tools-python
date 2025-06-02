@@ -1,9 +1,12 @@
 # SPDX-FileCopyrightText: 2025 spdx contributors
 # SPDX-License-Identifier: Apache-2.0
+from datetime import datetime
 import pytest
 # import pdb; pdb.set_trace()
+from spdx_tools.spdx3.model.dataset.dataset import DatasetType
 from spdx_tools.spdx3.parser.jsonld_parser import JSONLDV3Parser, ParserException
 from spdx_tools.spdx3.payload import Payload
+from spdx_tools.spdx3.model.software import SoftwarePurpose
 
 # Minimal valid SPDX v3 JSON-LD document for testing
 def minimal_spdx_v3_doc():
@@ -180,3 +183,31 @@ def test_parse_document_with_ai_extension():
     assert "SPDXRef-AI" in entries
     assert getattr(entries["SPDXRef-AI"], "name", None) == "AI Example"
     assert getattr(entries["SPDXRef-AI"], "hyperparameter", None) == hyperparameters
+
+def test_parse_document_with_dataset_extension():
+    parser = JSONLDV3Parser(validate=False)
+    doc = {
+        "@graph": [
+            {
+                "@id": "SPDXRef-Dataset",
+                "type": "Dataset",
+                "spdxId": "SPDXRef-Dataset",
+                "name": "Dataset Example",
+                "originator": ["Some team"],
+                "downloadLocation": "/c/users/owner/downloads",
+                "primaryPurpose": SoftwarePurpose.DATA,
+                "builtTime": datetime(2025, 4, 1, 12, 0),
+                "releaseTime": datetime(2025, 6, 2, 12, 0),
+                "datasetType": [DatasetType.IMAGE],
+                "datasetFormat": "JPEG",
+                "datasetSize": 1000,
+            }
+        ]
+    }
+    payload = Payload()
+    parser._parse_graph(doc, payload)
+    entries = payload.get_full_map()
+    assert "SPDXRef-Dataset" in entries
+    assert getattr(entries["SPDXRef-Dataset"], "name", None) == "Dataset Example"
+    assert getattr(entries["SPDXRef-Dataset"], "dataset_type", None) == [DatasetType.IMAGE]
+    assert getattr(entries["SPDXRef-Dataset"], "dataset_size", None) == 1000
