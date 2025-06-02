@@ -232,3 +232,24 @@ def test_parse_document_with_licensing_extension():
     assert getattr(entries["SPDXRef-Licensing"], "spdx_id", None) == "SPDXRef-Licensing"
     assert getattr(entries["SPDXRef-Licensing"], "license_name", None) == "Licensing Example"
     assert getattr(entries["SPDXRef-Licensing"], "license_text", None) == "Permission is hereby granted to any licensee..."
+
+def test_parse_document_with_software_release_extension():
+    parser = JSONLDV3Parser(validate=False)
+    doc = {
+        "@graph": [
+            {
+                "@id": "SPDXRef-Release",
+                "type": "SoftwareRelease",
+                "spdxId": "SPDXRef-Release",
+                "releaseTime": "2025-05-30T12:00:00Z",
+                "comment": "Release comment"
+            }
+        ]
+    }
+    payload = Payload()
+    parser._parse_graph(doc, payload)
+    entries = payload.get_full_map()
+    assert "SPDXRef-Release" in entries
+    assert getattr(entries["SPDXRef-Release"], "spdx_id", None) == "SPDXRef-Release"
+    assert getattr(entries["SPDXRef-Release"], "release_time", None) == "2025-05-30T12:00:00Z"
+    assert getattr(entries["SPDXRef-Release"], "comment", None) == "Release comment"
