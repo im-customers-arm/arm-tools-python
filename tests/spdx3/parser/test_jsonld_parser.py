@@ -7,6 +7,7 @@ from spdx_tools.spdx3.model.dataset.dataset import DatasetType
 from spdx_tools.spdx3.parser.jsonld_parser import JSONLDV3Parser, ParserException
 from spdx_tools.spdx3.payload import Payload
 from spdx_tools.spdx3.model.software import SoftwarePurpose
+from spdx_tools.spdx3.model.relationship import RelationshipType
 
 # Minimal valid SPDX v3 JSON-LD document for testing
 def minimal_spdx_v3_doc():
@@ -253,3 +254,27 @@ def test_parse_document_with_software_release_extension():
     assert getattr(entries["SPDXRef-Release"], "spdx_id", None) == "SPDXRef-Release"
     assert getattr(entries["SPDXRef-Release"], "release_time", None) == "2025-05-30T12:00:00Z"
     assert getattr(entries["SPDXRef-Release"], "comment", None) == "Release comment"
+
+def test_parse_document_with_software_dependency_extension():
+    parser = JSONLDV3Parser(validate=False)
+    doc = {
+        "@graph": [
+            {
+                "@id": "SPDXRef-Dep",
+                "type": "SoftwareDependency",
+                "spdxId": "SPDXRef-Dep",
+                "from_element": "SPDXRef-DOCUMENT",
+                "relationship_type": RelationshipType.DEPENDSON,
+                "to": ["SPDXRef-Other"],
+                "comment": "Dependency comment"
+            }
+        ]
+    }
+    payload = Payload()
+    parser._parse_graph(doc, payload)
+    entries = payload.get_full_map()
+    assert "SPDXRef-Dep" in entries
+    assert getattr(entries["SPDXRef-Dep"], "from_element", None) == "SPDXRef-DOCUMENT"
+    assert getattr(entries["SPDXRef-Dep"], "relationship_type", None) == RelationshipType.DEPENDSON
+    assert getattr(entries["SPDXRef-Dep"], "to", None) == ["SPDXRef-Other"]
+    assert getattr(entries["SPDXRef-Dep"], "comment", None) == "Dependency comment"
