@@ -278,7 +278,10 @@ class JSONLDV3Parser:
             creation_info_obj = self._resolve_reference(creation_info_ref)
             if creation_info_obj:
                 creation_info = self._parse_creation_info(creation_info_obj)
-        
+
+        # Parse imports (ExternalMap list)
+        imports = self._parse_external_maps(obj.get("imports", []))
+
         # Create and return the document
         return SpdxDocument(
             spdx_id=spdx_id,
@@ -294,7 +297,7 @@ class JSONLDV3Parser:
             external_identifier=[],
             extension=extension,
             namespaces=[],
-            imports=[],
+            imports=imports,
             context=context,
         )
 
@@ -721,10 +724,33 @@ class JSONLDV3Parser:
         # Placeholder implementation
         return []
     
-    def _parse_external_maps(self, maps: List[Dict[str, Any]]) -> List[ExternalMap]:
-        """Parse external maps."""
-        # Placeholder implementation
-        return []
+    def _parse_external_maps(self, maps: list) -> List[ExternalMap]:
+        """Parse a list of external maps, resolving references as needed."""
+        return [self._parse_embedded_object(m, self._parse_external_map) for m in maps]
+
+    def _parse_external_map(self, obj: Dict[str, Any]) -> Optional[ExternalMap]:
+        from spdx_tools.spdx3.model.external_map import ExternalMap
+        try:
+            external_id = obj.get("externalId") or obj.get("external_id")
+
+            # verified_using is a list of IntegrityMethod, parse if present
+            verified_using = []
+            if "verifiedUsing" in obj:
+                # TODO: implement parsing of IntegrityMethod objects if needed
+                verified_using = []
+
+            location_hint = obj.get("locationHint") or obj.get("location_hint")
+            defining_document = obj.get("definingDocument") or obj.get("defining_document")
+
+            return ExternalMap(
+                external_id=external_id,
+                verified_using=verified_using,
+                location_hint=location_hint,
+                defining_document=defining_document,
+            )
+        except Exception as e:
+            logger.warning(f"Error parsing ExternalMap: {str(e)}")
+            return None
     
     def _parse_security(self, obj: Dict[str, Any]):
         """Parse a Security extension/profile object from JSON-LD."""

@@ -422,3 +422,35 @@ def test_parse_external_identifier():
     assert extid.comment == "CPE identifier for this package"
     assert extid.identifier_locator == ["https://cpe.example.com/lookup"]
     assert extid.issuing_authority == "https://cpe.example.com/"
+
+def test_parse_document_with_imports():
+    parser = JSONLDV3Parser(validate=False)
+    EXTERNAL_MAP_JSONLD = {
+        "externalId": "pkg:pypi/example@1.0.0",
+    }
+
+    document = {
+        "@graph": [
+            {
+                "@id": "SPDXRef-DOCUMENT",
+                "type": "SpdxDocument",
+                "spdxId": "SPDXRef-DOCUMENT",
+                "name": "Test Document",
+                "imports": [EXTERNAL_MAP_JSONLD]
+            }
+        ]
+    }
+    payload = Payload()
+    parser._parse_graph(document, payload)
+    entries = payload.get_full_map()
+    assert "SPDXRef-DOCUMENT" in entries
+
+    doc = entries["SPDXRef-DOCUMENT"]
+    imports = doc.imports
+
+    from spdx_tools.spdx3.model.external_map import ExternalMap
+    assert isinstance(imports, list)
+    assert len(imports) == 1
+    external_map = imports[0]
+    assert isinstance(external_map, ExternalMap)
+    assert external_map.external_id == "pkg:pypi/example@1.0.0"
