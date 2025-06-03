@@ -490,3 +490,116 @@ def test_parse_external_reference():
     assert external_reference.locator == ["org.apache.tomcat:tomcat:9.0.0.M4"]
     assert external_reference.content_type == "externalReferenceContentType"
     assert external_reference.comment == "externalReferenceComment"
+
+def test_parse_file_with_integrity_method():
+    parser = JSONLDV3Parser(validate=False)
+    # IntegrityMethod embedded in a File
+    INTEGRITY_METHOD_JSONLD = {
+        "algorithm": "SHA1",
+        "hashValue": "71c4025dd9897b364f3ebbb42c484ff43d00791c",
+        "comment": "hashComment"
+    }
+    document = {
+        "@graph": [
+            {
+                "@id": "SPDXRef-File",
+                "type": "File",
+                "spdxId": "SPDXRef-File",
+                "name": "Test File",
+                "verifiedUsing": [INTEGRITY_METHOD_JSONLD]
+            }
+        ]
+    }
+    payload = Payload()
+    parser._parse_graph(document, payload)
+    entries = payload.get_full_map()
+    assert "SPDXRef-File" in entries
+    file = entries["SPDXRef-File"]
+    verified_using_list = file.verified_using
+    from spdx_tools.spdx3.model.integrity_method import IntegrityMethod
+    assert isinstance(verified_using_list, list)
+    assert len(verified_using_list) == 1
+    integrity_method = verified_using_list[0]
+    assert isinstance(integrity_method, IntegrityMethod)
+    assert integrity_method.algorithm.name == "SHA1"
+    assert integrity_method.hash_value == "71c4025dd9897b364f3ebbb42c484ff43d00791c"
+    assert integrity_method.comment == "hashComment"
+
+def test_parse_package_with_integrity_method():
+    parser = JSONLDV3Parser(validate=False)
+    # Hash/IntegrityMethod embedded in a Package
+    INTEGRITY_METHOD_JSONLD = {
+        "algorithm": "SHA256",
+        "hashValue": "abcdef1234567890",
+        "comment": "package hash"
+    }
+    document = {
+        "@graph": [
+            {
+                "@id": "SPDXRef-Package",
+                "type": "Package",
+                "spdxId": "SPDXRef-Package",
+                "name": "Test Package",
+                "verifiedUsing": [INTEGRITY_METHOD_JSONLD]
+            }
+        ]
+    }
+    payload = Payload()
+    parser._parse_graph(document, payload)
+    entries = payload.get_full_map()
+    assert "SPDXRef-Package" in entries
+    package = entries["SPDXRef-Package"]
+    verified_using_list = package.verified_using
+    from spdx_tools.spdx3.model.hash import Hash
+    assert isinstance(verified_using_list, list)
+    assert len(verified_using_list) == 1
+    integrity_method = verified_using_list[0]
+    assert isinstance(integrity_method, Hash)
+    assert integrity_method.algorithm.name == "SHA256"
+    assert integrity_method.hash_value == "abcdef1234567890"
+    assert integrity_method.comment == "package hash"
+
+def test_parse_external_map_with_integrity_method():
+    parser = JSONLDV3Parser(validate=False)
+    # Hash/IntegrityMethod embedded in an ExternalMap
+    INTEGRITY_METHOD_JSONLD = {
+        "algorithm": "SHA512",
+        "hashValue": "1234deadbeef5678",
+        "comment": "external map hash"
+    }
+    EXTERNAL_MAP_JSONLD = {
+        "externalId": "pkg:deb/debian/curl@7.50.3-1?arch=i386",
+        "verifiedUsing": [INTEGRITY_METHOD_JSONLD]
+    }
+    document = {
+        "@graph": [
+            {
+                "@id": "SPDXRef-DOCUMENT",
+                "type": "SpdxDocument",
+                "spdxId": "SPDXRef-DOCUMENT",
+                "name": "Test Document",
+                "imports": [EXTERNAL_MAP_JSONLD]
+            }
+        ]
+    }
+    payload = Payload()
+    parser._parse_graph(document, payload)
+    entries = payload.get_full_map()
+    assert "SPDXRef-DOCUMENT" in entries
+    doc = entries["SPDXRef-DOCUMENT"]
+    imports = doc.imports
+    from spdx_tools.spdx3.model.external_map import ExternalMap
+    from spdx_tools.spdx3.model.hash import Hash
+    assert isinstance(imports, list)
+    assert len(imports) == 1
+    external_map = imports[0]
+    assert isinstance(external_map, ExternalMap)
+    assert external_map.external_id == "pkg:deb/debian/curl@7.50.3-1?arch=i386"
+    verified_using_list = external_map.verified_using
+    assert isinstance(verified_using_list, list)
+    assert len(verified_using_list) == 1
+    hash_obj = verified_using_list[0]
+    assert isinstance(hash_obj, Hash)
+    assert hash_obj.algorithm.name == "SHA512"
+    assert hash_obj.hash_value == "1234deadbeef5678"
+    assert hash_obj.comment == "external map hash"
