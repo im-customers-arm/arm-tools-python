@@ -3,7 +3,10 @@
 from datetime import datetime
 import pytest
 # import pdb; pdb.set_trace()
+
+from semantic_version import Version
 from spdx_tools.spdx3.model.dataset.dataset import DatasetType
+from spdx_tools.spdx3.model.profile_identifier import ProfileIdentifierType
 from spdx_tools.spdx3.parser.jsonld_parser import JSONLDV3Parser, ParserException
 from spdx_tools.spdx3.payload import Payload
 from spdx_tools.spdx3.model.software import SoftwarePurpose
@@ -76,6 +79,111 @@ def test_parse_document_with_package():
     entries = payload.get_full_map()
     assert "SPDXRef-Package" in entries
     assert entries["SPDXRef-Package"].name == "Test Package"
+
+
+def test_parse_document_with_package_creation_info():
+    parser = JSONLDV3Parser(validate=False)
+    doc = {
+        "@graph": [
+            {
+                "@id": "SPDXRef-DOCUMENT",
+                "type": "SpdxDocument",
+                "spdxId": "SPDXRef-DOCUMENT",
+                "name": "Test Document"
+            },
+            {
+                "@id": "SPDXRef-Package",
+                "type": "Package",
+                "spdxId": "SPDXRef-Package",
+                "name": "Test Package",
+                "creationInfo": "SPDXRef-CreationInfo"
+            },
+            {
+                "@id": "SPDXRef-CreationInfo",
+                "type": "CreationInfo",
+                "spdxId": "SPDXRef-CreationInfo",
+                "created": "20250401",
+                "createdBy": ["Acme Corp"],
+                "profile": "BUILD",
+                "createdUsing": ["Some SBOM Generator"],
+                "comment":"This represents a creation info element",
+                "specVersion": "3.0.1"
+            }
+        ]
+    }
+    payload = Payload()
+    parser._parse_graph(doc, payload)
+    entries = payload.get_full_map()
+    creation_info = entries["SPDXRef-Package"].creation_info
+    assert creation_info.data_license == "CC0-1.0"
+    assert creation_info.created == datetime(2025, 4, 1)
+    assert creation_info.created_by == ["Acme Corp"]
+    assert creation_info.profile == [ProfileIdentifierType.BUILD]
+    assert creation_info.created_using == ["Some SBOM Generator"]
+    assert creation_info.comment == "This represents a creation info element"
+    assert creation_info.spec_version == Version("3.0.1")
+    
+def test_parse_creation_info_multiple_profiles():
+    parser = JSONLDV3Parser(validate=False)
+    doc = {
+        "@graph": [
+            {
+                "@id": "SPDXRef-DOCUMENT",
+                "type": "SpdxDocument",
+                "spdxId": "SPDXRef-DOCUMENT",
+                "name": "Test Document"
+            },
+            {
+                "@id": "SPDXRef-Package",
+                "type": "Package",
+                "spdxId": "SPDXRef-Package",
+                "name": "Test Package",
+                "creationInfo": "SPDXRef-CreationInfo"
+            },
+            {
+                "@id": "SPDXRef-CreationInfo",
+                "type": "CreationInfo",
+                "spdxId": "SPDXRef-CreationInfo",
+                "created": "20250401",
+                "createdBy": ["Acme Corp"],
+                # Multiple profiles may be configured.
+                "profile": [
+                    "EXTENSION",
+                    "SOFTWARE",
+                    "USAGE",
+                    "LICENSING",
+                    "SECURITY",
+                    "DATASET",
+                    "CORE",
+                    "BUILD",
+                    "AI",
+                ],              
+                "createdUsing": ["Some SBOM Generator"],
+                "comment":"This represents a creation info element",
+                "specVersion": "3.0.1"
+            }
+        ]
+    }
+
+    payload = Payload()
+    parser._parse_graph(doc, payload)
+    entries = payload.get_full_map()
+    creation_info = entries["SPDXRef-Package"].creation_info
+    print(creation_info.profile)
+    actual_profile_names = [p.name for p in creation_info.profile]
+    expected_profile_names = [
+        ProfileIdentifierType.AI.name,
+        ProfileIdentifierType.BUILD.name,
+        ProfileIdentifierType.CORE.name,
+        ProfileIdentifierType.DATASET.name,
+        ProfileIdentifierType.EXTENSION.name,
+        ProfileIdentifierType.LICENSING.name,
+        ProfileIdentifierType.SECURITY.name,
+        ProfileIdentifierType.SOFTWARE.name,
+        ProfileIdentifierType.USAGE.name,
+    ]
+
+    assert actual_profile_names == expected_profile_names
 
 def test_parse_document_with_relationship():
     parser = JSONLDV3Parser(validate=False)

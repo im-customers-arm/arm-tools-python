@@ -4,6 +4,7 @@
 import json
 import logging
 from datetime import datetime
+from semantic_version import Version
 from typing import Any, Dict, List, Optional, TypeVar, Union
 
 
@@ -17,6 +18,7 @@ from spdx_tools.spdx3.model import (
     SpdxDocument,
 )
 
+from spdx_tools.spdx3.model.profile_identifier import ProfileIdentifierType
 from spdx_tools.spdx3.model.relationship import Relationship, RelationshipType, RelationshipCompleteness
 from spdx_tools.spdx3.model.software import File, Package
 from spdx_tools.spdx3.payload import Payload
@@ -495,6 +497,14 @@ class JSONLDV3Parser:
             logger.warning(f"Error parsing Relationship: {str(e)}")
             return None
 
+    def _parse_profile(self, obj) -> List[ProfileIdentifierType]:
+        profile_config = obj.get('profile')
+        if isinstance(profile_config, str):
+            return [ProfileIdentifierType[profile_config]]
+
+        # Assume multiple profiles are configured.
+        return [ProfileIdentifierType[profile.upper()] for profile in sorted(profile_config)]
+
     def _parse_creation_info(self, obj: Optional[Dict[str, Any]]) -> Optional[CreationInfo]:
         """
         Parse a CreationInfo object from JSON-LD.
@@ -513,7 +523,8 @@ class JSONLDV3Parser:
             created_str = obj.get("created")
             created_by = self._ensure_list(obj.get("createdBy", []))
             created_using = self._ensure_list(obj.get("createdUsing", []))
-            spec_version = obj.get("specVersion")
+            profile = self._parse_profile(obj)
+            spec_version = Version(obj.get("specVersion"))
             comment = obj.get("comment")
             
             # Parse datetime
@@ -523,10 +534,11 @@ class JSONLDV3Parser:
             
             # Create and return CreationInfo
             return CreationInfo(
+                spec_version=spec_version,
                 created=created,
                 created_by=created_by,
+                profile=profile,
                 created_using=created_using,
-                spec_version=spec_version,
                 comment=comment,
             )
         except Exception as e:
@@ -672,20 +684,7 @@ class JSONLDV3Parser:
             default = []
         value = obj.get(key, default)
         return self._ensure_list(value)
-    
-    def _parse_creation_info(self, info: Optional[Dict[str, Any]]) -> Optional[CreationInfo]:
-        """Parse creation info object."""
-        if not info:
-            return None
-        
-        # Implementation details will depend on CreationInfo class structure
-        # For now, we'll extract key fields and log them
-        if isinstance(info, dict):
-            logger.debug(f"Found CreationInfo with spec version: {info.get('specVersion')}")
-        
-        # Return None until we implement actual creation info parsing
-        return None
-    
+   
     def _parse_integrity_methods(self, methods: List[Dict[str, Any]]) -> List[IntegrityMethod]:
         """Parse integrity methods."""
         # Placeholder implementation
