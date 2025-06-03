@@ -282,6 +282,9 @@ class JSONLDV3Parser:
         # Parse imports (ExternalMap list)
         imports = self._parse_external_maps(obj.get("imports", []))
 
+        # Parse namespaceMap (NamespaceMap list)
+        namespace_maps = self._parse_namespace_maps(obj.get("namespaceMap", []))
+
         # Create and return the document
         return SpdxDocument(
             spdx_id=spdx_id,
@@ -296,7 +299,7 @@ class JSONLDV3Parser:
             external_reference=[],
             external_identifier=[],
             extension=extension,
-            namespaces=[],
+            namespaces=namespace_maps,
             imports=imports,
             context=context,
         )
@@ -778,9 +781,20 @@ class JSONLDV3Parser:
         return [self._parse_embedded_object(i, self._parse_external_identifier) for i in identifiers]
     
     def _parse_namespace_maps(self, namespaces: List[Dict[str, Any]]) -> List[NamespaceMap]:
-        """Parse namespace maps."""
-        # Placeholder implementation
-        return []
+        """Parse namespace maps from a list of dicts."""
+        if not namespaces:
+            return []
+        result = []
+        for ns in namespaces:
+            # Accept both direct dicts and references
+            ns_obj = self._resolve_reference(ns)
+            if ns_obj is None:
+                continue
+            prefix = ns_obj.get("prefix")
+            namespace = ns_obj.get("namespace")
+            if prefix is not None and namespace is not None:
+                result.append(NamespaceMap(prefix=prefix, namespace=namespace))
+        return result
     
     def _parse_external_maps(self, maps: list) -> List[ExternalMap]:
         """Parse a list of external maps, resolving references as needed."""

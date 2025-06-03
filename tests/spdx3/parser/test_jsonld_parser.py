@@ -603,3 +603,30 @@ def test_parse_external_map_with_integrity_method():
     assert hash_obj.algorithm.name == "SHA512"
     assert hash_obj.hash_value == "1234deadbeef5678"
     assert hash_obj.comment == "external map hash"
+
+def test_parse_document_with_namespace_map():
+    parser = JSONLDV3Parser(validate=False)
+    doc = {
+        "@graph": [
+            {
+                "@id": "SPDXRef-DOCUMENT",
+                "type": "SpdxDocument",
+                "spdxId": "SPDXRef-DOCUMENT",
+                "name": "Test Document",
+                "namespaceMap": [
+                    {"prefix": "ex", "namespace": "https://example.com/ns#"},
+                    {"prefix": "foo", "namespace": "https://foo.org/ns#"}
+                ]
+            }
+        ]
+    }
+    payload = Payload()
+    parser._parse_graph(doc, payload)
+    entries = payload.get_full_map()
+    doc_obj = entries["SPDXRef-DOCUMENT"]
+    assert hasattr(doc_obj, "namespaces")
+    assert len(doc_obj.namespaces) == 2
+    assert doc_obj.namespaces[0].prefix == "ex"
+    assert doc_obj.namespaces[0].namespace == "https://example.com/ns#"
+    assert doc_obj.namespaces[1].prefix == "foo"
+    assert doc_obj.namespaces[1].namespace == "https://foo.org/ns#"
