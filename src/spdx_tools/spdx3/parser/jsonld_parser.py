@@ -335,6 +335,8 @@ class JSONLDV3Parser:
                 if creation_info_obj:
                     creation_info = self._parse_creation_info(creation_info_obj)
             
+            # Parse external identifiers if present
+            external_identifiers = self._parse_external_identifiers(obj.get("externalIdentifier", []))
             # Create and return the package
             return Package(
                 spdx_id=spdx_id,
@@ -355,7 +357,7 @@ class JSONLDV3Parser:
                 attribution_text=None,
                 verified_using=[],
                 external_reference=[],
-                external_identifier=[],
+                external_identifier=external_identifiers,
                 extension=None,
             )
         except Exception as e:
@@ -401,6 +403,9 @@ class JSONLDV3Parser:
                 if creation_info_obj:
                     creation_info = self._parse_creation_info(creation_info_obj)
             
+            # Parse external identifiers if present
+            external_identifiers = self._parse_external_identifiers(obj.get("externalIdentifier", []))
+            
             # Create and return the file
             return File(
                 spdx_id=spdx_id,
@@ -413,7 +418,7 @@ class JSONLDV3Parser:
                 attribution_text=None,
                 verified_using=verified_using,
                 external_reference=[],
-                external_identifier=[],
+                external_identifier=external_identifiers,
                 extension=None,
             )
         except Exception as e:
@@ -695,10 +700,21 @@ class JSONLDV3Parser:
         # Placeholder implementation
         return []
     
-    def _parse_external_identifiers(self, identifiers: List[Dict[str, Any]]) -> List[ExternalIdentifier]:
-        """Parse external identifiers."""
-        # Placeholder implementation
-        return []
+    def _parse_embedded_object(self, obj, parse_func):
+        """
+        Helper for parsing embedded (non-top-level) SPDX objects.
+        - obj: The JSON dict or reference to resolve.
+        - parse_func: The function to parse the resolved object (e.g., self._parse_external_identifier).
+        Returns the parsed object, or None if input is None.
+        """
+        if obj is None:
+            return None
+        resolved = self._resolve_reference(obj)
+        return parse_func(resolved)
+
+    def _parse_external_identifiers(self, identifiers: list) -> List[ExternalIdentifier]:
+        """Parse a list of external identifiers, resolving references as needed."""
+        return [self._parse_embedded_object(i, self._parse_external_identifier) for i in identifiers]
     
     def _parse_namespace_maps(self, namespaces: List[Dict[str, Any]]) -> List[NamespaceMap]:
         """Parse namespace maps."""
@@ -902,4 +918,36 @@ class JSONLDV3Parser:
                 return None
         except Exception as e:
             logger.warning(f"Error parsing Software extension: {str(e)}")
+            return None
+
+    def _parse_external_identifier(self, obj: Dict[str, Any]):
+        from spdx_tools.spdx3.model.external_identifier import ExternalIdentifier, ExternalIdentifierType
+
+        try:
+            extid_type_str = obj.get("externalIdentifierType") or obj.get("external_identifier_type")
+            extid_type = None
+
+            if extid_type_str:
+                try:
+                    extid_type = ExternalIdentifierType[extid_type_str.upper()]
+                except Exception:
+                    extid_type = ExternalIdentifierType.OTHER
+
+            identifier = obj.get("identifier")
+            comment = obj.get("comment")
+            identifier_locator = obj.get("identifierLocator") or obj.get("identifier_locator") or []
+
+            if not isinstance(identifier_locator, list):
+                identifier_locator = [identifier_locator]
+            issuing_authority = obj.get("issuingAuthority") or obj.get("issuing_authority")
+
+            return ExternalIdentifier(
+                external_identifier_type=extid_type,
+                identifier=identifier,
+                comment=comment,
+                identifier_locator=identifier_locator,
+                issuing_authority=issuing_authority,
+            )
+        except Exception as e:
+            logger.warning(f"Error parsing ExternalIdentifier: {str(e)}")
             return None

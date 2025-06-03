@@ -386,3 +386,39 @@ def test_parse_document_with_software_dependency_extension():
     assert getattr(entries["SPDXRef-Dep"], "relationship_type", None) == RelationshipType.DEPENDSON
     assert getattr(entries["SPDXRef-Dep"], "to", None) == ["SPDXRef-Other"]
     assert getattr(entries["SPDXRef-Dep"], "comment", None) == "Dependency comment"
+
+def test_parse_external_identifier():
+    parser = JSONLDV3Parser(validate=False)
+    # ExternalIdentifier embedded in a Package
+    EXTERNAL_IDENTIFIER_JSONLD = {
+        "externalIdentifierType": "CPE23",
+        "identifier": "cpe:2.3:a:example:example:1.0.0:*:*:*:*:*:*:*",
+        "comment": "CPE identifier for this package",
+        "identifierLocator": ["https://cpe.example.com/lookup"],
+        "issuingAuthority": "https://cpe.example.com/"
+    }
+    document = {
+        "@graph": [
+            {
+                "@id": "SPDXRef-Package",
+                "type": "Package",
+                "spdxId": "SPDXRef-Package",
+                "name": "Test Package",
+                "externalIdentifier": [EXTERNAL_IDENTIFIER_JSONLD]
+            }
+        ]
+    }
+    payload = Payload()
+    parser._parse_graph(document, payload)
+    entries = payload.get_full_map()
+    assert "SPDXRef-Package" in entries
+    package = entries["SPDXRef-Package"]
+    external_identifier_list = package.external_identifier
+    from spdx_tools.spdx3.model.external_identifier import ExternalIdentifierType
+    assert len(external_identifier_list) == 1
+    extid = external_identifier_list[0]
+    assert extid.external_identifier_type == ExternalIdentifierType.CPE23
+    assert extid.identifier == "cpe:2.3:a:example:example:1.0.0:*:*:*:*:*:*:*"
+    assert extid.comment == "CPE identifier for this package"
+    assert extid.identifier_locator == ["https://cpe.example.com/lookup"]
+    assert extid.issuing_authority == "https://cpe.example.com/"
