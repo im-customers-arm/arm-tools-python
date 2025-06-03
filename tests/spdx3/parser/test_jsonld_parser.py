@@ -454,3 +454,39 @@ def test_parse_document_with_imports():
     external_map = imports[0]
     assert isinstance(external_map, ExternalMap)
     assert external_map.external_id == "pkg:pypi/example@1.0.0"
+
+def test_parse_external_reference():
+    parser = JSONLDV3Parser(validate=False)
+    # ExternalReference embedded in a Package
+    EXTERNAL_REFERENCE_JSONLD = {
+        "externalReferenceType": "OTHER",
+        "locator": ["org.apache.tomcat:tomcat:9.0.0.M4"],
+        "contentType": "externalReferenceContentType",
+        "comment": "externalReferenceComment"
+    }
+    document = {
+        "@graph": [
+            {
+                "@id": "SPDXRef-Package",
+                "type": "Package",
+                "spdxId": "SPDXRef-Package",
+                "name": "Test Package",
+                "externalReference": [EXTERNAL_REFERENCE_JSONLD]
+            }
+        ]
+    }
+    payload = Payload()
+    parser._parse_graph(document, payload)
+    entries = payload.get_full_map()
+    assert "SPDXRef-Package" in entries
+    package = entries["SPDXRef-Package"]
+    external_reference_list = package.external_reference
+    
+    from spdx_tools.spdx3.model.external_reference import ExternalReferenceType
+    
+    assert len(external_reference_list) == 1
+    external_reference = external_reference_list[0]
+    assert external_reference.external_reference_type == ExternalReferenceType.OTHER
+    assert external_reference.locator == ["org.apache.tomcat:tomcat:9.0.0.M4"]
+    assert external_reference.content_type == "externalReferenceContentType"
+    assert external_reference.comment == "externalReferenceComment"

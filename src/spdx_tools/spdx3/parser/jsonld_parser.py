@@ -262,7 +262,7 @@ class JSONLDV3Parser:
         # Extract required fields
         spdx_id = self._get_required(obj, "spdxId")
         name = self._get_required(obj, "name")
-        
+
         # Extract optional fields with defaults
         element = self._get_list_field(obj, "element", [])
         root_element = self._get_list_field(obj, "rootElement", [])
@@ -270,7 +270,7 @@ class JSONLDV3Parser:
         description = self._get_optional(obj, "description")
         comment = self._get_optional(obj, "comment")
         extension = self._get_optional(obj, "extension")
-        
+
         # Handle creation info (reference to another object)
         creation_info_ref = obj.get("creationInfo")
         creation_info = None
@@ -338,6 +338,8 @@ class JSONLDV3Parser:
                 if creation_info_obj:
                     creation_info = self._parse_creation_info(creation_info_obj)
             
+            # Parse external references if present
+            external_references = self._parse_external_references(obj.get("externalReference", []))
             # Parse external identifiers if present
             external_identifiers = self._parse_external_identifiers(obj.get("externalIdentifier", []))
             # Create and return the package
@@ -359,7 +361,7 @@ class JSONLDV3Parser:
                 release_time=None,
                 attribution_text=None,
                 verified_using=[],
-                external_reference=[],
+                external_reference=external_references,
                 external_identifier=external_identifiers,
                 extension=None,
             )
@@ -406,6 +408,8 @@ class JSONLDV3Parser:
                 if creation_info_obj:
                     creation_info = self._parse_creation_info(creation_info_obj)
             
+            # Parse external references if present
+            external_references = self._parse_external_references(obj.get("externalReference", []))
             # Parse external identifiers if present
             external_identifiers = self._parse_external_identifiers(obj.get("externalIdentifier", []))
             
@@ -420,7 +424,7 @@ class JSONLDV3Parser:
                 content_type=None,
                 attribution_text=None,
                 verified_using=verified_using,
-                external_reference=[],
+                external_reference=external_references,
                 external_identifier=external_identifiers,
                 extension=None,
             )
@@ -489,6 +493,11 @@ class JSONLDV3Parser:
                 if creation_info_obj:
                     creation_info = self._parse_creation_info(creation_info_obj)
             
+            # Parse external references if present
+            external_references = self._parse_external_references(obj.get("externalReference", []))
+            # Parse external identifiers if present
+            external_identifiers = self._parse_external_identifiers(obj.get("externalIdentifier", []))
+            
             # Create and return the relationship
             return Relationship(
                 spdx_id=spdx_id,
@@ -500,6 +509,8 @@ class JSONLDV3Parser:
                 end_time=end_time,
                 comment=comment,
                 creation_info=creation_info,
+                external_reference=external_references,
+                external_identifier=external_identifiers,
             )
         except Exception as e:
             logger.warning(f"Error parsing Relationship: {str(e)}")
@@ -698,11 +709,42 @@ class JSONLDV3Parser:
         # Placeholder implementation
         return []
     
-    def _parse_external_references(self, references: List[Dict[str, Any]]) -> List[ExternalReference]:
-        """Parse external references."""
-        # Placeholder implementation
-        return []
-    
+    def _parse_external_reference(self, obj: dict) -> Optional[ExternalReference]:
+        """Parse a single ExternalReference object from JSON-LD."""
+        from spdx_tools.spdx3.model.external_reference import ExternalReference, ExternalReferenceType
+        try:
+            # Type mapping: string to enum
+            ext_ref_type_str = obj.get("externalReferenceType") or obj.get("external_reference_type")
+            ext_ref_type = None
+            if ext_ref_type_str:
+                # Normalize to match enum: remove namespace, replace dashes/spaces, uppercase
+                ext_ref_type_str = ext_ref_type_str.split(":")[-1]
+                ext_ref_type_str = ext_ref_type_str.replace("-", "_").replace(" ", "_").upper()
+                try:
+                    ext_ref_type = ExternalReferenceType[ext_ref_type_str]
+                except KeyError:
+                    ext_ref_type = None
+            locator = obj.get("locator")
+            if locator is None:
+                locator = []
+            elif not isinstance(locator, list):
+                locator = [locator]
+            content_type = obj.get("contentType") or obj.get("content_type")
+            comment = obj.get("comment")
+            return ExternalReference(
+                external_reference_type=ext_ref_type,
+                locator=locator,
+                content_type=content_type,
+                comment=comment,
+            )
+        except Exception as e:
+            logger.warning(f"Error parsing ExternalReference: {str(e)}")
+            return None
+
+    def _parse_external_references(self, references: list) -> List[ExternalReference]:
+        """Parse a list of external references, resolving references as needed."""
+        return [self._parse_embedded_object(r, self._parse_external_reference) for r in references]
+
     def _parse_embedded_object(self, obj, parse_func):
         """
         Helper for parsing embedded (non-top-level) SPDX objects.
