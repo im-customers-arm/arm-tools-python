@@ -60,7 +60,8 @@ class JSONLDV3Parser:
         for obj in graph:
             obj_type = obj.get("type") or obj.get("@type")
 
-            if obj_type == "SpdxDocument":
+            # Note that BASIL uses "Sbom" as the SpdxDocument type value.
+            if obj_type in ["SpdxDocument", "Sbom"]:
                 document = self._parse_document_element(obj, document.get("@context"))
                 payload.add_element(document)
 
