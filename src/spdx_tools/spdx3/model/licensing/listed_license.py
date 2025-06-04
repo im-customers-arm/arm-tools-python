@@ -15,7 +15,7 @@ class ListedLicense(License):
 
     def __init__(
         self,
-        spdx_id: str,
+        license_id: str,
         license_name: str,
         license_text: str,
         license_comment: Optional[str] = None,

@@ -326,9 +326,9 @@ def test_parse_document_with_licensing_extension():
     doc = {
         "@graph": [
             {
-                "@id": "SPDXRef-Licensing",
+                "@id": "LicenseRef-Licensing",
                 "type": "Licensing",
-                "spdxId": "SPDXRef-Licensing",
+                "licenseId": "MIT",
                 "name": "Licensing Example",
                 "licenseText": "Permission is hereby granted to any licensee..."
             }
