@@ -23,6 +23,9 @@ from spdx_tools.spdx3.model.software import File, Package
 from spdx_tools.spdx3.payload import Payload
 from spdx_tools.spdx3.validation.jsonld_validator import JSONLDSchemaValidator
 from spdx_tools.spdx3.model.hash import Hash, HashAlgorithm
+from spdx_tools.spdx3.model.licensing import ListedLicense, CustomLicense
+from spdx_tools.spdx3.model.licensing.license_field import LicenseField
+
 
 logger = logging.getLogger(__name__)
 
@@ -95,11 +98,6 @@ class JSONLDV3Parser:
                 dataset = self._parse_dataset(obj)
                 if dataset:
                     payload.add_element(dataset)
-
-            elif obj_type in ["Licensing", "licensing_Licensing"]:
-                licensing = self._parse_licensing(obj)
-                if licensing:
-                    payload.add_element(licensing)
 
             # --- Security extension/profile support ---
             elif obj_type in [
@@ -232,21 +230,89 @@ class JSONLDV3Parser:
             logger.warning(f"Error parsing Dataset extension: {str(e)}")
             return None
 
-    def _parse_licensing(self, obj: Dict[str, Any]):
-        """Parse a Licensing extension/profile object from JSON-LD."""
-        from spdx_tools.spdx3.model.licensing import ListedLicense
-        try:
-            spdx_id = self._get_required(obj, "spdxId")
-            name = self._get_required(obj, "name")
-            license_text = self._get_optional(obj, "licenseText")
+    def _parse_license(self, obj: Dict[str, Any], license_key: str) -> Optional[LicenseField]:
+        """
+        Resolve and parse a license object (e.g., ListedLicense, CustomLicense) from a reference.
+        Args:
+            reference: String ID or dict representing the license
+        Returns:
+            Parsed license object or None
+        """
+        reference = self._get_optional(obj, license_key)
 
-            return ListedLicense(
-                spdx_id=spdx_id,
-                license_name=name,
-                license_text=license_text,
-            )
-        except Exception as e:
-            logger.warning(f"Error parsing ListedLicense extension: {str(e)}")
+        if reference is None:
+            return None
+
+        obj = self._resolve_reference(reference)
+        if not isinstance(obj, dict):
+            return None
+
+        obj_type = obj.get("type") or obj.get("@type")
+        if obj_type in ["ListedLicense", "licensing_ListedLicense"]:
+            try:
+                license_id = self._get_required(obj, "@id")
+                license_name = self._get_required(obj, "name")
+                license_text = self._get_optional(obj, "licenseText")
+                license_comment = self._get_optional(obj, "licenseComment")
+                see_also = obj.get("seeAlso") or obj.get("seeAlsos") or []
+                is_osi_approved = obj.get("isOsiApproved")
+                is_fsf_libre = obj.get("isFsfLibre")
+                standard_license_header = obj.get("standardLicenseHeader")
+                standard_license_template = obj.get("standardLicenseTemplate")
+                is_deprecated_license_id = obj.get("isDeprecatedLicenseId")
+                obsoleted_by = obj.get("obsoletedBy")
+                list_version_added = obj.get("listVersionAdded")
+                deprecated_version = obj.get("deprecatedVersion")
+
+                return ListedLicense(
+                    license_id=license_id,
+                    license_name=license_name,
+                    license_text=license_text,
+                    license_comment=license_comment,
+                    see_also=see_also,
+                    is_osi_approved=is_osi_approved,
+                    is_fsf_libre=is_fsf_libre,
+                    standard_license_header=standard_license_header,
+                    standard_license_template=standard_license_template,
+                    is_deprecated_license_id=is_deprecated_license_id,
+                    obsoleted_by=obsoleted_by,
+                    list_version_added=list_version_added,
+                    deprecated_version=deprecated_version,
+                )
+            except Exception as e:
+                logger.warning(f"Error parsing ListedLicense: {str(e)}")
+                return None
+        elif obj_type in ["CustomLicense", "licensing_CustomLicense"]:
+            try:
+                license_id = self._get_required(obj, "spdxId")
+                license_name = self._get_required(obj, "name")
+                license_text = self._get_optional(obj, "licenseText")
+                license_comment = self._get_optional(obj, "licenseComment")
+                see_also = obj.get("seeAlso") or obj.get("seeAlsos") or []
+                is_osi_approved = obj.get("isOsiApproved")
+                is_fsf_libre = obj.get("isFsfLibre")
+                standard_license_header = obj.get("standardLicenseHeader")
+                standard_license_template = obj.get("standardLicenseTemplate")
+                is_deprecated_license_id = obj.get("isDeprecatedLicenseId")
+                obsoleted_by = obj.get("obsoletedBy")
+                return CustomLicense(
+                    license_id=license_id,
+                    license_name=license_name,
+                    license_text=license_text,
+                    license_comment=license_comment,
+                    see_also=see_also,
+                    is_osi_approved=is_osi_approved,
+                    is_fsf_libre=is_fsf_libre,
+                    standard_license_header=standard_license_header,
+                    standard_license_template=standard_license_template,
+                    is_deprecated_license_id=is_deprecated_license_id,
+                    obsoleted_by=obsoleted_by,
+                )
+            except Exception as e:
+                logger.warning(f"Error parsing CustomLicense: {str(e)}")
+                return None
+        else:
+            logger.warning(f"Reference is not a recognized license type: {obj_type}")
             return None
 
     def _parse_document_element(self, obj: Dict[str, Any], context: Optional[str]) -> SpdxDocument:
@@ -326,6 +392,8 @@ class JSONLDV3Parser:
             description = self._get_optional(obj, "description")
             comment = self._get_optional(obj, "comment")
             download_location = self._get_optional(obj, "downloadLocation")
+            concluded_license = self._parse_license(obj, "licenseConcluded")
+            declared_license = self._parse_license(obj, "licenseDeclared")
             
             # Parse supplier and originator (if any)
             supplied_by = self._get_optional(obj, "supplier")
@@ -371,6 +439,8 @@ class JSONLDV3Parser:
                 external_reference=external_references,
                 external_identifier=external_identifiers,
                 extension=None,
+                concluded_license=concluded_license,
+                declared_license=declared_license
             )
         except Exception as e:
             logger.warning(f"Error parsing Package: {str(e)}")
@@ -394,6 +464,8 @@ class JSONLDV3Parser:
             # Extract optional fields
             comment = self._get_optional(obj, "comment")
             copyright_text = self._get_optional(obj, "software_copyrightText")
+            concluded_license = self._parse_license(obj, "licenseConcluded")
+            declared_license = self._parse_license(obj, "licenseDeclared")
             
             # Parse hashes if present
             verified_using_refs = self._get_list_field(obj, "verifiedUsing")
@@ -411,7 +483,7 @@ class JSONLDV3Parser:
             external_references = self._parse_external_references(obj.get("externalReference", []))
             # Parse external identifiers if present
             external_identifiers = self._parse_external_identifiers(obj.get("externalIdentifier", []))
-            
+
             # Create and return the file
             return File(
                 spdx_id=spdx_id,
@@ -426,6 +498,8 @@ class JSONLDV3Parser:
                 external_reference=external_references,
                 external_identifier=external_identifiers,
                 extension=None,
+                concluded_license=concluded_license,
+                declared_license=declared_license
             )
         except Exception as e:
             logger.warning(f"Error parsing File: {str(e)}")
