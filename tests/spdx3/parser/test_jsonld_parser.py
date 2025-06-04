@@ -321,27 +321,6 @@ def test_parse_document_with_dataset_extension():
     assert getattr(entries["SPDXRef-Dataset"], "dataset_type", None) == [DatasetType.IMAGE]
     assert getattr(entries["SPDXRef-Dataset"], "dataset_size", None) == 1000
 
-def test_parse_document_with_licensing_extension():
-    parser = JSONLDV3Parser(validate=False)
-    doc = {
-        "@graph": [
-            {
-                "@id": "LicenseRef-Licensing",
-                "type": "Licensing",
-                "licenseId": "MIT",
-                "name": "Licensing Example",
-                "licenseText": "Permission is hereby granted to any licensee..."
-            }
-        ]
-    }
-    payload = Payload()
-    parser._parse_graph(doc, payload)
-    entries = payload.get_full_map()
-    assert "SPDXRef-Licensing" in entries
-    assert getattr(entries["SPDXRef-Licensing"], "spdx_id", None) == "SPDXRef-Licensing"
-    assert getattr(entries["SPDXRef-Licensing"], "license_name", None) == "Licensing Example"
-    assert getattr(entries["SPDXRef-Licensing"], "license_text", None) == "Permission is hereby granted to any licensee..."
-
 def test_parse_document_with_software_release_extension():
     parser = JSONLDV3Parser(validate=False)
     doc = {
@@ -630,3 +609,141 @@ def test_parse_document_with_namespace_map():
     assert doc_obj.namespaces[0].namespace == "https://example.com/ns#"
     assert doc_obj.namespaces[1].prefix == "foo"
     assert doc_obj.namespaces[1].namespace == "https://foo.org/ns#"
+
+def test_parse_file_with_concluded_license():
+    parser = JSONLDV3Parser(validate=False)
+    doc = {
+        "@graph": [
+            {
+                "@id": "SPDXRef-File",
+                "type": "File",
+                "spdxId": "SPDXRef-File",
+                "name": "Test File",
+                "licenseConcluded": "LicenseRef-MIT"
+            },
+            {
+                "@id": "LicenseRef-MIT",
+                "type": "ListedLicense",
+                "spdxId": "LicenseRef-MIT",
+                "name": "MIT License",
+                "licenseText": "Permission is hereby granted..."
+            }
+        ]
+    }
+    payload = Payload()
+    parser._parse_graph(doc, payload)
+    entries = payload.get_full_map()
+    # The license should not be a top-level element
+    assert "LicenseRef-MIT" not in entries
+    # The file should have the license attached as concluded_license
+    file = entries["SPDXRef-File"]
+    assert hasattr(file, "concluded_license")
+    assert file.concluded_license is not None
+    assert getattr(file.concluded_license, "license_name", None) == "MIT License"
+    assert getattr(file.concluded_license, "license_text", None) == "Permission is hereby granted..."
+
+def test_parse_file_and_package_with_concluded_license():
+    parser = JSONLDV3Parser(validate=False)
+    doc = {
+        "@graph": [
+            {
+                "@id": "SPDXRef-File",
+                "type": "File",
+                "spdxId": "SPDXRef-File",
+                "name": "Test File",
+                "licenseConcluded": "LicenseRef-MIT"
+            },
+            {
+                "@id": "SPDXRef-Package",
+                "type": "Package",
+                "spdxId": "SPDXRef-Package",
+                "name": "Test Package",
+                "licenseConcluded": "LicenseRef-Apache"
+            },
+            {
+                "@id": "LicenseRef-MIT",
+                "type": "ListedLicense",
+                "spdxId": "LicenseRef-MIT",
+                "name": "MIT License",
+                "licenseText": "Permission is hereby granted..."
+            },
+            {
+                "@id": "LicenseRef-Apache",
+                "type": "ListedLicense",
+                "spdxId": "LicenseRef-Apache",
+                "name": "Apache License 2.0",
+                "licenseText": "Licensed under the Apache License, Version 2.0..."
+            }
+        ]
+    }
+    payload = Payload()
+    parser._parse_graph(doc, payload)
+    entries = payload.get_full_map()
+    # The licenses should not be top-level elements
+    assert "LicenseRef-MIT" not in entries
+    assert "LicenseRef-Apache" not in entries
+    # The file should have the MIT license attached as concluded_license
+    file = entries["SPDXRef-File"]
+    assert hasattr(file, "concluded_license")
+    assert file.concluded_license is not None
+    assert getattr(file.concluded_license, "license_name", None) == "MIT License"
+    assert getattr(file.concluded_license, "license_text", None) == "Permission is hereby granted..."
+    # The package should have the Apache license attached as concluded_license
+    package = entries["SPDXRef-Package"]
+    assert hasattr(package, "concluded_license")
+    assert package.concluded_license is not None
+    assert getattr(package.concluded_license, "license_name", None) == "Apache License 2.0"
+    assert getattr(package.concluded_license, "license_text", None) == "Licensed under the Apache License, Version 2.0..."
+
+def test_parse_file_and_package_with_declared_license():
+    parser = JSONLDV3Parser(validate=False)
+    doc = {
+        "@graph": [
+            {
+                "@id": "SPDXRef-File",
+                "type": "File",
+                "spdxId": "SPDXRef-File",
+                "name": "Test File",
+                "licenseDeclared": "LicenseRef-MIT"
+            },
+            {
+                "@id": "SPDXRef-Package",
+                "type": "Package",
+                "spdxId": "SPDXRef-Package",
+                "name": "Test Package",
+                "licenseDeclared": "LicenseRef-Apache"
+            },
+            {
+                "@id": "LicenseRef-MIT",
+                "type": "ListedLicense",
+                "spdxId": "LicenseRef-MIT",
+                "name": "MIT License",
+                "licenseText": "Permission is hereby granted..."
+            },
+            {
+                "@id": "LicenseRef-Apache",
+                "type": "ListedLicense",
+                "spdxId": "LicenseRef-Apache",
+                "name": "Apache License 2.0",
+                "licenseText": "Licensed under the Apache License, Version 2.0..."
+            }
+        ]
+    }
+    payload = Payload()
+    parser._parse_graph(doc, payload)
+    entries = payload.get_full_map()
+    # The licenses should not be top-level elements
+    assert "LicenseRef-MIT" not in entries
+    assert "LicenseRef-Apache" not in entries
+    # The file should have the MIT license attached as declared_license
+    file = entries["SPDXRef-File"]
+    assert hasattr(file, "declared_license")
+    assert file.declared_license is not None
+    assert getattr(file.declared_license, "license_name", None) == "MIT License"
+    assert getattr(file.declared_license, "license_text", None) == "Permission is hereby granted..."
+    # The package should have the Apache license attached as declared_license
+    package = entries["SPDXRef-Package"]
+    assert hasattr(package, "declared_license")
+    assert package.declared_license is not None
+    assert getattr(package.declared_license, "license_name", None) == "Apache License 2.0"
+    assert getattr(package.declared_license, "license_text", None) == "Licensed under the Apache License, Version 2.0..."
