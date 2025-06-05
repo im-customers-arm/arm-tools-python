@@ -410,7 +410,11 @@ class JSONLDV3Parser:
             download_location = self._get_optional(obj, "downloadLocation")
             concluded_license = self._parse_license(obj, "licenseConcluded")
             declared_license = self._parse_license(obj, "licenseDeclared")
-            
+            built_time = self._get_optional(obj, "builtTime")
+            release_time = self._get_optional(obj, "releaseTime")
+            extension = self._get_optional(obj, "extension")
+            primary_purpose = self._get_optional(obj, "primaryPurpose")
+
             # Parse supplier and originator (if any)
             supplied_by = self._get_optional(obj, "supplier")
             originated_by = self._get_optional(obj, "originator")
@@ -446,14 +450,14 @@ class JSONLDV3Parser:
                 originated_by=originated_by,
                 copyright_text=copyright_text,
                 creation_info=creation_info,
-                primary_purpose=None,
-                built_time=None,
-                release_time=None,
+                primary_purpose=primary_purpose,
+                built_time=built_time,
+                release_time=release_time,
                 attribution_text=self._parse_attribution_text(obj),
                 verified_using=verified_using,
                 external_reference=external_references,
                 external_identifier=external_identifiers,
-                extension=None,
+                extension=extension,
                 concluded_license=concluded_license,
                 declared_license=declared_license
             )
@@ -481,6 +485,8 @@ class JSONLDV3Parser:
             copyright_text = self._get_optional(obj, "software_copyrightText")
             concluded_license = self._parse_license(obj, "licenseConcluded")
             declared_license = self._parse_license(obj, "licenseDeclared")
+            content_type = obj.get("contentType") or obj.get("content_type")
+            extension = self._get_optional(obj, "extension")
             
             # Parse hashes if present
             verified_using_refs = self._get_list_field(obj, "verifiedUsing")
@@ -506,12 +512,12 @@ class JSONLDV3Parser:
                 comment=comment,
                 copyright_text=copyright_text,
                 creation_info=creation_info,
-                content_type=None,
+                content_type=content_type,
                 attribution_text=self._parse_attribution_text(obj),
                 verified_using=verified_using,
                 external_reference=external_references,
                 external_identifier=external_identifiers,
-                extension=None,
+                extension=extension,
                 concluded_license=concluded_license,
                 declared_license=declared_license
             )
