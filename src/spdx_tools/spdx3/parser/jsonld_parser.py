@@ -337,6 +337,10 @@ class JSONLDV3Parser:
         description = self._get_optional(obj, "description")
         comment = self._get_optional(obj, "comment")
         extension = self._get_optional(obj, "extension")
+        verified_using_refs = self._get_list_field(obj, "verifiedUsing")
+        verified_using = self._parse_integrity_methods(verified_using_refs)
+        external_references = self._parse_external_references(obj.get("externalReference", []))
+        external_identifiers = self._parse_external_identifiers(obj.get("externalIdentifier", []))
 
         # Handle creation info (reference to another object)
         creation_info_ref = obj.get("creationInfo")
@@ -362,9 +366,9 @@ class JSONLDV3Parser:
             summary=summary,
             description=description,
             comment=comment,
-            verified_using=[],  # For simplicity, using empty lists for complex types
-            external_reference=[],
-            external_identifier=[],
+            verified_using=verified_using,
+            external_reference=external_references,
+            external_identifier=external_identifiers,
             extension=extension,
             namespaces=namespace_maps,
             imports=imports,
@@ -938,6 +942,8 @@ class JSONLDV3Parser:
                     creation_info_obj = self._resolve_reference(creation_info_ref)
                     if creation_info_obj:
                         creation_info = self._parse_creation_info(creation_info_obj)
+
+                # TODO: Implement parsing for these element types
                 # For simplicity, not parsing verified_using, external_reference, external_identifier, extension
                 return Vulnerability(
                     spdx_id=spdx_id,
