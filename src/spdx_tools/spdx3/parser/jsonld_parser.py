@@ -371,6 +371,11 @@ class JSONLDV3Parser:
             context=context,
         )
 
+    def _parse_attribution_text(self, obj: Dict[str, Any]) -> Optional[str]:
+        attribution_text=self._get_optional(obj, "attributionText")
+
+        return attribution_text
+
     def _parse_package(self, obj: Dict[str, Any]) -> Optional[Package]:
         """
         Parse a Package object from JSON-LD.
@@ -430,11 +435,10 @@ class JSONLDV3Parser:
                 originated_by=originated_by,
                 copyright_text=copyright_text,
                 creation_info=creation_info,
-                # For simplicity, using empty lists for complex types
                 primary_purpose=None,
                 built_time=None,
                 release_time=None,
-                attribution_text=None,
+                attribution_text=self._parse_attribution_text(obj),
                 verified_using=verified_using,
                 external_reference=external_references,
                 external_identifier=external_identifiers,
@@ -491,9 +495,8 @@ class JSONLDV3Parser:
                 comment=comment,
                 copyright_text=copyright_text,
                 creation_info=creation_info,
-                # For simplicity, using empty lists or None for complex types
                 content_type=None,
-                attribution_text=None,
+                attribution_text=self._parse_attribution_text(obj),
                 verified_using=verified_using,
                 external_reference=external_references,
                 external_identifier=external_identifiers,
@@ -1053,7 +1056,7 @@ class JSONLDV3Parser:
             elif obj_type in ["SoftwareAttribution", "software_SoftwareAttribution"]:
                 from spdx_tools.spdx3.model.software.software_attribution import SoftwareAttribution
                 spdx_id = self._get_required(obj, "spdxId")
-                attribution_text = self._get_optional(obj, "attributionText")
+                attribution_text=self._parse_attribution_text(obj)
                 comment = self._get_optional(obj, "comment")
                 return SoftwareAttribution(
                     spdx_id=spdx_id,
