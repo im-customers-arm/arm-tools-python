@@ -371,10 +371,21 @@ class JSONLDV3Parser:
             context=context,
         )
 
-    def _parse_attribution_text(self, obj: Dict[str, Any]) -> Optional[str]:
-        attribution_text=self._get_optional(obj, "attributionText")
+    def _parse_attribution_text(self, obj: Dict[str, Any]) -> Optional[Union[str, Dict[str, Any]]]:
+        """
+        If the attribution text string can be parsed as JSON, return the resulting object (dict or list).
+        Otherwise, return the original string. This accommodates tools that overload the
+        attribution text fields with JSON objects.
+        """
+        attribution_text = self._get_optional(obj, "attributionText")
 
-        return attribution_text
+        if not attribution_text:
+            return None
+
+        try:
+            return json.loads(attribution_text)
+        except (json.JSONDecodeError, TypeError):
+            return attribution_text
 
     def _parse_package(self, obj: Dict[str, Any]) -> Optional[Package]:
         """

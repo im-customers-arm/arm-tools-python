@@ -4,7 +4,7 @@
 from abc import abstractmethod
 from dataclasses import field
 
-from beartype.typing import List, Optional
+from beartype.typing import Any, Dict, List, Optional, Union
 
 from spdx_tools.common.typing.dataclass_with_properties import dataclass_with_properties
 from spdx_tools.spdx3.model import Artifact
@@ -20,7 +20,7 @@ class SoftwareArtifact(Artifact):
     concluded_license: Optional[LicenseField] = None
     declared_license: Optional[LicenseField] = None
     copyright_text: Optional[str] = None
-    attribution_text: Optional[str] = None
+    attribution_text: Optional[Union[str, Dict[str, Any]]] = None
 
     @abstractmethod
     def __init__(self):

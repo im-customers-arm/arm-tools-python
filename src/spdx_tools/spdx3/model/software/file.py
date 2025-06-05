@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: Apache-2.0
 from datetime import datetime
 
-from beartype.typing import List, Optional
+from beartype.typing import Any, Dict, List, Optional, Union
 
 from spdx_tools.common.typing.dataclass_with_properties import dataclass_with_properties
 from spdx_tools.common.typing.type_checks import check_types_and_set_values
@@ -41,7 +41,7 @@ class File(SoftwareArtifact):
         concluded_license: Optional[LicenseField] = None,
         declared_license: Optional[LicenseField] = None,
         copyright_text: Optional[str] = None,
-        attribution_text: Optional[str] = None,
+        attribution_text: Optional[Union[str, Dict[str, Any]]] = None,
         content_type: Optional[str] = None,
     ):
         verified_using = [] if verified_using is None else verified_using

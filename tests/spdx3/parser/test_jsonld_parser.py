@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2025 spdx contributors
 # SPDX-License-Identifier: Apache-2.0
 from datetime import datetime
+import json
 import pytest
 # import pdb; pdb.set_trace()
 
@@ -747,3 +748,65 @@ def test_parse_file_and_package_with_declared_license():
     assert package.declared_license is not None
     assert getattr(package.declared_license, "license_name", None) == "Apache License 2.0"
     assert getattr(package.declared_license, "license_text", None) == "Licensed under the Apache License, Version 2.0..."
+
+def test_attribution_text_parsing():
+    parser = JSONLDV3Parser(validate=False)
+
+    # Handle cases in which the attribution text string contains serialized objects.
+    # This will help with semantic differentiation.
+    serialized_attribution_text = "{\"id\": 4, \"api\": \"Functional Safety Profile Extension\", \"library\": \"Functional Safety\", \"library_version\": \"1\", \"raw_specification_url\": \"/BASIL-API/api/user-files/1/functional_safety_spdx_v3_profile.jsonld\", \"category\": \"\", \"checksum\": \"\", \"default_view\": null, \"implementation_file\": \"\", \"implementation_file_from_row\": \"\", \"implementation_file_to_row\": \"\", \"created_by\": \"admin\", \"edited_by\": \"admin\", \"last_coverage\": \"0\", \"tags\": \"\", \"version\": \"1\", \"srs_coverage\": 0, \"tss_coverage\": 0, \"tcs_coverage\": 0, \"created_at\": \"2025-06-05 17:53\", \"updated_at\": \"2025-06-05 17:53\", \"__tablename__\": \"apis\"}"
+
+    doc_with_complex_attribution_text = {
+        "@graph": [
+            {
+                "@id": "SPDXRef-DOCUMENT",
+                "type": "SpdxDocument",
+                "spdxId": "SPDXRef-DOCUMENT",
+                "name": "Test Document",
+            },  
+            {
+                "@type": "File",
+                "@id": "API-with_complex_attribution_text",
+                "name": "Functional Safety Profile Extension",
+                "summary": "Software Component",
+                "verifiedUsing": [
+                    {
+                        "@type": "Hash",
+                        "algorithm": "md5",
+                        "hashValue": "21a25b897dc50a792163dad16525fb74"
+                    }
+                ],
+                "attributionText": serialized_attribution_text
+            },
+            {
+                "@type": "File",
+                "@id": "API-with_simple_attribution_text",
+                "name": "Functional Safety Profile Extension",
+                "summary": "Software Component",
+                "verifiedUsing": [
+                    {
+                        "@type": "Hash",
+                        "algorithm": "md5",
+                        "hashValue": "21a25b897dc50a792163dad16525fb74"
+                    }
+                ],
+                "attributionText": "This is a simple attribution text string"
+            }
+        ]
+    }
+
+    payload = Payload()
+    parser._parse_graph(doc_with_complex_attribution_text, payload)
+    entries = payload.get_full_map()
+
+    assert "API-with_complex_attribution_text" in entries
+    assert "API-with_simple_attribution_text" in entries
+
+    file_with_fusa_details = entries.get("API-with_complex_attribution_text")
+    file_with_simple_attrib_text = entries.get("API-with_simple_attribution_text")
+
+    # Serialize the result and confirm it matches the serialized attribution text.
+    assert json.dumps(file_with_fusa_details.attribution_text) == serialized_attribution_text
+    
+    # Ensure simple attribution text strings are handled correctly.
+    assert file_with_simple_attrib_text.attribution_text == "This is a simple attribution text string"
