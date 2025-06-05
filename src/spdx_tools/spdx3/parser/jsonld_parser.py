@@ -165,18 +165,33 @@ class JSONLDV3Parser:
             name = self._get_required(obj, "name")
             comment = self._get_optional(obj, "comment")
             creation_info = None
-            creation_info_ref = obj.get("creationInfo")
-            supplied_by = obj.get('supplied_by', [])
-            download_location = obj.get('download_location')
-            package_version = obj.get('package_version')
-            primary_purpose = obj.get('primary_purpose')
-            release_time = obj.get('release_time')
+            creation_info_ref = self._get_optional(obj, "creationInfo")
+            supplied_by = obj.get('suppliedBy', [])
+            download_location = self._get_optional(obj, 'downloadLocation')
+            package_version = self._get_optional(obj, 'packageVersion')
+            primary_purpose = self._get_optional(obj, 'primaryPurpose')
+            release_time = self._get_optional(obj, 'releaseTime')
             hyperparameter = obj.get('hyperparameter', {})
+            energy_consumption = self._get_optional(obj, 'energyConsumption')
+            limitation = self._get_optional(obj, 'limitation')
+            information_about_training = self._get_optional(obj, 'informationAboutTraining')
+            information_about_application = self._get_optional(obj, 'informationAboutApplication')
+            model_data_preprocessing = self._get_optional(obj, 'modelDataPreprocessing')
+            model_explainability = self._get_optional(obj, 'modelExplainability')
+            sensitive_personal_information = self._get_optional(obj, 'sensitivePersonalInformation')
+            metric_decision_threshold = self._get_optional(obj, 'metricDecisionThreshold')
+            metric = self._get_optional(obj, 'metric')
+            domain = self._get_optional(obj, 'domain')
+            autonomy_type = self._get_optional(obj, 'autonomyType')
+            safety_risk_assessment = self._get_optional(obj, 'safetyRiskAssessment')
+            standard_compliance = self._get_optional(obj, 'standardCompliance')
+            type_of_model = self._get_optional(obj, 'typeOfModel')
 
             if creation_info_ref:
                 creation_info_obj = self._resolve_reference(creation_info_ref)
                 if creation_info_obj:
                     creation_info = self._parse_creation_info(creation_info_obj)
+
             return AIPackage(
                 spdx_id=spdx_id,
                 name=name,
@@ -187,7 +202,21 @@ class JSONLDV3Parser:
                 package_version=package_version,
                 primary_purpose=primary_purpose,
                 release_time=release_time,
-                hyperparameter=hyperparameter
+                hyperparameter=hyperparameter,
+                energy_consumption=energy_consumption,
+                limitation=limitation,
+                information_about_training=information_about_training,
+                information_about_application=information_about_application,
+                model_data_preprocessing=model_data_preprocessing,
+                model_explainability=model_explainability,
+                sensitive_personal_information=sensitive_personal_information,
+                metric_decision_threshold=metric_decision_threshold,
+                metric=metric,
+                domain=domain,
+                autonomy_type=autonomy_type,
+                safety_risk_assessment=safety_risk_assessment,
+                standard_compliance=standard_compliance,
+                type_of_model=type_of_model
             )
         except Exception as e:
             logger.warning(f"Error parsing AI extension: {str(e)}")
