@@ -337,8 +337,7 @@ class JSONLDV3Parser:
         description = self._get_optional(obj, "description")
         comment = self._get_optional(obj, "comment")
         extension = self._get_optional(obj, "extension")
-        verified_using_refs = self._get_list_field(obj, "verifiedUsing")
-        verified_using = self._parse_integrity_methods(verified_using_refs)
+        verified_using = self._parse_integrity_methods(obj)
         external_references = self._parse_external_references(obj)
         external_identifiers = self._parse_external_identifiers(obj)
 
@@ -433,14 +432,11 @@ class JSONLDV3Parser:
                 creation_info_obj = self._resolve_reference(creation_info_ref)
                 if creation_info_obj:
                     creation_info = self._parse_creation_info(creation_info_obj)
-            
+
+            verified_using = self._parse_integrity_methods(obj)
             external_references = self._parse_external_references(obj)
             external_identifiers = self._parse_external_identifiers(obj)
 
-            # Parse verifiedUsing (Hash/integrity method) if present
-            verified_using_refs = self._get_list_field(obj, "verifiedUsing")
-            verified_using = self._parse_integrity_methods(verified_using_refs)
-            # Create and return the package
             return Package(
                 spdx_id=spdx_id,
                 name=name,
@@ -490,10 +486,8 @@ class JSONLDV3Parser:
             declared_license = self._parse_license(obj, "licenseDeclared")
             content_type = obj.get("contentType") or obj.get("content_type")
             extension = self._get_optional(obj, "extension")
-            
-            # Parse hashes if present
-            verified_using_refs = self._get_list_field(obj, "verifiedUsing")
-            verified_using = self._parse_integrity_methods(verified_using_refs)
+
+            verified_using = self._parse_integrity_methods(obj)
             
             # Handle creation info
             creation_info_ref = obj.get("creationInfo")
@@ -818,8 +812,9 @@ class JSONLDV3Parser:
             logger.warning(f"Error parsing Hash (IntegrityMethod): {str(e)}")
             return None
 
-    def _parse_integrity_methods(self, methods: list) -> list:
+    def _parse_integrity_methods(self, obj: Dict[str, Any]) -> list:
         """Parse a list of integrity methods, resolving references as needed."""
+        methods = self._get_list_field(obj, "verifiedUsing")
         return [self._parse_embedded_object(m, self._parse_integrity_method) for m in methods]
     
     def _parse_external_reference(self, obj: dict) -> Optional[ExternalReference]:
@@ -900,11 +895,7 @@ class JSONLDV3Parser:
         from spdx_tools.spdx3.model.external_map import ExternalMap
         try:
             external_id = obj.get("externalId") or obj.get("external_id")
-
-            # Parse verifiedUsing (Hash/integrity method) if present
-            verified_using_refs = self._get_list_field(obj, "verifiedUsing")
-            verified_using = self._parse_integrity_methods(verified_using_refs)
-
+            verified_using = self._parse_integrity_methods(obj)
             location_hint = obj.get("locationHint") or obj.get("location_hint")
             defining_document = obj.get("definingDocument") or obj.get("defining_document")
 
