@@ -339,8 +339,8 @@ class JSONLDV3Parser:
         extension = self._get_optional(obj, "extension")
         verified_using_refs = self._get_list_field(obj, "verifiedUsing")
         verified_using = self._parse_integrity_methods(verified_using_refs)
-        external_references = self._parse_external_references(obj.get("externalReference", []))
-        external_identifiers = self._parse_external_identifiers(obj.get("externalIdentifier", []))
+        external_references = self._parse_external_references(obj)
+        external_identifiers = self._parse_external_identifiers(obj)
 
         # Handle creation info (reference to another object)
         creation_info_ref = obj.get("creationInfo")
@@ -434,10 +434,9 @@ class JSONLDV3Parser:
                 if creation_info_obj:
                     creation_info = self._parse_creation_info(creation_info_obj)
             
-            # Parse external references if present
-            external_references = self._parse_external_references(obj.get("externalReference", []))
-            # Parse external identifiers if present
-            external_identifiers = self._parse_external_identifiers(obj.get("externalIdentifier", []))
+            external_references = self._parse_external_references(obj)
+            external_identifiers = self._parse_external_identifiers(obj)
+
             # Parse verifiedUsing (Hash/integrity method) if present
             verified_using_refs = self._get_list_field(obj, "verifiedUsing")
             verified_using = self._parse_integrity_methods(verified_using_refs)
@@ -504,10 +503,8 @@ class JSONLDV3Parser:
                 if creation_info_obj:
                     creation_info = self._parse_creation_info(creation_info_obj)
             
-            # Parse external references if present
-            external_references = self._parse_external_references(obj.get("externalReference", []))
-            # Parse external identifiers if present
-            external_identifiers = self._parse_external_identifiers(obj.get("externalIdentifier", []))
+            external_references = self._parse_external_references(obj)
+            external_identifiers = self._parse_external_identifiers(obj)
 
             # Create and return the file
             return File(
@@ -590,10 +587,8 @@ class JSONLDV3Parser:
                 if creation_info_obj:
                     creation_info = self._parse_creation_info(creation_info_obj)
             
-            # Parse external references if present
-            external_references = self._parse_external_references(obj.get("externalReference", []))
-            # Parse external identifiers if present
-            external_identifiers = self._parse_external_identifiers(obj.get("externalIdentifier", []))
+            external_references = self._parse_external_references(obj)
+            external_identifiers = self._parse_external_identifiers(obj)
             
             # Create and return the relationship
             return Relationship(
@@ -859,8 +854,9 @@ class JSONLDV3Parser:
             logger.warning(f"Error parsing ExternalReference: {str(e)}")
             return None
 
-    def _parse_external_references(self, references: list) -> List[ExternalReference]:
+    def _parse_external_references(self, obj: Dict[str, Any]) -> List[ExternalReference]:
         """Parse a list of external references, resolving references as needed."""
+        references = obj.get("externalReference", [])
         return [self._parse_embedded_object(r, self._parse_external_reference) for r in references]
 
     def _parse_embedded_object(self, obj, parse_func):
@@ -875,8 +871,9 @@ class JSONLDV3Parser:
         resolved = self._resolve_reference(obj)
         return parse_func(resolved)
 
-    def _parse_external_identifiers(self, identifiers: list) -> List[ExternalIdentifier]:
+    def _parse_external_identifiers(self, obj: Dict[str, Any]) -> List[ExternalIdentifier]:
         """Parse a list of external identifiers, resolving references as needed."""
+        identifiers = obj.get("externalIdentifier", [])
         return [self._parse_embedded_object(i, self._parse_external_identifier) for i in identifiers]
     
     def _parse_namespace_maps(self, namespaces: List[Dict[str, Any]]) -> List[NamespaceMap]:
