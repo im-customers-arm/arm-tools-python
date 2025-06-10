@@ -429,6 +429,7 @@ class JSONLDV3Parser:
                     list_version_added=list_version_added,
                     deprecated_version=deprecated_version,
                 )
+
             except Exception as e:
                 logger.warning(f"Error parsing ListedLicense: {str(e)}")
                 return None
@@ -445,6 +446,7 @@ class JSONLDV3Parser:
                 standard_license_template = obj.get("standardLicenseTemplate")
                 is_deprecated_license_id = obj.get("isDeprecatedLicenseId")
                 obsoleted_by = obj.get("obsoletedBy")
+
                 return CustomLicense(
                     license_id=license_id,
                     license_name=license_name,
@@ -458,6 +460,7 @@ class JSONLDV3Parser:
                     is_deprecated_license_id=is_deprecated_license_id,
                     obsoleted_by=obsoleted_by,
                 )
+
             except Exception as e:
                 logger.warning(f"Error parsing CustomLicense: {str(e)}")
                 return None
