@@ -182,19 +182,38 @@ class JSONLDV3Parser:
         try:
             spdx_id = self._get_required(obj, "spdxId")
             name = self._get_required(obj, "name")
-            comment = self._get_optional(obj, "comment")
-            creation_info = None
-            creation_info_ref = self._get_optional(obj, "creationInfo")
             supplied_by = obj.get('suppliedBy', [])
             download_location = self._get_optional(obj, 'downloadLocation')
             package_version = self._get_optional(obj, 'packageVersion')
             primary_purpose = self._get_optional(obj, 'primaryPurpose')
             release_time = self._get_optional(obj, 'releaseTime')
-            hyperparameter = obj.get('hyperparameter', {})
+            summary = self._get_optional(obj, "summary")
+            description = self._get_optional(obj, "description")
+            comment = self._get_optional(obj, "comment")
+            verified_using = self._get_optional(obj, "verifiedUsing")
+            external_reference = self._get_optional(obj, "externalReference")
+            external_identifier = self._get_optional(obj, "externalIdentifier")
+            extension = self._get_optional(obj, "extension")
+            originated_by = self._get_optional(obj, "originatedBy")
+            built_time = self._get_optional(obj, "builtTime")
+            valid_until_time = self._get_optional(obj, "validUntilTime")
+            standard = self._get_optional(obj, "standard")
+            content_identifier = self._get_optional(obj, "contentIdentifier")
+            additional_purpose  = self._get_optional(obj, "additionalPurpose")
+            concluded_license = self._get_optional(obj, "concludedLicense")
+            declared_license = self._get_optional(obj, "declaredLicense")
+            copyright_text = self._get_optional(obj, "copyrightText")
+            attribution_text = self._get_optional(obj, "attributionText")
+            package_url = self._get_optional(obj, "packageUrl")
+            homepage = self._get_optional(obj, "homepage")
+            source_info = self._get_optional(obj, "sourceInfo")
             energy_consumption = self._get_optional(obj, 'energyConsumption')
+            standard_compliance = self._get_optional(obj, 'standardCompliance')
             limitation = self._get_optional(obj, 'limitation')
+            type_of_model = self._get_optional(obj, 'typeOfModel')
             information_about_training = self._get_optional(obj, 'informationAboutTraining')
             information_about_application = self._get_optional(obj, 'informationAboutApplication')
+            hyperparameter = obj.get('hyperparameter', {})
             model_data_preprocessing = self._get_optional(obj, 'modelDataPreprocessing')
             model_explainability = self._get_optional(obj, 'modelExplainability')
             sensitive_personal_information = self._get_optional(obj, 'sensitivePersonalInformation')
@@ -203,9 +222,9 @@ class JSONLDV3Parser:
             domain = self._get_optional(obj, 'domain')
             autonomy_type = self._get_optional(obj, 'autonomyType')
             safety_risk_assessment = self._get_optional(obj, 'safetyRiskAssessment')
-            standard_compliance = self._get_optional(obj, 'standardCompliance')
-            type_of_model = self._get_optional(obj, 'typeOfModel')
 
+            creation_info = None
+            creation_info_ref = self._get_optional(obj, "creationInfo")
             if creation_info_ref:
                 creation_info_obj = self._resolve_reference(creation_info_ref)
                 if creation_info_obj:
@@ -214,13 +233,32 @@ class JSONLDV3Parser:
             return AIPackage(
                 spdx_id=spdx_id,
                 name=name,
-                comment=comment,
-                creation_info=creation_info,
                 supplied_by=supplied_by,
                 download_location=download_location,
                 package_version=package_version,
                 primary_purpose=primary_purpose,
                 release_time=release_time,
+                creation_info=creation_info,
+                summary=summary,
+                description=description,
+                comment=comment,
+                verified_using=verified_using,
+                external_reference=external_reference,
+                external_identifier=external_identifier,
+                extension=extension,
+                originated_by=originated_by,
+                built_time=built_time,
+                valid_until_time=valid_until_time,
+                standard=standard,
+                content_identifier=content_identifier,              
+                additional_purpose=additional_purpose,
+                concluded_license=concluded_license,
+                declared_license=declared_license,
+                copyright_text=copyright_text,
+                attribution_text=attribution_text,
+                package_url=package_url,
+                homepage=homepage,
+                source_info=source_info,
                 hyperparameter=hyperparameter,
                 energy_consumption=energy_consumption,
                 limitation=limitation,
@@ -237,6 +275,7 @@ class JSONLDV3Parser:
                 standard_compliance=standard_compliance,
                 type_of_model=type_of_model
             )
+
         except Exception as e:
             logger.warning(f"Error parsing AI extension: {str(e)}")
             return None
