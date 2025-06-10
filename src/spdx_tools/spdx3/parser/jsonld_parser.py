@@ -714,13 +714,13 @@ class JSONLDV3Parser:
             A Relationship object or None if parsing fails
         """
         try:
-            # Extract required fields
             spdx_id = self._get_required(obj, "spdxId")
             from_element = self._get_required(obj, "from")
             to_elements = self._get_list_field(obj, "to")
             
             # Get relationship type and convert to enum
             relationship_type_str = self._get_required(obj, "relationshipType")
+
             # Normalize to match enum: remove namespace, replace dashes/spaces, uppercase
             relationship_type_str = relationship_type_str.split(":")[-1]
             relationship_type_str = relationship_type_str.replace("-", "_").replace(" ", "_").upper()
@@ -731,7 +731,6 @@ class JSONLDV3Parser:
                 logger.warning(f"Unknown relationship type: {relationship_type_str}, using OTHER")
                 relationship_type = RelationshipType.OTHER
             
-            # Handle completeness
             completeness_str = self._get_optional(obj, "completeness")
             completeness = None
             if completeness_str:
@@ -741,8 +740,13 @@ class JSONLDV3Parser:
                 except KeyError:
                     logger.warning(f"Unknown completeness value: {completeness_str}")
             
-            # Get other fields
             comment = self._get_optional(obj, "comment")
+            name = self._get_optional(obj, "name")
+            summary = self._get_optional(obj, "summary")
+            description = self._get_optional(obj, "description")
+            verified_using = self._get_optional(obj, "verifiedUsing")
+            external_reference = self._get_optional(obj, "externalReference")
+            extension = self._get_optional(obj, "extension")
             
             # Handle dates (if any)
             start_time_str = self._get_optional(obj, "startTime")
@@ -763,11 +767,10 @@ class JSONLDV3Parser:
                 creation_info_obj = self._resolve_reference(creation_info_ref)
                 if creation_info_obj:
                     creation_info = self._parse_creation_info(creation_info_obj)
-            
+
             external_references = self._parse_external_references(obj)
             external_identifiers = self._parse_external_identifiers(obj)
             
-            # Create and return the relationship
             return Relationship(
                 spdx_id=spdx_id,
                 from_element=from_element,
@@ -780,7 +783,13 @@ class JSONLDV3Parser:
                 creation_info=creation_info,
                 external_reference=external_references,
                 external_identifier=external_identifiers,
+                name=name,
+                summary=summary,
+                description=description,
+                verified_using=verified_using,
+                extension=extension
             )
+
         except Exception as e:
             logger.warning(f"Error parsing Relationship: {str(e)}")
             return None
