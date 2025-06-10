@@ -221,7 +221,7 @@ def test_parse_document_with_build_extension():
                 "type": "Build",
                 "spdxId": "SPDXRef-Build",
                 "name": "Build Example",
-                "build_type": "test_build"
+                "buildType": "test_build"
             }
         ]
     }

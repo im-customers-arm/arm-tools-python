@@ -135,10 +135,20 @@ class JSONLDV3Parser:
         try:
             # Extract required fields for Build extension
             spdx_id = self._get_required(obj, "spdxId")
-            build_type = self._get_required(obj, "build_type")
+            build_type = self._get_required(obj, "buildType")
             name = self._get_required(obj, "name")
+
             # Optional fields
             comment = self._get_optional(obj, "comment")
+            build_id = self._get_optional(obj, "buildId")
+            config_source_entrypoint = self._get_optional(obj, "configSourceEntrypoint", [])
+            config_source_digest = self._get_optional(obj, "configSourceDigest", [])
+            parameters = self._get_optional(obj, "parameters", {})
+            build_start_time = self._get_optional(obj, "buildStartTime")
+            build_end_time = self._get_optional(obj, "buildEndTime")
+            environment = self._get_optional(obj, "environment")
+
+
             # Creation info
             creation_info = None
             creation_info_ref = obj.get("creationInfo")
@@ -146,13 +156,22 @@ class JSONLDV3Parser:
                 creation_info_obj = self._resolve_reference(creation_info_ref)
                 if creation_info_obj:
                     creation_info = self._parse_creation_info(creation_info_obj)
+
             return Build(
                 spdx_id=spdx_id,
                 build_type=build_type,
                 name=name,
                 comment=comment,
                 creation_info=creation_info,
+                build_id = build_id,
+                config_source_entrypoint = config_source_entrypoint,
+                config_source_digest = config_source_digest,
+                parameters = parameters,
+                build_start_time = build_start_time,
+                build_end_time = build_end_time,
+                environment = environment
             )
+
         except Exception as e:
             logger.warning(f"Error parsing Build extension: {str(e)}")
             return None
