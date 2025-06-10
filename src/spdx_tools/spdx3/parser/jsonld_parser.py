@@ -294,12 +294,44 @@ class JSONLDV3Parser:
             dataset_type = self._get_optional(obj, "datasetType")
             dataset_size = self._get_optional(obj, "datasetSize")
             comment = self._get_optional(obj, "comment")
+            summary = self._get_optional(obj, "summary")
+            description = self._get_optional(obj, "description")
+            verified_using = self._get_optional(obj, "verifiedUsing")
+            external_reference = self._get_optional(obj, "externalReference")
+            external_identifier = self._get_optional(obj, "externalIdentifier")
+            extension = self._get_optional(obj, "extension")
+            supplied_by = self._get_optional(obj, "suppliedBy")
+            valid_until_time = self._get_optional(obj, "validUntilTime")
+            standard = self._get_optional(obj, "standard")
+            content_identifier = self._get_optional(obj, "contentIdentifier")
+            additional_purpose = self._get_optional(obj, "additionalpurpose")
+            concluded_license = self._get_optional(obj, "concludedLicense")
+            declared_license = self._get_optional(obj, "declaredLicense")
+            copyright_text = self._get_optional(obj, "copyrightText")
+            attribution_text = self._get_optional(obj, "attributionText")
+            package_version = self._get_optional(obj, "packageVersion")
+            package_url = self._get_optional(obj, "packageUrl")
+            homepage = self._get_optional(obj, "homepage")
+            source_info = self._get_optional(obj, "sourceInfo")
+            data_collection_process = self._get_optional(obj, "dataCollectionProcess")
+            intended_use = self._get_optional(obj, "intendedUse")
+            dataset_noise = self._get_optional(obj, "datasetNoise")
+            data_preprocessing = self._get_optional(obj, "dataPreprocessing")
+            sensor = self._get_optional(obj, "sensor")
+            known_bias = self._get_optional(obj, "knownBias")
+            sensitive_personal_information = self._get_optional(obj, "sensitivePersonalInformation")
+            anonymization_method_used = self._get_optional(obj, "anonymizationMethodUsed")
+            confidentiality_level = self._get_optional(obj, "confidentialityLevel")
+            dataset_update_mechanism = self._get_optional(obj, "datasetUpdateMechanism")
+            dataset_availability = self._get_optional(obj, "datasetAvailability")
+
             creation_info = None
             creation_info_ref = obj.get("creationInfo")
             if creation_info_ref:
                 creation_info_obj = self._resolve_reference(creation_info_ref)
                 if creation_info_obj:
                     creation_info = self._parse_creation_info(creation_info_obj)
+
             return Dataset(
                 spdx_id=spdx_id,
                 name=name,
@@ -312,7 +344,38 @@ class JSONLDV3Parser:
                 dataset_size=dataset_size,
                 comment=comment,
                 creation_info=creation_info,
+                summary = summary,
+                description = description,
+                verified_using = verified_using,
+                external_reference = external_reference,
+                external_identifier = external_identifier,
+                extension = extension,
+                supplied_by = supplied_by,
+                valid_until_time = valid_until_time,
+                standard = standard,
+                content_identifier = content_identifier,
+                additional_purpose = additional_purpose,
+                concluded_license = concluded_license,
+                declared_license = declared_license,
+                copyright_text = copyright_text,
+                attribution_text = attribution_text,
+                package_version = package_version,
+                package_url = package_url,
+                homepage = homepage,
+                source_info = source_info,
+                data_collection_process = data_collection_process,
+                intended_use = intended_use,
+                dataset_noise = dataset_noise,
+                data_preprocessing = data_preprocessing,
+                sensor = sensor,
+                known_bias = known_bias,
+                sensitive_personal_information = sensitive_personal_information,
+                anonymization_method_used = anonymization_method_used,
+                confidentiality_level = confidentiality_level,
+                dataset_update_mechanism = dataset_update_mechanism,
+                dataset_availability = dataset_availability
             )
+
         except Exception as e:
             logger.warning(f"Error parsing Dataset extension: {str(e)}")
             return None
