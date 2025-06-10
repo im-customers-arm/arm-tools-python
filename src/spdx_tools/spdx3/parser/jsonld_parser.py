@@ -570,15 +570,17 @@ class JSONLDV3Parser:
             release_time = self._get_optional(obj, "releaseTime")
             extension = self._get_optional(obj, "extension")
             primary_purpose = self._get_optional(obj, "primaryPurpose")
-
-            # Parse supplier and originator (if any)
             supplied_by = self._get_optional(obj, "supplier")
             originated_by = self._get_optional(obj, "originator")
-            
-            # Handle copyright text
-            copyright_text = self._get_optional(obj, "software_copyrightText")
-            
-            # Handle creation info
+            copyright_text = self._get_optional(obj, "copyrightText")            
+            valid_until_time = self._get_optional(obj, "validUntilTime")
+            standard = self._get_optional(obj, "standard")
+            content_identifier = self._get_optional(obj, "contentIdentifier")
+            additional_purpose = self._get_optional(obj, "additionalPurpose")
+            package_url = self._get_optional(obj, "packageUrl")
+            homepage = self._get_optional(obj, "homepage")
+            source_info = self._get_optional(obj, "sourceInfo")
+
             creation_info_ref = obj.get("creationInfo")
             creation_info = None
             if creation_info_ref:
@@ -611,8 +613,16 @@ class JSONLDV3Parser:
                 external_identifier=external_identifiers,
                 extension=extension,
                 concluded_license=concluded_license,
-                declared_license=declared_license
+                declared_license=declared_license,              
+                valid_until_time = valid_until_time,
+                standard = standard,
+                content_identifier = content_identifier,
+                additional_purpose = additional_purpose,
+                package_url = package_url,
+                homepage = homepage,
+                source_info = source_info        
             )
+
         except Exception as e:
             logger.warning(f"Error parsing Package: {str(e)}")
             return None
