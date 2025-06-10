@@ -108,7 +108,7 @@ def test_parse_document_with_package_creation_info():
                 "profile": "BUILD",
                 "createdUsing": ["Some SBOM Generator"],
                 "comment":"This represents a creation info element",
-                "specVersion": "3.0.1"
+                "specVersion": "3.0.1",
             }
         ]
     }

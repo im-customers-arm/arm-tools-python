@@ -816,20 +816,18 @@ class JSONLDV3Parser:
             return None
             
         try:
-            # Extract fields
             created_str = obj.get("created")
             created_by = self._ensure_list(obj.get("createdBy", []))
             created_using = self._ensure_list(obj.get("createdUsing", []))
             profile = self._parse_profile(obj)
             spec_version = Version(obj.get("specVersion"))
             comment = obj.get("comment")
-            
-            # Parse datetime
+            data_license = self._get_optional(obj, "dataLicense", "CC0-1.0")
+
             created = None
             if created_str:
                 created = datetime.fromisoformat(created_str.replace('Z', '+00:00'))
             
-            # Create and return CreationInfo
             return CreationInfo(
                 spec_version=spec_version,
                 created=created,
@@ -837,7 +835,9 @@ class JSONLDV3Parser:
                 profile=profile,
                 created_using=created_using,
                 comment=comment,
+                data_license=data_license
             )
+
         except Exception as e:
             logger.warning(f"Error parsing CreationInfo: {str(e)}")
             return None
