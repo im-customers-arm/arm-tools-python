@@ -808,9 +808,9 @@ class JSONLDV3Parser:
 
         raise KeyError(key)
     
-    def _get_optional(self, obj: Dict[str, Any], key: str) -> Optional[Any]:
+    def _get_optional(self, obj: Dict[str, Any], key: str, default_val = None) -> Optional[Any]:
         """Get an optional field from an object."""
-        return obj.get(key)
+        return obj.get(key, default_val)
     
     def _get_list_field(self, obj: Dict[str, Any], key: str, default: List[Any] = None) -> List[Any]:
         """Get a list field from an object."""
