@@ -644,15 +644,24 @@ class JSONLDV3Parser:
             
             # Extract optional fields
             comment = self._get_optional(obj, "comment")
-            copyright_text = self._get_optional(obj, "software_copyrightText")
+            copyright_text = self._get_optional(obj, "copyrightText")
             concluded_license = self._parse_license(obj, "licenseConcluded")
             declared_license = self._parse_license(obj, "licenseDeclared")
             content_type = obj.get("contentType") or obj.get("content_type")
             extension = self._get_optional(obj, "extension")
+            verified_using = self._parse_integrity_methods(obj)           
+            summary = self._get_optional(obj, "summary ")
+            description = self._get_optional(obj, "description")
+            originated_by = self._get_optional(obj, "originatedBy")
+            supplied_by = self._get_optional(obj, "suppliedBy")
+            built_time = self._get_optional(obj, "builtTime")
+            release_time = self._get_optional(obj, "releaseTime")
+            valid_until_time = self._get_optional(obj, "validUntilTime")
+            standard = self._get_optional(obj, "standard")
+            content_identifier = self._get_optional(obj, "contentIdentifier")
+            primary_purpose = self._get_optional(obj, "primaryPurpose")
+            additional_purpose = self._get_optional(obj, "additionalPurpose")
 
-            verified_using = self._parse_integrity_methods(obj)
-            
-            # Handle creation info
             creation_info_ref = obj.get("creationInfo")
             creation_info = None
             if creation_info_ref:
@@ -663,7 +672,6 @@ class JSONLDV3Parser:
             external_references = self._parse_external_references(obj)
             external_identifiers = self._parse_external_identifiers(obj)
 
-            # Create and return the file
             return File(
                 spdx_id=spdx_id,
                 name=name,
@@ -677,8 +685,20 @@ class JSONLDV3Parser:
                 external_identifier=external_identifiers,
                 extension=extension,
                 concluded_license=concluded_license,
-                declared_license=declared_license
+                declared_license=declared_license,
+                summary=summary,
+                description=description,
+                originated_by=originated_by,
+                supplied_by=supplied_by,
+                built_time=built_time,
+                release_time=release_time,
+                valid_until_time=valid_until_time,
+                standard=standard,
+                content_identifier=content_identifier,
+                primary_purpose=primary_purpose,
+                additional_purpose=additional_purpose
             )
+
         except Exception as e:
             logger.warning(f"Error parsing File: {str(e)}")
             return None
