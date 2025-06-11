@@ -1343,53 +1343,63 @@ class JSONLDV3Parser:
                 spdx_id = self._get_required(obj, "spdxId")
                 version = self._get_required(obj, "version")
                 comment = self._get_optional(obj, "comment")
+
                 return SoftwareVersion(
                     spdx_id=spdx_id,
                     version=version,
                     comment=comment,
                 )
+
             elif obj_type in ["SoftwareBuild", "software_SoftwareBuild"]:
                 from spdx_tools.spdx3.model.software.software_build import SoftwareBuild
                 spdx_id = self._get_required(obj, "spdxId")
-                build_type = self._get_required(obj, "build_type")
                 build_id = self._get_optional(obj, "buildId")
+                build_system = self._get_required(obj, "buildSystem")
                 comment = self._get_optional(obj, "comment")
+
                 return SoftwareBuild(
                     spdx_id=spdx_id,
-                    build_type=build_type,
                     build_id=build_id,
-                    comment=comment,
+                    build_system=build_system,
+                    comment=comment
                 )
+
             elif obj_type in ["SoftwareValidation", "software_SoftwareValidation"]:
                 from spdx_tools.spdx3.model.software.software_validation import SoftwareValidation
                 spdx_id = self._get_required(obj, "spdxId")
                 validation_type = self._get_optional(obj, "validationType")
                 comment = self._get_optional(obj, "comment")
+
                 return SoftwareValidation(
                     spdx_id=spdx_id,
                     validation_type=validation_type,
-                    comment=comment,
+                    comment=comment
                 )
+
             elif obj_type in ["SoftwareAttribution", "software_SoftwareAttribution"]:
                 from spdx_tools.spdx3.model.software.software_attribution import SoftwareAttribution
                 spdx_id = self._get_required(obj, "spdxId")
                 attribution_text=self._parse_attribution_text(obj)
                 comment = self._get_optional(obj, "comment")
+
                 return SoftwareAttribution(
                     spdx_id=spdx_id,
                     attribution_text=attribution_text,
-                    comment=comment,
+                    comment=comment
                 )
+
             elif obj_type in ["SoftwareRelease", "software_SoftwareRelease"]:
                 from spdx_tools.spdx3.model.software.software_release import SoftwareRelease
                 spdx_id = self._get_required(obj, "spdxId")
                 release_time = self._get_optional(obj, "releaseTime")
                 comment = self._get_optional(obj, "comment")
+
                 return SoftwareRelease(
                     spdx_id=spdx_id,
                     release_time=release_time,
-                    comment=comment,
+                    comment=comment
                 )
+
             elif obj_type in ["SoftwareDependency", "software_SoftwareDependency"]:
                 from spdx_tools.spdx3.model.software import SoftwareDependencyRelationship
                 spdx_id = self._get_required(obj, "spdxId")
@@ -1397,13 +1407,15 @@ class JSONLDV3Parser:
                 relationship_type = self._get_optional(obj, "relationship_type")
                 to = self._get_list_field(obj, "to", [])
                 comment = self._get_optional(obj, "comment")
+
                 return SoftwareDependencyRelationship(
                     spdx_id=spdx_id,
                     from_element=from_element,
                     relationship_type=relationship_type,
                     to=to,
-                    comment=comment,
+                    comment=comment
                 )
+
             else:
                 logger.warning(f"Unknown software extension type: {obj_type}")
                 return None
