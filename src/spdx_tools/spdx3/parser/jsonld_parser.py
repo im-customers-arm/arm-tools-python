@@ -1214,6 +1214,23 @@ class JSONLDV3Parser:
                 severity = self._get_optional(obj, "severity")
                 vector = self._get_optional(obj, "vector")
                 comment = self._get_optional(obj, "comment")
+                creation_info = self._get_optional(obj, "creationInfo")
+                name = self._get_optional(obj, "name")
+                summary = self._get_optional(obj, "summary")
+                description = self._get_optional(obj, "description")
+                verified_using = self._get_optional(obj, "verifiedUsing")
+                external_reference = self._get_optional(obj, "externalReference")
+                external_identifier = self._get_optional(obj, "externalIdentifier")
+                extension = self._get_optional(obj, "extension")
+                completeness = self._get_optional(obj, "completeness")
+                start_time = self._get_optional(obj, "startTime")
+                end_time = self._get_optional(obj, "endTime")
+                assessed_element = self._get_optional(obj, "assessedElement")
+                published_time = self._get_optional(obj, "publishedTime")
+                supplied_by = self._get_optional(obj, "suppliedBy")
+                modified_time = self._get_optional(obj, "modifiedTime")
+                withdrawn_time = self._get_optional(obj, "withdrawnTime")
+                
                 return CvssV2VulnAssessmentRelationship(
                     spdx_id=spdx_id,
                     from_element=from_element,
@@ -1223,7 +1240,24 @@ class JSONLDV3Parser:
                     severity=severity,
                     vector=vector,
                     comment=comment,
+                    creation_info=creation_info,
+                    name=name,
+                    summary=summary,
+                    description=description,
+                    verified_using=verified_using,
+                    external_reference=external_reference,
+                    external_identifier=external_identifier,
+                    extension=extension,
+                    completeness=completeness,
+                    start_time=start_time,
+                    end_time=end_time,
+                    assessed_element=assessed_element,
+                    published_time=published_time,
+                    supplied_by=supplied_by,
+                    modified_time=modified_time,
+                    withdrawn_time=withdrawn_time
                 )
+
             elif obj_type in ["SsvcVulnAssessmentRelationship", "security_SsvcVulnAssessmentRelationship"]:
                 from spdx_tools.spdx3.model.security.ssvc_vuln_assessment_relationship import SsvcVulnAssessmentRelationship, SsvcDecisionType
                 spdx_id = self._get_required(obj, "spdxId")
