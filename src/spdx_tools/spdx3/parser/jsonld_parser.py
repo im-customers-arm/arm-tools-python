@@ -1403,17 +1403,45 @@ class JSONLDV3Parser:
             elif obj_type in ["SoftwareDependency", "software_SoftwareDependency"]:
                 from spdx_tools.spdx3.model.software import SoftwareDependencyRelationship
                 spdx_id = self._get_required(obj, "spdxId")
-                from_element = self._get_optional(obj, "from_element")
-                relationship_type = self._get_optional(obj, "relationship_type")
+                from_element = self._get_optional(obj, "fromElement")
+                relationship_type = self._get_optional(obj, "relationshipType")
                 to = self._get_list_field(obj, "to", [])
                 comment = self._get_optional(obj, "comment")
+                creation_info = self._get_optional(obj, "creationInfo")
+                name = self._get_optional(obj, "name")
+                summary = self._get_optional(obj, "summary")
+                description = self._get_optional(obj, "description")
+                verified_using = self._get_optional(obj, "verifiedUsing")
+                external_reference = self._get_optional(obj, "externalReference")
+                external_identifier = self._get_optional(obj, "externalIdentifier")
+                extension = self._get_optional(obj, "extension")
+                completeness = self._get_optional(obj, "completeness")
+                start_time = self._get_optional(obj, "startTime")
+                end_time = self._get_optional(obj, "endTime")
+                scope = self._get_optional(obj, "scope")
+                software_linkage = self._get_optional(obj, "softwareLinkage")
+                conditionality = self._get_optional(obj, "conditionality")
 
                 return SoftwareDependencyRelationship(
                     spdx_id=spdx_id,
                     from_element=from_element,
                     relationship_type=relationship_type,
                     to=to,
-                    comment=comment
+                    comment=comment,
+                    creation_info=creation_info,
+                    name=name,
+                    summary=summary,
+                    description=description,
+                    verified_using=verified_using,
+                    external_reference=external_reference,
+                    external_identifier=external_identifier,
+                    extension=extension,
+                    completeness=completeness,
+                    start_time=start_time,
+                    end_time=end_time,
+                    scope=scope,
+                    software_linkage=software_linkage,
+                    conditionality=conditionality
                 )
 
             else:

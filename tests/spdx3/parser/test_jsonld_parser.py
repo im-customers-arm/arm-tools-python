@@ -351,8 +351,8 @@ def test_parse_document_with_software_dependency_extension():
                 "@id": "SPDXRef-Dep",
                 "type": "SoftwareDependency",
                 "spdxId": "SPDXRef-Dep",
-                "from_element": "SPDXRef-DOCUMENT",
-                "relationship_type": RelationshipType.DEPENDSON,
+                "fromElement": "SPDXRef-DOCUMENT",
+                "relationshipType": RelationshipType.DEPENDSON,
                 "to": ["SPDXRef-Other"],
                 "comment": "Dependency comment"
             }
