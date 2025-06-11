@@ -1328,16 +1328,14 @@ class JSONLDV3Parser:
         try:
             if obj_type in ["SoftwarePurpose", "software_SoftwarePurpose"]:
                 from spdx_tools.spdx3.model.software.software_purpose import SoftwarePurpose
-                spdx_id = self._get_required(obj, "spdxId")
-                name = self._get_optional(obj, "name")
-                description = self._get_optional(obj, "description")
-                comment = self._get_optional(obj, "comment")
-                return SoftwarePurpose(
-                    spdx_id=spdx_id,
-                    name=name,
-                    description=description,
-                    comment=comment,
-                )
+                primary_purpose = self._get_required(obj, "primaryPurpose")
+
+                try:
+                    return SoftwarePurpose[primary_purpose.upper()]
+                except KeyError:
+                    logger.warning(f"Unknown SoftwarePurpose: {primary_purpose}")
+                    return None
+
             elif obj_type in ["SoftwareVersion", "software_SoftwareVersion"]:
                 from spdx_tools.spdx3.model.software.software_version import SoftwareVersion
                 spdx_id = self._get_required(obj, "spdxId")
