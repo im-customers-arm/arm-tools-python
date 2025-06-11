@@ -995,11 +995,13 @@ class JSONLDV3Parser:
                     algorithm_enum = HashAlgorithm.OTHER
             else:
                 algorithm_enum = algorithm
+
             return Hash(
                 algorithm=algorithm_enum,
                 hash_value=hash_value,
                 comment=comment,
             )
+
         except Exception as e:
             logger.warning(f"Error parsing Hash (IntegrityMethod): {str(e)}")
             return None
@@ -1103,8 +1105,8 @@ class JSONLDV3Parser:
     
     def _parse_security(self, obj: Dict[str, Any]):
         """Parse a Security extension/profile object from JSON-LD."""
-        # This method will dispatch to the correct security type based on obj_type
         obj_type = obj.get("type") or obj.get("@type")
+
         try:
             if obj_type in ["Vulnerability", "security_Vulnerability"]:
                 from spdx_tools.spdx3.model.security.vulnerability import Vulnerability
@@ -1116,6 +1118,11 @@ class JSONLDV3Parser:
                 published_time = self._get_optional(obj, "publishedTime")
                 modified_time = self._get_optional(obj, "modifiedTime")
                 withdrawn_time = self._get_optional(obj, "withdrawnTime")
+                verified_using = self._get_optional(obj, "verifiedUsing")
+                external_reference = self._get_optional(obj, "externalReference")
+                external_identifier = self._get_optional(obj, "externalIdentifier")
+                extension = self._get_optional(obj, "extension")
+
                 creation_info = None
                 creation_info_ref = obj.get("creationInfo")
                 if creation_info_ref:
@@ -1123,8 +1130,6 @@ class JSONLDV3Parser:
                     if creation_info_obj:
                         creation_info = self._parse_creation_info(creation_info_obj)
 
-                # TODO: Implement parsing for these element types
-                # For simplicity, not parsing verified_using, external_reference, external_identifier, extension
                 return Vulnerability(
                     spdx_id=spdx_id,
                     name=name,
@@ -1135,7 +1140,12 @@ class JSONLDV3Parser:
                     modified_time=modified_time,
                     withdrawn_time=withdrawn_time,
                     creation_info=creation_info,
+                    verified_using = verified_using,
+                    external_reference = external_reference,
+                    external_identifier = external_identifier,
+                    extension = extension
                 )
+
             # Add more security types as needed, e.g. CVSS, VEX, SSVC, etc.
             elif obj_type in ["CvssV3VulnAssessmentRelationship", "security_CvssV3VulnAssessmentRelationship"]:
                 from spdx_tools.spdx3.model.security.cvss_v3_vuln_assessment_relationship import CvssV3VulnAssessmentRelationship
