@@ -147,6 +147,14 @@ class JSONLDV3Parser:
             build_start_time = self._get_optional(obj, "buildStartTime")
             build_end_time = self._get_optional(obj, "buildEndTime")
             environment = self._get_optional(obj, "environment")
+            summary = self._get_optional(obj, "summary")
+            description = self._get_optional(obj, "description")
+            verified_using = self._get_optional(obj, "verifiedUsing")
+            external_reference = self._get_optional(obj, "externalReference")
+            external_identifier = self._get_optional(obj, "externalIdentifier")
+            extension = self._get_optional(obj, "extension")
+            config_source_uri = self._get_optional(obj, "configSourceUri")
+
 
 
             # Creation info
@@ -169,7 +177,14 @@ class JSONLDV3Parser:
                 parameters = parameters,
                 build_start_time = build_start_time,
                 build_end_time = build_end_time,
-                environment = environment
+                environment = environment,
+                summary=summary,
+                description=description,
+                verified_using=verified_using,
+                external_reference=external_reference,
+                external_identifier=external_identifier,
+                extension=extension,
+                config_source_uri=config_source_uri
             )
 
         except Exception as e:
