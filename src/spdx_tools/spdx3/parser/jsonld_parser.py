@@ -1265,11 +1265,30 @@ class JSONLDV3Parser:
                 to = self._get_list_field(obj, "to")
                 relationship_type = self._get_required(obj, "relationshipType")
                 decision_type_str = self._get_required(obj, "decisionType")
+
                 try:
                     decision_type = SsvcDecisionType[decision_type_str.upper()]
                 except Exception:
                     decision_type = None
+
                 comment = self._get_optional(obj, "comment")
+                creation_info = self._get_optional(obj, "creationInfo")
+                name = self._get_optional(obj, "name")
+                summary = self._get_optional(obj, "summary")
+                description = self._get_optional(obj, "description")
+                verified_using = self._get_optional(obj, "verifiedUsing")
+                external_reference = self._get_optional(obj, "externalReference")
+                external_identifier = self._get_optional(obj, "externalIdentifier")
+                extension = self._get_optional(obj, "extension")
+                completeness = self._get_optional(obj, "completeness")
+                start_time = self._get_optional(obj, "startTime")
+                end_time = self._get_optional(obj, "endTime")
+                assessed_element = self._get_optional(obj, "assessedElement")
+                published_time = self._get_optional(obj, "publishedTime")
+                supplied_by = self._get_optional(obj, "suppliedBy")
+                modified_time = self._get_optional(obj, "modifiedTime")
+                withdrawn_time = self._get_optional(obj, "withdrawnTime")
+
                 return SsvcVulnAssessmentRelationship(
                     spdx_id=spdx_id,
                     from_element=from_element,
@@ -1277,7 +1296,24 @@ class JSONLDV3Parser:
                     relationship_type=relationship_type,
                     decision_type=decision_type,
                     comment=comment,
+                    creation_info = creation_info,
+                    name = name,
+                    summary = summary,
+                    description = description,
+                    verified_using = verified_using,
+                    external_reference = external_reference,
+                    external_identifier = external_identifier,
+                    extension = extension,
+                    completeness = completeness,
+                    start_time = start_time,
+                    end_time = end_time,
+                    assessed_element = assessed_element,
+                    published_time = published_time,
+                    supplied_by = supplied_by,
+                    modified_time = modified_time,
+                    withdrawn_time = withdrawn_time
                 )
+
             # Add more security types as needed
             else:
                 logger.warning(f"Unknown security extension type: {obj_type}")
