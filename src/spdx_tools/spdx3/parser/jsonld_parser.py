@@ -827,6 +827,10 @@ class JSONLDV3Parser:
 
     def _parse_profile(self, obj) -> List[ProfileIdentifierType]:
         profile_config = obj.get('profile')
+        
+        if profile_config is None:
+            return []
+
         if isinstance(profile_config, str):
             return [ProfileIdentifierType[profile_config]]
 
