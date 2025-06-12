@@ -48,6 +48,22 @@ class JSONLDV3Parser:
         if validate:
             self.validator = JSONLDSchemaValidator()
         self.object_cache = {}  # Cache for resolved objects
+        
+    def _parse_spdxid(self, obj) -> None:
+        spdxId = None
+        
+        if "spdxId" in obj:
+            spdxId = obj["spdxId"]
+        elif "@id" in obj:
+            spdxId = obj["id"] 
+        elif "id" in obj:
+            spdxId = obj["@id"]
+
+        if not spdxId:
+            raise KeyError("No SPDX ID member found")
+
+        return spdxId
+
 
     def _parse_graph(self, document: Dict[str, Any], payload: Payload) -> None:
         """Parse the entire SPDX v3 graph and add elements to a Payload."""
@@ -134,7 +150,7 @@ class JSONLDV3Parser:
         from spdx_tools.spdx3.model.build.build import Build
         try:
             # Extract required fields for Build extension
-            spdx_id = self._get_required(obj, "spdxId")
+            spdx_id = self._parse_spdxid(obj)
             build_type = self._get_required(obj, "buildType")
             name = self._get_required(obj, "name")
 
@@ -195,7 +211,7 @@ class JSONLDV3Parser:
         """Parse an AI extension/profile object from JSON-LD."""
         from spdx_tools.spdx3.model.ai import AIPackage
         try:
-            spdx_id = self._get_required(obj, "spdxId")
+            spdx_id = self._parse_spdxid(obj)
             name = self._get_required(obj, "name")
             supplied_by = obj.get('suppliedBy', [])
             download_location = self._get_optional(obj, 'downloadLocation')
@@ -299,7 +315,7 @@ class JSONLDV3Parser:
         """Parse a Dataset extension/profile object from JSON-LD."""
         from spdx_tools.spdx3.model.dataset.dataset import Dataset
         try:
-            spdx_id = self._get_required(obj, "spdxId")
+            spdx_id = self._parse_spdxid(obj)
             name = self._get_required(obj, "name")
             originated_by = self._get_required(obj, "originator")
             download_location = self._get_required(obj, "downloadLocation")
@@ -450,7 +466,7 @@ class JSONLDV3Parser:
                 return None
         elif obj_type in ["CustomLicense", "licensing_CustomLicense"]:
             try:
-                license_id = self._get_required(obj, "spdxId")
+                license_id = self._parse_spdxid(obj)
                 license_name = self._get_required(obj, "name")
                 license_text = self._get_optional(obj, "licenseText")
                 license_comment = self._get_optional(obj, "licenseComment")
@@ -495,7 +511,7 @@ class JSONLDV3Parser:
             An SpdxDocument object
         """
         # Extract required fields
-        spdx_id = self._get_required(obj, "spdxId")
+        spdx_id = self._parse_spdxid(obj)
         name = self._get_required(obj, "name")
 
         # Extract optional fields with defaults
@@ -570,7 +586,7 @@ class JSONLDV3Parser:
         """
         try:
             # Extract required fields
-            spdx_id = self._get_required(obj, "spdxId")
+            spdx_id = self._parse_spdxid(obj)
             name = self._get_required(obj, "name")
             
             # Extract optional fields
@@ -654,7 +670,7 @@ class JSONLDV3Parser:
         """
         try:
             # Extract required fields
-            spdx_id = self._get_required(obj, "spdxId")
+            spdx_id = self._parse_spdxid(obj)
             name = self._get_required(obj, "name")
             
             # Extract optional fields
@@ -729,7 +745,7 @@ class JSONLDV3Parser:
             A Relationship object or None if parsing fails
         """
         try:
-            spdx_id = self._get_required(obj, "spdxId")
+            spdx_id = self._parse_spdxid(obj)
             from_element = self._get_required(obj, "from")
             to_elements = self._get_list_field(obj, "to")
             
@@ -979,11 +995,6 @@ class JSONLDV3Parser:
         if key in obj:
             return obj[key]
 
-        if key == "spdxId":
-            for alt in ["id", "@id"]:
-                if alt in obj:
-                    return obj[alt]
-
         raise KeyError(key)
     
     def _get_optional(self, obj: Dict[str, Any], key: str, default_val = None) -> Optional[Any]:
@@ -1125,7 +1136,7 @@ class JSONLDV3Parser:
         try:
             if obj_type in ["Vulnerability", "security_Vulnerability"]:
                 from spdx_tools.spdx3.model.security.vulnerability import Vulnerability
-                spdx_id = self._get_required(obj, "spdxId")
+                spdx_id = self._parse_spdxid(obj)
                 name = self._get_optional(obj, "name")
                 summary = self._get_optional(obj, "summary")
                 description = self._get_optional(obj, "description")
@@ -1165,7 +1176,7 @@ class JSONLDV3Parser:
             elif obj_type in ["CvssV3VulnAssessmentRelationship", "security_CvssV3VulnAssessmentRelationship"]:
                 from spdx_tools.spdx3.model.security.cvss_v3_vuln_assessment_relationship import CvssV3VulnAssessmentRelationship
                 # Required fields
-                spdx_id = self._get_required(obj, "spdxId")
+                spdx_id = self._parse_spdxid(obj)
                 from_element = self._get_required(obj, "from")
                 to = self._get_list_field(obj, "to")
                 relationship_type = self._get_required(obj, "relationshipType")
@@ -1221,7 +1232,7 @@ class JSONLDV3Parser:
 
             elif obj_type in ["CvssV2VulnAssessmentRelationship", "security_CvssV2VulnAssessmentRelationship"]:
                 from spdx_tools.spdx3.model.security.cvss_v2_vuln_assessment_relationship import CvssV2VulnAssessmentRelationship
-                spdx_id = self._get_required(obj, "spdxId")
+                spdx_id = self._parse_spdxid(obj)
                 from_element = self._get_required(obj, "from")
                 to = self._get_list_field(obj, "to")
                 relationship_type = self._get_required(obj, "relationshipType")
@@ -1275,7 +1286,7 @@ class JSONLDV3Parser:
 
             elif obj_type in ["SsvcVulnAssessmentRelationship", "security_SsvcVulnAssessmentRelationship"]:
                 from spdx_tools.spdx3.model.security.ssvc_vuln_assessment_relationship import SsvcVulnAssessmentRelationship, SsvcDecisionType
-                spdx_id = self._get_required(obj, "spdxId")
+                spdx_id = self._parse_spdxid(obj)
                 from_element = self._get_required(obj, "from")
                 to = self._get_list_field(obj, "to")
                 relationship_type = self._get_required(obj, "relationshipType")
@@ -1353,7 +1364,7 @@ class JSONLDV3Parser:
 
             elif obj_type in ["SoftwareVersion", "software_SoftwareVersion"]:
                 from spdx_tools.spdx3.model.software.software_version import SoftwareVersion
-                spdx_id = self._get_required(obj, "spdxId")
+                spdx_id = self._parse_spdxid(obj)
                 version = self._get_required(obj, "version")
                 comment = self._get_optional(obj, "comment")
 
@@ -1365,7 +1376,7 @@ class JSONLDV3Parser:
 
             elif obj_type in ["SoftwareBuild", "software_SoftwareBuild"]:
                 from spdx_tools.spdx3.model.software.software_build import SoftwareBuild
-                spdx_id = self._get_required(obj, "spdxId")
+                spdx_id = self._parse_spdxid(obj)
                 build_id = self._get_optional(obj, "buildId")
                 build_system = self._get_required(obj, "buildSystem")
                 comment = self._get_optional(obj, "comment")
@@ -1379,7 +1390,7 @@ class JSONLDV3Parser:
 
             elif obj_type in ["SoftwareValidation", "software_SoftwareValidation"]:
                 from spdx_tools.spdx3.model.software.software_validation import SoftwareValidation
-                spdx_id = self._get_required(obj, "spdxId")
+                spdx_id = self._parse_spdxid(obj)
                 validation_type = self._get_optional(obj, "validationType")
                 comment = self._get_optional(obj, "comment")
 
@@ -1391,7 +1402,7 @@ class JSONLDV3Parser:
 
             elif obj_type in ["SoftwareAttribution", "software_SoftwareAttribution"]:
                 from spdx_tools.spdx3.model.software.software_attribution import SoftwareAttribution
-                spdx_id = self._get_required(obj, "spdxId")
+                spdx_id = self._parse_spdxid(obj)
                 attribution_text=self._parse_attribution_text(obj)
                 comment = self._get_optional(obj, "comment")
 
@@ -1403,7 +1414,7 @@ class JSONLDV3Parser:
 
             elif obj_type in ["SoftwareRelease", "software_SoftwareRelease"]:
                 from spdx_tools.spdx3.model.software.software_release import SoftwareRelease
-                spdx_id = self._get_required(obj, "spdxId")
+                spdx_id = self._parse_spdxid(obj)
                 release_time = self._get_optional(obj, "releaseTime")
                 comment = self._get_optional(obj, "comment")
 
@@ -1415,7 +1426,7 @@ class JSONLDV3Parser:
 
             elif obj_type in ["SoftwareDependency", "software_SoftwareDependency"]:
                 from spdx_tools.spdx3.model.software import SoftwareDependencyRelationship
-                spdx_id = self._get_required(obj, "spdxId")
+                spdx_id = self._parse_spdxid(obj)
                 from_element = self._get_optional(obj, "fromElement")
                 relationship_type = self._get_optional(obj, "relationshipType")
                 to = self._get_list_field(obj, "to", [])
