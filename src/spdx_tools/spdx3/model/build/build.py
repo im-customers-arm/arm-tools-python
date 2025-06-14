@@ -55,3 +55,49 @@ class Build(Element):
         environment = {} if environment is None else environment
 
         check_types_and_set_values(self, locals())
+
+    def __eq__(self, other):
+        if not isinstance(other, Build):
+            return False
+        return (
+            self.build_type == other.build_type and
+            self.build_id == other.build_id and
+            self.config_source_entrypoint == other.config_source_entrypoint and
+            self.config_source_uri == other.config_source_uri and
+            self.config_source_digest == other.config_source_digest and
+            self.parameters == other.parameters and
+            self.build_start_time == other.build_start_time and
+            self.build_end_time == other.build_end_time and
+            self.environment == other.environment and
+            self.creation_info == other.creation_info and
+            self.name == other.name and
+            self.summary == other.summary and
+            self.description == other.description and
+            self.comment == other.comment and
+            self.verified_using == other.verified_using and
+            self.external_reference == other.external_reference and
+            self.external_identifier == other.external_identifier and
+            self.extension == other.extension
+        )
+
+    def __hash__(self):
+        return hash((
+            self.build_type,
+            self.build_id,
+            tuple(self.config_source_entrypoint),
+            tuple(self.config_source_uri),
+            tuple(self.config_source_digest),
+            frozenset(self.parameters.items()),
+            self.build_start_time,
+            self.build_end_time,
+            frozenset(self.environment.items()),
+            self.creation_info,
+            self.name,
+            self.summary,
+            self.description,
+            self.comment,
+            tuple(self.verified_using),
+            tuple(self.external_reference),
+            tuple(self.external_identifier),
+            self.extension
+        ))

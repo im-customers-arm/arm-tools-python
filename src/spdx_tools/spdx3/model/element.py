@@ -26,3 +26,31 @@ class Element(ABC):
     @abstractmethod
     def __init__(self):
         pass
+
+    def __eq__(self, other):
+        if not isinstance(other, Element):
+            return False
+        return (
+            self.creation_info == other.creation_info and
+            self.name == other.name and
+            self.summary == other.summary and
+            self.description == other.description and
+            self.comment == other.comment and
+            self.verified_using == other.verified_using and
+            self.external_reference == other.external_reference and
+            self.external_identifier == other.external_identifier and
+            self.extension == other.extension
+        )
+
+    def __hash__(self):
+        return hash((
+            self.creation_info,
+            self.name,
+            self.summary,
+            self.description,
+            self.comment,
+            tuple(self.verified_using),
+            tuple(self.external_reference),
+            tuple(self.external_identifier),
+            self.extension
+        ))

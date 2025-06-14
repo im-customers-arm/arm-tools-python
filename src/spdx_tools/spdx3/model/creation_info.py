@@ -34,3 +34,27 @@ class CreationInfo:
     ):
         created_using = [] if created_using is None else created_using
         check_types_and_set_values(self, locals())
+
+    def __eq__(self, other):
+        if not isinstance(other, CreationInfo):
+            return False
+        return (
+            self.spec_version == other.spec_version and
+            self.created == other.created and
+            self.created_by == other.created_by and
+            self.profile == other.profile and
+            self.created_using == other.created_using and
+            self.comment == other.comment and
+            self.data_license == other.data_license
+        )
+
+    def __hash__(self):
+        return hash((
+            self.spec_version,
+            self.created,
+            tuple(self.created_by),
+            tuple(self.profile),
+            tuple(self.created_using),
+            self.comment,
+            self.data_license
+        ))

@@ -117,3 +117,43 @@ class Relationship(Element):
         external_reference = [] if external_reference is None else external_reference
         external_identifier = [] if external_identifier is None else external_identifier
         check_types_and_set_values(self, locals())
+
+    def __eq__(self, other):
+        if not isinstance(other, Relationship):
+            return False
+        return (
+            self.from_element == other.from_element and
+            sorted(self.to) == sorted(other.to) and
+            self.relationship_type == other.relationship_type and
+            self.completeness == other.completeness and
+            self.start_time == other.start_time and
+            self.end_time == other.end_time and
+            self.creation_info == other.creation_info and
+            self.name == other.name and
+            self.summary == other.summary and
+            self.description == other.description and
+            self.comment == other.comment and
+            self.verified_using == other.verified_using and
+            self.external_reference == other.external_reference and
+            self.external_identifier == other.external_identifier and
+            self.extension == other.extension
+        )
+
+    def __hash__(self):
+        return hash((
+            self.from_element,
+            tuple(sorted(self.to)),
+            self.relationship_type,
+            self.completeness,
+            self.start_time,
+            self.end_time,
+            self.creation_info,
+            self.name,
+            self.summary,
+            self.description,
+            self.comment,
+            tuple(self.verified_using) if self.verified_using else (),
+            tuple(self.external_reference) if self.external_reference else (),
+            tuple(self.external_identifier) if self.external_identifier else (),
+            self.extension
+        ))

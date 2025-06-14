@@ -44,3 +44,13 @@ class Hash(IntegrityMethod):
 
     def __init__(self, algorithm: HashAlgorithm, hash_value: str, comment: Optional[str] = None):
         check_types_and_set_values(self, locals())
+        
+    def __eq__(self, other):
+        if not isinstance(other, Hash):
+            return False
+
+        return self.hash_value == other.hash_value
+
+
+    def __hash__(self):
+        return hash(self.hash_value)

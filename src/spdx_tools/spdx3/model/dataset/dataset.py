@@ -118,3 +118,93 @@ class Dataset(Package):
         known_bias = [] if known_bias is None else known_bias
         anonymization_method_used = [] if anonymization_method_used is None else anonymization_method_used
         check_types_and_set_values(self, locals())
+
+    def __eq__(self, other):
+        if not isinstance(other, Dataset):
+            return False
+        return (
+            self.name == other.name and
+            self.originated_by == other.originated_by and
+            self.download_location == other.download_location and
+            self.primary_purpose == other.primary_purpose and
+            self.built_time == other.built_time and
+            self.release_time == other.release_time and
+            self.dataset_type == other.dataset_type and
+            self.creation_info == other.creation_info and
+            self.summary == other.summary and
+            self.description == other.description and
+            self.comment == other.comment and
+            self.verified_using == other.verified_using and
+            self.external_reference == other.external_reference and
+            self.external_identifier == other.external_identifier and
+            self.extension == other.extension and
+            self.supplied_by == other.supplied_by and
+            self.valid_until_time == other.valid_until_time and
+            self.standard == other.standard and
+            self.content_identifier == other.content_identifier and
+            self.additional_purpose == other.additional_purpose and
+            self.concluded_license == other.concluded_license and
+            self.declared_license == other.declared_license and
+            self.copyright_text == other.copyright_text and
+            self.attribution_text == other.attribution_text and
+            self.package_version == other.package_version and
+            self.package_url == other.package_url and
+            self.homepage == other.homepage and
+            self.source_info == other.source_info and
+            self.data_collection_process == other.data_collection_process and
+            self.intended_use == other.intended_use and
+            self.dataset_size == other.dataset_size and
+            self.dataset_noise == other.dataset_noise and
+            self.data_preprocessing == other.data_preprocessing and
+            self.sensor == other.sensor and
+            self.known_bias == other.known_bias and
+            self.sensitive_personal_information == other.sensitive_personal_information and
+            self.anonymization_method_used == other.anonymization_method_used and
+            self.confidentiality_level == other.confidentiality_level and
+            self.dataset_update_mechanism == other.dataset_update_mechanism and
+            self.dataset_availability == other.dataset_availability
+        )
+
+    def __hash__(self):
+        return hash((
+            self.name,
+            tuple(self.originated_by),
+            self.download_location,
+            self.primary_purpose,
+            self.built_time,
+            self.release_time,
+            tuple(self.dataset_type),
+            self.creation_info,
+            self.summary,
+            self.description,
+            self.comment,
+            tuple(self.verified_using),
+            tuple(self.external_reference),
+            tuple(self.external_identifier),
+            self.extension,
+            tuple(self.supplied_by) if self.supplied_by is not None else None,
+            self.valid_until_time,
+            tuple(self.standard) if self.standard is not None else None,
+            self.content_identifier,
+            tuple(self.additional_purpose) if self.additional_purpose is not None else None,
+            self.concluded_license,
+            self.declared_license,
+            self.copyright_text,
+            self.attribution_text,
+            self.package_version,
+            self.package_url,
+            self.homepage,
+            self.source_info,
+            self.data_collection_process,
+            self.intended_use,
+            self.dataset_size,
+            self.dataset_noise,
+            tuple(self.data_preprocessing),
+            frozenset(self.sensor.items()),
+            tuple(self.known_bias),
+            self.sensitive_personal_information,
+            tuple(self.anonymization_method_used),
+            self.confidentiality_level,
+            self.dataset_update_mechanism,
+            self.dataset_availability
+        ))

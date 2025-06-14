@@ -45,3 +45,41 @@ class Bundle(ElementCollection):
         namespaces = [] if namespaces is None else namespaces
         imports = [] if imports is None else imports
         check_types_and_set_values(self, locals())
+
+    def __eq__(self, other):
+        if not isinstance(other, Bundle):
+            return False
+        return (
+            self.element == other.element and
+            self.root_element == other.root_element and
+            self.creation_info == other.creation_info and
+            self.name == other.name and
+            self.summary == other.summary and
+            self.description == other.description and
+            self.comment == other.comment and
+            self.verified_using == other.verified_using and
+            self.external_reference == other.external_reference and
+            self.external_identifier == other.external_identifier and
+            self.extension == other.extension and
+            self.namespaces == other.namespaces and
+            self.imports == other.imports and
+            self.context == other.context
+        )
+
+    def __hash__(self):
+        return hash((
+            tuple(self.element),
+            tuple(self.root_element),
+            self.creation_info,
+            self.name,
+            self.summary,
+            self.description,
+            self.comment,
+            tuple(self.verified_using),
+            tuple(self.external_reference),
+            tuple(self.external_identifier),
+            self.extension,
+            tuple(self.namespaces),
+            tuple(self.imports),
+            self.context
+        ))

@@ -27,3 +27,31 @@ class Person(Agent):
         external_reference = [] if external_reference is None else external_reference
         external_identifier = [] if external_identifier is None else external_identifier
         check_types_and_set_values(self, locals())
+
+    def __eq__(self, other):
+        if not isinstance(other, Person):
+            return False
+        return (
+            self.creation_info == other.creation_info and
+            self.name == other.name and
+            self.summary == other.summary and
+            self.description == other.description and
+            self.comment == other.comment and
+            self.verified_using == other.verified_using and
+            self.external_reference == other.external_reference and
+            self.external_identifier == other.external_identifier and
+            self.extension == other.extension
+        )
+
+    def __hash__(self):
+        return hash((
+            self.creation_info,
+            self.name,
+            self.summary,
+            self.description,
+            self.comment,
+            tuple(self.verified_using),
+            tuple(self.external_reference),
+            tuple(self.external_identifier),
+            self.extension
+        ))
