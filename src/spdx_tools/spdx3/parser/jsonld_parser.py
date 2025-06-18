@@ -55,9 +55,9 @@ class JSONLDV3Parser:
         if "spdxId" in obj:
             spdxId = obj["spdxId"]
         elif "@id" in obj:
-            spdxId = obj["id"] 
+            spdxId = obj["@id"] 
         elif "id" in obj:
-            spdxId = obj["@id"]
+            spdxId = obj["id"]
 
         if not spdxId:
             raise KeyError("No SPDX ID member found")
